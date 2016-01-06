@@ -1,7 +1,8 @@
 ﻿
 
+using System.Collections.ObjectModel;
 namespace WinRunner.Models {
-	public class RegistryAppList {
+	public class RegistryAppList:ObservableCollection <RegistryApp> {
 
 	}
 }
