@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,27 @@ namespace WinRunner {
 			this.AppList.Add (new RegistryApp ("hello", @"C:\Users\Benjin\Desktop\awd.bat"));
 			this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
 
-			new EditRegistryAppWindow ().ShowDialog ();
+			//new EditRegistryAppWindow ().ShowDialog ();
+		}
+
+		private void NewAppClicked (object sender, RoutedEventArgs e) {
+			OpenAppWindow (null);
+		}
+
+		private void OpenAppWindow (RegistryApp app) {
+			EditRegistryAppWindow window;
+
+			if (app == null) {
+				window = new EditRegistryAppWindow (new RegistryApp ());
+			} else {
+				window = new EditRegistryAppWindow (app);
+			}
+			
+			bool? result = window.ShowDialog ();
+		}
+
+		private void EditAppClicked (object sender, RoutedEventArgs e) {
+			OpenAppWindow ((RegistryApp) ((Button) sender).DataContext);
 		}
 	}
 }

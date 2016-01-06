@@ -60,8 +60,12 @@ namespace WinRunner.Models {
 		private string name;
 		private string path;
 
-		public RegistryApp () {
+		private bool isNew;
 
+		public RegistryApp () {
+			this.isNew = true;
+			this.Name = "";
+			this.Path = "";
 		}
 
 		public RegistryApp (string name, string path) {

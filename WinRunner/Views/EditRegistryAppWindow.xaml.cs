@@ -11,14 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WinRunner.Models;
 
 namespace WinRunner.Views {
 	/// <summary>
 	/// Interaction logic for EditRegistryAppWindow.xaml
 	/// </summary>
 	public partial class EditRegistryAppWindow:Window {
-		public EditRegistryAppWindow () {
+		public RegistryApp App { get; set; }
+
+		public EditRegistryAppWindow (RegistryApp app) {
+			this.App = app;
+
 			InitializeComponent ();
+
+
 		}
 	}
 }
