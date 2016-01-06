@@ -4,6 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
+        ResizeMode="NoResize"
         Width="300"
         Title="Edit Application">
     
@@ -40,13 +41,13 @@
             </Grid.ColumnDefinitions>
 
             <Label>Name</Label>
-            <Image Source="{Binding App.Icon}" Width="20" Grid.Column="1"></Image>
+            <Image Source="{Binding App.Icon}" Width="30" Margin="0 0 5 0" Grid.Column="1"></Image>
             <TextBox Text="{Binding App.Name}" VerticalContentAlignment="Center" Grid.Column="2"></TextBox>
         </Grid>
 
         <Grid Grid.Row="1" Margin="0 5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70"></ColumnDefinition>
+                <ColumnDefinition Width="85"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -64,8 +65,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Margin="0 0 2.5 0">Save</Button>
-            <Button Margin="2.5 0 0 0" Grid.Column="1">Cancel</Button>
+            <Button IsDefault="True" Click="SaveClicked" Margin="0 0 2.5 0">Save</Button>
+            <Button IsCancel="True" Margin="2.5 0 0 0" Grid.Column="1">Cancel</Button>
         </Grid>
     </Grid>
 </Window>

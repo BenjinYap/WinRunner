@@ -27,5 +27,9 @@ namespace WinRunner.Views {
 
 
 		}
+		
+		private void SaveClicked (object sender, RoutedEventArgs e) {
+			this.DialogResult = true;
+		}
 	}
 }
