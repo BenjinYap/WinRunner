@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WinRunner.Models;
+using WinRunner.Views;
 
 namespace WinRunner {
 	/// <summary>
@@ -28,6 +29,8 @@ namespace WinRunner {
 			
 			this.AppList.Add (new RegistryApp ("hello", @"C:\Users\Benjin\Desktop\awd.bat"));
 			this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
+
+			new EditRegistryAppWindow ().ShowDialog ();
 		}
 	}
 }
