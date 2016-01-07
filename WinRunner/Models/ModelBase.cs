@@ -50,6 +50,11 @@ namespace WinRunner.Models {
 		public void RemoveError (string error, [CallerMemberName] string propertyName = null) {
 			if (this.errors.ContainsKey (propertyName) && this.errors [propertyName].Contains (error)) {
 				this.errors [propertyName].Remove (error);
+
+				if (this.errors [propertyName].Count <= 0) {
+					this.errors.Remove (propertyName);
+				}
+
 				this.NotifyErrorsChanged (propertyName);
 			}
 		}
