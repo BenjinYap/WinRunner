@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
+using WinRunner.Resources;
 namespace WinRunner.Models {
 	public class RegistryApp:ModelBase {
 		//public event PropertyChangedEventHandler PropertyChanged;
@@ -25,11 +26,9 @@ namespace WinRunner.Models {
 			get { return this.name; }
 			set {
 				if (value == "awd") {
-					base.AddError ("awd joajdaowijoifjeoi jfaoej faofjofjeoif jaef jaeoif j");
-					base.AddError ("dwa");
+					base.AddError (Resource.NameExists);
 				} else {
-					base.RemoveError ("awd");
-					base.RemoveError ("dwa");
+					base.RemoveError (Resource.NameExists);
 				}
 
 				this.name = value;

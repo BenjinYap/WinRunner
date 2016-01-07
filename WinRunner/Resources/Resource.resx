@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Choose File</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameExists" xml:space="preserve">
+    <value>Already exists</value>
+  </data>
+  <data name="NameInvalidBackslash" xml:space="preserve">
+    <value>Cannot contain \</value>
+  </data>
+  <data name="NameInvalidExtension" xml:space="preserve">
+    <value>Cannot contain extensions</value>
+  </data>
+  <data name="NameInvalidSpace" xml:space="preserve">
+    <value>Cannot contain spaces</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="PathDoesNotExist" xml:space="preserve">
+    <value>Does not exist</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="test" xml:space="preserve">
     <value>what</value>
   </data>

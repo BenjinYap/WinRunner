@@ -62,7 +62,7 @@
             </Grid.RowDefinitions>
 
             <Label>Path</Label>
-            <Button Grid.Column="1" Content="{x:Static res:Resource.test}"></Button>
+            <Button Content="{x:Static res:Resource.ChooseFile}" Grid.Column="1"></Button>
             <TextBox Text="{Binding App.Path}" Margin="0 5 0 0" Grid.Row="1" Grid.ColumnSpan="100"></TextBox>
         </Grid>
         
@@ -71,8 +71,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button IsDefault="True" Click="SaveClicked" Margin="0 0 2.5 0">Save</Button>
-            <Button IsCancel="True" Margin="2.5 0 0 0" Grid.Column="1">Cancel</Button>
+            <Button Content="{x:Static res:Resource.Save}" IsDefault="True" Click="SaveClicked" Margin="0 0 2.5 0"></Button>
+            <Button Content="{x:Static res:Resource.Cancel}" IsCancel="True" Margin="2.5 0 0 0" Grid.Column="1"></Button>
         </Grid>
     </Grid>
 </Window>
