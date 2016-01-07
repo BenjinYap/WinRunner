@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -56,6 +57,19 @@ namespace WinRunner.Models {
 		}
 
 		private void ValidateName ([CallerMemberName] string propertyName = null) {
+			RegistryKey rootKey = this.OpenAppPathsKey (false);
+			string [] appKeys = rootKey.GetSubKeyNames ();
+			rootKey.Close ();
+
+			foreach (string key in appKeys) {
+				if (key.ToLower ().Replace (".exe", "") == this.Name.ToLower ()) {
+					base.AddError (Resource.NameExists, propertyName);
+					break;
+				} else {
+					base.RemoveError (Resource.NameExists, propertyName);
+				}
+			}
+
 			if (this.Name.Length <= 0) {
 				base.AddError (Resource.NameRequired, propertyName);
 			} else {
@@ -101,6 +115,10 @@ namespace WinRunner.Models {
 			} catch (Exception) {
 				this.Icon = null;
 			}
+		}
+
+		private RegistryKey OpenAppPathsKey (bool writable) {
+			return Registry.LocalMachine.OpenSubKey (@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths", writable);
 		}
 	}
 }
