@@ -8,8 +8,8 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
 namespace WinRunner.Models {
-	public class RegistryApp:INotifyPropertyChanged {
-		public event PropertyChangedEventHandler PropertyChanged;
+	public class RegistryApp:ModelBase {
+		//public event PropertyChangedEventHandler PropertyChanged;
 
 		public BitmapImage Icon {
 			get { return this.icon; }
@@ -19,12 +19,19 @@ namespace WinRunner.Models {
 			}
 		}
 
-
 		public string Name {
 			get { return this.name; }
 			set {
+				if (value == "awd") {
+					base.AddError ("awd");
+					base.AddError ("dwa");
+				} else {
+					base.RemoveError ("awd");
+					base.RemoveError ("dwa");
+				}
+
 				this.name = value;
-				OnPropertyChanged ();
+				base.OnPropertyChanged ();
 			}
 		}
 
@@ -32,27 +39,8 @@ namespace WinRunner.Models {
 			get { return this.path; }
 			set {
 				this.path = value;
-				OnPropertyChanged ();
-
-				try {
-					System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon (value);
-					Bitmap bitmap = icon.ToBitmap ();
-
-					using (MemoryStream memory = new MemoryStream ())
-					{
-						bitmap.Save (memory, ImageFormat.Bmp);
-						memory.Position = 0;
-						BitmapImage bitmapimage = new BitmapImage();
-						bitmapimage.BeginInit ();
-						bitmapimage.StreamSource = memory;
-						bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
-						bitmapimage.EndInit ();
-					
-						this.Icon = bitmapimage;
-					}
-				} catch (Exception) {
-					this.Icon = null;
-				}
+				base.OnPropertyChanged ();
+				this.GetIconFromPath (value);
 			}
 		}
 
@@ -73,12 +61,34 @@ namespace WinRunner.Models {
 			this.Path = path;
 		}
 
-		protected virtual void OnPropertyChanged ([CallerMemberName] string propertyName = null) {
-			PropertyChangedEventHandler handler = this.PropertyChanged;
+		private void GetIconFromPath (string path) {
+			try {
+				System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon (path);
+				Bitmap bitmap = icon.ToBitmap ();
 
-			if (handler != null) {
-				handler (this, new PropertyChangedEventArgs (propertyName));
+				using (MemoryStream memory = new MemoryStream ())
+				{
+					bitmap.Save (memory, ImageFormat.Bmp);
+					memory.Position = 0;
+					BitmapImage bitmapimage = new BitmapImage();
+					bitmapimage.BeginInit ();
+					bitmapimage.StreamSource = memory;
+					bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+					bitmapimage.EndInit ();
+					
+					this.Icon = bitmapimage;
+				}
+			} catch (Exception) {
+				this.Icon = null;
 			}
 		}
+
+		//protected virtual void OnPropertyChanged ([CallerMemberName] string propertyName = null) {
+		//	PropertyChangedEventHandler handler = this.PropertyChanged;
+
+		//	if (handler != null) {
+		//		handler (this, new PropertyChangedEventArgs (propertyName));
+		//	}
+		//}
 	}
 }

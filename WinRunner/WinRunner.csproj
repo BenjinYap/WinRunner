@@ -70,6 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Views\DeleteRegistryAppWindow.xaml.cs">
       <DependentUpon>DeleteRegistryAppWindow.xaml</DependentUpon>
     </Compile>

@@ -25,8 +25,8 @@
             <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
         </Style>
     </Window.Resources>
-    
-    <Grid Margin="5">
+
+    <Grid FocusManager.FocusedElement="{Binding ElementName=TxtName}" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -39,10 +39,21 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
 
             <Label>Name</Label>
             <Image Source="{Binding App.Icon}" Width="30" Margin="0 0 5 0" Grid.Column="1"></Image>
-            <TextBox Text="{Binding App.Name}" VerticalContentAlignment="Center" Grid.Column="2"></TextBox>
+            <TextBox x:Name="TxtName" Text="{Binding App.Name, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Grid.Column="2"></TextBox>
+            <ItemsControl ItemsSource="{Binding ElementName=TxtName, Path=(Validation.Errors)}" Grid.Row="1" Grid.Column="2">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding ErrorContent}" Foreground="Red"></Label>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
 
         <Grid Grid.Row="1" Margin="0 5">

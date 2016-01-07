@@ -31,7 +31,7 @@ namespace WinRunner {
 			this.AppList.Add (new RegistryApp ("hello", @"C:\Users\Benjin\Desktop\awd.bat"));
 			this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
 
-			//new EditRegistryAppWindow ().ShowDialog ();
+			OpenAppWindow (this.AppList [0]);
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
