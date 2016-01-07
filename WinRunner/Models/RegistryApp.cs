@@ -2,6 +2,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -25,13 +26,8 @@ namespace WinRunner.Models {
 		public string Name {
 			get { return this.name; }
 			set {
-				if (value == "awd") {
-					base.AddError (Resource.NameExists);
-				} else {
-					base.RemoveError (Resource.NameExists);
-				}
-
 				this.name = value;
+				this.ValidateName ();
 				base.OnPropertyChanged ();
 			}
 		}
@@ -59,6 +55,32 @@ namespace WinRunner.Models {
 			this.Path = path;
 		}
 
+		private void ValidateName ([CallerMemberName] string propertyName = null) {
+			if (this.Name.Length <= 0) {
+				base.AddError (Resource.NameRequired, propertyName);
+			} else {
+				base.RemoveError (Resource.NameRequired, propertyName);
+			}
+
+			if (this.Name.Contains (@"\")) {
+				base.AddError (Resource.NameInvalidBackslash, propertyName);
+			} else {
+				base.RemoveError (Resource.NameInvalidBackslash, propertyName);
+			}
+
+			if (this.Name.Contains (" ")) {
+				base.AddError (Resource.NameInvalidSpace, propertyName);
+			} else {
+				base.RemoveError (Resource.NameInvalidSpace, propertyName);
+			}
+
+			if (this.Name.Contains (".")) {
+				base.AddError (Resource.NameInvalidDot, propertyName);
+			} else {
+				base.RemoveError (Resource.NameInvalidDot, propertyName);
+			}
+		}
+
 		private void GetIconFromPath (string path) {
 			try {
 				System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon (path);
@@ -80,13 +102,5 @@ namespace WinRunner.Models {
 				this.Icon = null;
 			}
 		}
-
-		//protected virtual void OnPropertyChanged ([CallerMemberName] string propertyName = null) {
-		//	PropertyChangedEventHandler handler = this.PropertyChanged;
-
-		//	if (handler != null) {
-		//		handler (this, new PropertyChangedEventArgs (propertyName));
-		//	}
-		//}
 	}
 }

@@ -106,11 +106,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot contain extensions.
+        ///   Looks up a localized string similar to Cannot contain ..
         /// </summary>
-        public static string NameInvalidExtension {
+        public static string NameInvalidDot {
             get {
-                return ResourceManager.GetString("NameInvalidExtension", resourceCulture);
+                return ResourceManager.GetString("NameInvalidDot", resourceCulture);
             }
         }
         
@@ -120,6 +120,15 @@ namespace WinRunner.Resources {
         public static string NameInvalidSpace {
             get {
                 return ResourceManager.GetString("NameInvalidSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required.
+        /// </summary>
+        public static string NameRequired {
+            get {
+                return ResourceManager.GetString("NameRequired", resourceCulture);
             }
         }
         

@@ -132,11 +132,14 @@
   <data name="NameInvalidBackslash" xml:space="preserve">
     <value>Cannot contain \</value>
   </data>
-  <data name="NameInvalidExtension" xml:space="preserve">
-    <value>Cannot contain extensions</value>
+  <data name="NameInvalidDot" xml:space="preserve">
+    <value>Cannot contain .</value>
   </data>
   <data name="NameInvalidSpace" xml:space="preserve">
     <value>Cannot contain spaces</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Required</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Path</value>
