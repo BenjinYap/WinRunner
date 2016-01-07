@@ -28,7 +28,7 @@ namespace WinRunner {
 
 			InitializeComponent ();
 			
-			this.AppList.Add (new RegistryApp ("hello", @"C:\Users\Benjin\Desktop\awd.bat"));
+			this.AppList.Add (new RegistryApp ("awd", @"C:\Users\Benjin\Desktop\awd.bat"));
 			this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
 
 			OpenAppWindow (this.AppList [0]);

@@ -11,6 +11,7 @@ namespace WinRunner.Models {
 	public class RegistryApp:ModelBase {
 		//public event PropertyChangedEventHandler PropertyChanged;
 
+		private BitmapImage icon;
 		public BitmapImage Icon {
 			get { return this.icon; }
 			set {
@@ -19,11 +20,12 @@ namespace WinRunner.Models {
 			}
 		}
 
+		private string name;
 		public string Name {
 			get { return this.name; }
 			set {
 				if (value == "awd") {
-					base.AddError ("awd");
+					base.AddError ("awd joajdaowijoifjeoi jfaoej faofjofjeoif jaef jaeoif j");
 					base.AddError ("dwa");
 				} else {
 					base.RemoveError ("awd");
@@ -35,6 +37,7 @@ namespace WinRunner.Models {
 			}
 		}
 
+		private string path;
 		public string Path {
 			get { return this.path; }
 			set {
@@ -43,10 +46,6 @@ namespace WinRunner.Models {
 				this.GetIconFromPath (value);
 			}
 		}
-
-		private BitmapImage icon;
-		private string name;
-		private string path;
 
 		private bool isNew;
 
