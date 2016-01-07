@@ -151,6 +151,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Required.
+        /// </summary>
+        public static string PathRequired {
+            get {
+                return ResourceManager.GetString("PathRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {

@@ -147,6 +147,9 @@
   <data name="PathDoesNotExist" xml:space="preserve">
     <value>Does not exist</value>
   </data>
+  <data name="PathRequired" xml:space="preserve">
+    <value>Required</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>

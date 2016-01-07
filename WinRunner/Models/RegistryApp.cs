@@ -38,6 +38,7 @@ namespace WinRunner.Models {
 			get { return this.path; }
 			set {
 				this.path = value;
+				this.ValidatePath ();
 				base.OnPropertyChanged ();
 				this.GetIconFromPath (value);
 			}
@@ -95,8 +96,22 @@ namespace WinRunner.Models {
 			}
 		}
 
+		private void ValidatePath ([CallerMemberName] string propertyName = null) {
+			if (this.Path.Length <= 0) {
+				base.AddError (Resource.PathRequired, propertyName);
+			} else {
+				base.RemoveError (Resource.PathRequired, propertyName);
+
+				if (File.Exists (this.Path) == false) {
+					base.AddError (Resource.PathDoesNotExist, propertyName);
+				} else {
+					base.RemoveError (Resource.PathDoesNotExist, propertyName);
+				}
+			}
+		}
+
 		private void GetIconFromPath (string path) {
-			try {
+			if (File.Exists (path)) {
 				System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon (path);
 				Bitmap bitmap = icon.ToBitmap ();
 
@@ -112,8 +127,6 @@ namespace WinRunner.Models {
 					
 					this.Icon = bitmapimage;
 				}
-			} catch (Exception) {
-				this.Icon = null;
 			}
 		}
 
