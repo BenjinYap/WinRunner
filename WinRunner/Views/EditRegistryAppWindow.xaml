@@ -74,7 +74,23 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Content="{x:Static res:Resource.Save}" IsDefault="True" Click="SaveClicked" Margin="0 0 2.5 0"></Button>
+            <Button Content="{x:Static res:Resource.Save}" IsDefault="True" Click="SaveClicked" Margin="0 0 2.5 0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=TxtName, Path=(Validation.HasError)}" Value="True">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                                <Setter Property="Background" Value="Red"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=TxtPath, Path=(Validation.HasError)}" Value="True">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                                <Setter Property="Background" Value="Red"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{x:Static res:Resource.Cancel}" IsCancel="True" Margin="2.5 0 0 0" Grid.Column="1"></Button>
         </Grid>
     </Grid>
