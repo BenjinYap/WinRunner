@@ -56,8 +56,8 @@ namespace WinRunner {
 			bool? result = OpenAppWindow ((RegistryApp) button.DataContext);
 
 			if (result.HasValue && result.Value) {
-				((button.Parent as Grid).Children [0] as Image).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
-				((button.Parent as Grid).Children [1] as TextBlock).GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
+				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
+				((TextBlock) (button.Parent as Grid).Children [1]).GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
 			}
 		}
 	}
