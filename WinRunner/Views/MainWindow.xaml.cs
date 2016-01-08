@@ -43,7 +43,9 @@ namespace WinRunner {
 			EditRegistryAppWindow window;
 
 			if (app == null) {
-				window = new EditRegistryAppWindow (new RegistryApp ());
+				app = new RegistryApp ();
+				window = new EditRegistryAppWindow (app);
+				this.AppList.Add (app);
 			} else {
 				window = new EditRegistryAppWindow (app);
 			}
