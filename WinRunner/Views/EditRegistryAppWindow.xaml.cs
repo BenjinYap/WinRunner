@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +23,14 @@ namespace WinRunner.Views {
 	public partial class EditRegistryAppWindow:Window {
 		public RegistryApp App { get; set; }
 
+		private string oldName;
+		private string oldPath;
+
 		public EditRegistryAppWindow (RegistryApp app) {
 			this.App = app;
+
+			this.oldName = app.Name;
+			this.oldPath = app.Path;
 
 			InitializeComponent ();
 		}
@@ -41,6 +49,15 @@ namespace WinRunner.Views {
 
 		private void SaveClicked (object sender, RoutedEventArgs e) {
 			this.DialogResult = true;
+		}
+
+		private void WindowClosing (object sender, CancelEventArgs e) {
+			if (this.DialogResult == true) {
+
+			} else {
+				this.App.Name = this.oldName;
+				this.App.Path = this.oldPath;
+			}
 		}
 	}
 }

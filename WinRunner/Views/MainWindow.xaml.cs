@@ -28,9 +28,10 @@ namespace WinRunner {
 
 			InitializeComponent ();
 			
-			this.AppList.Add (new RegistryApp ("awd", @"C:\Users\Benjin\Desktop\awd.bat"));
+			this.AppList.Add (new RegistryApp ("", @"C:\Users\Benjin\Desktop\awd.bat"));
 			this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
 
+			
 			OpenAppWindow (this.AppList [0]);
 		}
 
@@ -38,7 +39,7 @@ namespace WinRunner {
 			OpenAppWindow (null);
 		}
 
-		private void OpenAppWindow (RegistryApp app) {
+		private bool? OpenAppWindow (RegistryApp app) {
 			EditRegistryAppWindow window;
 
 			if (app == null) {
@@ -47,11 +48,16 @@ namespace WinRunner {
 				window = new EditRegistryAppWindow (app);
 			}
 			
-			bool? result = window.ShowDialog ();
+			return window.ShowDialog ();
 		}
 
 		private void EditAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow ((RegistryApp) ((Button) sender).DataContext);
+			Button button = sender as Button;
+			bool? result = OpenAppWindow ((RegistryApp) button.DataContext);
+
+			if (result.HasValue && result.Value) {
+				((button.Parent as Grid).Children [1] as TextBlock).GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
+			}
 		}
 	}
 }
