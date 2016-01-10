@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
 namespace WinRunner.Models {
@@ -57,11 +58,22 @@ namespace WinRunner.Models {
 			this.Path = path;
 		}
 
+		public bool FlushToRegistry () {
+			RegistryKey rootKey = this.OpenAppPathsKey ();
+
+			RegistryKey key = rootKey.CreateSubKey (this.Name + ".exe");
+			key.SetValue ("", this.Path);
+			key.Close ();
+
+			rootKey.Close ();
+			return true;
+		}
+
 		private void ValidateName ([CallerMemberName] string propertyName = null) {
-			RegistryKey rootKey = this.OpenAppPathsKey (false);
+			RegistryKey rootKey = this.OpenAppPathsKey ();
 			string [] appKeys = rootKey.GetSubKeyNames ();
 			rootKey.Close ();
-
+			
 			foreach (string key in appKeys) {
 				if (key.ToLower ().Replace (".exe", "") == this.Name.ToLower ()) {
 					base.AddError (Resource.NameExists, propertyName);
@@ -130,8 +142,8 @@ namespace WinRunner.Models {
 			}
 		}
 
-		private RegistryKey OpenAppPathsKey (bool writable) {
-			return Registry.LocalMachine.OpenSubKey (@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths", writable);
+		private RegistryKey OpenAppPathsKey () {
+			return Registry.CurrentUser.CreateSubKey (@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths");
 		}
 	}
 }

@@ -58,7 +58,7 @@ namespace WinRunner.Views {
 
 		private void WindowClosing (object sender, CancelEventArgs e) {
 			if (this.DialogResult == true) {
-
+				this.App.FlushToRegistry ();
 			} else {
 				this.App.Name = this.oldName;
 				this.App.Path = this.oldPath;
