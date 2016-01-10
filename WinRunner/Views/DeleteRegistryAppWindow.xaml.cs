@@ -25,5 +25,9 @@ namespace WinRunner.Views {
 
 			InitializeComponent ();
 		}
+
+		private void DeleteClicked (object sender, RoutedEventArgs e) {
+			this.DialogResult = true;
+		}
 	}
 }

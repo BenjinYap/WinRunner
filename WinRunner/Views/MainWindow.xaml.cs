@@ -32,7 +32,7 @@ namespace WinRunner {
 			this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
 
 			
-			OpenAppWindow (this.AppList [0]);
+			//OpenAppWindow (this.AppList [0]);
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
@@ -61,6 +61,13 @@ namespace WinRunner {
 				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
 				((TextBlock) (button.Parent as Grid).Children [1]).GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
 			}
+		}
+
+		private void DeleteAppClicked (object sender, RoutedEventArgs e) {
+			Button button = sender as Button;
+			RegistryApp app = (RegistryApp) button.DataContext;
+			
+			new DeleteRegistryAppWindow (app).ShowDialog ();
 		}
 	}
 }
