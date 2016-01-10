@@ -43,19 +43,20 @@ namespace WinRunner {
 		}
 
 		private bool? OpenAppWindow (RegistryApp app) {
-			EditRegistryAppWindow window;
+			bool isNew = false;
 
 			if (app == null) {
+				isNew = true;
 				app = new RegistryApp ();
-				window = new EditRegistryAppWindow (app);
-				this.AppList.Add (app);
-			} else {
-				window = new EditRegistryAppWindow (app);
 			}
-			
-			bool? result = window.ShowDialog ();
+
+			bool? result = new EditRegistryAppWindow (app).ShowDialog ();
 
 			if (result.HasValue && result.Value) {
+				if (isNew) {
+					this.AppList.Add (app);
+				}
+
 				this.SaveProfile ();
 			}
 
