@@ -45,6 +45,7 @@ namespace WinRunner.Models {
 			}
 		}
 
+		private RegistryKey regKey;
 		private bool isNew;
 
 		public RegistryApp () {
@@ -54,18 +55,31 @@ namespace WinRunner.Models {
 		}
 
 		public RegistryApp (string name, string path) {
+			RegistryKey rootKey = this.OpenAppPathsKey ();
+			this.regKey = rootKey.OpenSubKey (name + ".exe", true);
+			
 			this.Name = name;
 			this.Path = path;
 		}
 
 		public bool FlushToRegistry () {
+			bool create = false;
 			RegistryKey rootKey = this.OpenAppPathsKey ();
+			
+			if (this.regKey == null) {
+				create = true;
+			} else if (this.regKey.Name.ToLower ().Replace (".exe", "") != this.Name) {
+				create = true;
+				rootKey.DeleteSubKey (System.IO.Path.GetFileName (this.regKey.Name), true);
+			}
 
-			RegistryKey key = rootKey.CreateSubKey (this.Name + ".exe");
-			key.SetValue ("", this.Path);
-			key.Close ();
+			if (create) {
+				this.regKey = rootKey.CreateSubKey (this.Name + ".exe");
+			}
 
 			rootKey.Close ();
+			this.regKey.SetValue ("", this.Path);
+			
 			return true;
 		}
 
@@ -75,7 +89,7 @@ namespace WinRunner.Models {
 			rootKey.Close ();
 			
 			foreach (string key in appKeys) {
-				if (key.ToLower ().Replace (".exe", "") == this.Name.ToLower ()) {
+				if (System.IO.Path.GetFileNameWithoutExtension (key.ToLower ()) == this.Name.ToLower () && (this.regKey == null || System.IO.Path.GetFileNameWithoutExtension (this.regKey.Name.ToLower ()) != this.Name.ToLower ())) {
 					base.AddError (Resource.NameExists, propertyName);
 					break;
 				} else {
