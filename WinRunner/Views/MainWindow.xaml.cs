@@ -81,6 +81,7 @@ namespace WinRunner {
 
 			if (result.HasValue && result.Value) {
 				this.AppList.Remove (app);
+				this.SaveProfile ();
 			}
 		}
 
