@@ -37,7 +37,11 @@ namespace WinRunner.Views {
 
 		private void ChooseFileClicked (object sender, RoutedEventArgs e) {
 			OpenFileDialog dialog = new OpenFileDialog ();
-			dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.App.Path);
+			
+			if (File.Exists (this.App.Path)) {
+				dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.App.Path);
+			}
+
 			dialog.FileName = this.App.Path;
 			dialog.CheckFileExists = true;
 			dialog.CheckPathExists = true;
