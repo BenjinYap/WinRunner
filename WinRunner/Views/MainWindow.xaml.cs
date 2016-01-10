@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,28 @@ namespace WinRunner {
 			if (result.HasValue && result.Value) {
 				this.AppList.Remove (app);
 			}
+		}
+
+		private void LoadProfile () {
+			string filePath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\profile.txt";
+			FileInfo fileInfo = new FileInfo (filePath);
+			
+			if (fileInfo.Exists == false) {
+				return;
+			}
+
+			string serial = File.ReadAllText (fileInfo.FullName);
+			List <RegistryApp> apps = this.AppList.Deserialize (serial);
+			this.AppList.Clear ();
+			apps.ForEach (a => this.AppList.Add (a));
+		}
+
+		private void SaveProfile () {
+			string serial = this.AppList.Serialize ();
+			string filePath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\profile.txt";
+			FileInfo fileInfo = new FileInfo (filePath);
+			fileInfo.Directory.Create ();
+			File.WriteAllText (fileInfo.FullName, serial);
 		}
 	}
 }
