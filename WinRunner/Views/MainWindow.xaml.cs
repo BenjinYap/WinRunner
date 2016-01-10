@@ -29,8 +29,10 @@ namespace WinRunner {
 
 			InitializeComponent ();
 			
-			this.AppList.Add (new RegistryApp ("", @"C:\Users\Benjin\Desktop\awd.bat"));
-			this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
+			this.LoadProfile ();
+
+			//this.AppList.Add (new RegistryApp ("", @"C:\Users\Benjin\Desktop\awd.bat"));
+			//this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
 
 			
 			//OpenAppWindow (this.AppList [0]);
@@ -51,7 +53,13 @@ namespace WinRunner {
 				window = new EditRegistryAppWindow (app);
 			}
 			
-			return window.ShowDialog ();
+			bool? result = window.ShowDialog ();
+
+			if (result.HasValue && result.Value) {
+				this.SaveProfile ();
+			}
+
+			return result;
 		}
 
 		private void EditAppClicked (object sender, RoutedEventArgs e) {
