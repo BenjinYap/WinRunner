@@ -11,13 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WinRunner.Models;
 
 namespace WinRunner.Views {
 	/// <summary>
 	/// Interaction logic for DeleteRegistryAppWindow.xaml
 	/// </summary>
 	public partial class DeleteRegistryAppWindow:Window {
-		public DeleteRegistryAppWindow () {
+		public RegistryApp App { get; set; }
+
+		public DeleteRegistryAppWindow (RegistryApp app) {
+			this.App = app;
+
 			InitializeComponent ();
 		}
 	}

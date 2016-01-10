@@ -123,6 +123,12 @@
   <data name="ChooseFile" xml:space="preserve">
     <value>Choose File</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Really delete this?</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -152,8 +158,5 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
-  </data>
-  <data name="test" xml:space="preserve">
-    <value>what</value>
   </data>
 </root>
