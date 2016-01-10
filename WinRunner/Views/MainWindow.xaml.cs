@@ -67,7 +67,11 @@ namespace WinRunner {
 			Button button = sender as Button;
 			RegistryApp app = (RegistryApp) button.DataContext;
 			
-			new DeleteRegistryAppWindow (app).ShowDialog ();
+			bool? result = new DeleteRegistryAppWindow (app).ShowDialog ();
+
+			if (result.HasValue && result.Value) {
+				this.AppList.Remove (app);
+			}
 		}
 	}
 }
