@@ -46,10 +46,8 @@ namespace WinRunner.Models {
 		}
 
 		private RegistryKey regKey;
-		private bool isNew;
 
 		public RegistryApp () {
-			this.isNew = true;
 			this.Name = "";
 			this.Path = "";
 		}
@@ -70,7 +68,7 @@ namespace WinRunner.Models {
 				create = true;
 			} else if (this.regKey.Name.ToLower ().Replace (".exe", "") != this.Name) {
 				create = true;
-				rootKey.DeleteSubKey (System.IO.Path.GetFileName (this.regKey.Name), true);
+				this.DeleteFromRegistry ();
 			}
 
 			if (create) {
@@ -80,6 +78,13 @@ namespace WinRunner.Models {
 			rootKey.Close ();
 			this.regKey.SetValue ("", this.Path);
 			
+			return true;
+		}
+
+		public bool DeleteFromRegistry () {
+			RegistryKey rootKey = this.OpenAppPathsKey ();
+			rootKey.DeleteSubKey (System.IO.Path.GetFileName (this.regKey.Name), true);
+			rootKey.Close ();
 			return true;
 		}
 

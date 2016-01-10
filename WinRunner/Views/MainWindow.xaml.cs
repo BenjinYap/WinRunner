@@ -80,6 +80,7 @@ namespace WinRunner {
 			bool? result = new DeleteRegistryAppWindow (app).ShowDialog ();
 
 			if (result.HasValue && result.Value) {
+				app.DeleteFromRegistry ();
 				this.AppList.Remove (app);
 				this.SaveProfile ();
 			}
