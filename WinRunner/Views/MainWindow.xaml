@@ -10,16 +10,6 @@
     <Window.Resources>
         <sys:Double x:Key="ControlHeight">30</sys:Double>
         
-        <Style TargetType="{x:Type Label}">
-            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-            <Setter Property="Padding" Value="0"></Setter>
-        </Style>
-
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
-            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-        </Style>
-
         <Style TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="5 0"></Setter>
             <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
@@ -47,8 +37,12 @@
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         
-                        <Image Source="{Binding Icon, Mode=OneTime}" Width="30" Margin="0 0 5 0"></Image>
-                        <TextBlock Grid.Column="1" Text="{Binding Name, Mode=OneTime}"></TextBlock>
+                        <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
+                        
+                        <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
+                            <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
+                        </Grid>
+                        
                         <Button Click="EditAppClicked" Grid.Column="2">Edit</Button>
                         <Button Click="DeleteAppClicked" Margin="5 0 0 0" Grid.Column="3">Delete</Button>
                     </Grid>
