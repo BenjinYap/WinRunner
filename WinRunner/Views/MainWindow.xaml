@@ -5,7 +5,8 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
-        Title="WinRunner" Height="200" Width="300">
+        MinWidth="300"
+        Title="WinRunner" Height="200" Width="{Binding MinWidth}">
     
     <Window.Resources>
         <sys:Double x:Key="ControlHeight">30</sys:Double>
