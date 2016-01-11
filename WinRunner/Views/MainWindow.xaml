@@ -4,6 +4,7 @@
         xmlns:root="clr-namespace:WinRunner"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:views="clr-namespace:WinRunner.Views"
+        xmlns:res="clr-namespace:WinRunner.Resources"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
         MinWidth="300"
@@ -25,7 +26,7 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Help">
+            <MenuItem Header="{x:Static res:Resource.Help}">
                 <MenuItem Command="{x:Static ApplicationCommands.Help}"></MenuItem>
                 <MenuItem Command="{x:Static views:Commands.About}"></MenuItem>
             </MenuItem>
@@ -65,7 +66,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         
-            <Button Click="NewAppClicked" Grid.Row="1" Grid.Column="1">New Application</Button>
+            <Button Content="{x:Static res:Resource.NewApplication}" Click="NewAppClicked" Grid.Row="1" Grid.Column="1"></Button>
         </Grid>
     </DockPanel>
 </Window>

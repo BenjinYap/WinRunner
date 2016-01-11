@@ -169,6 +169,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Application.
+        /// </summary>
+        public static string NewApplication {
+            get {
+                return ResourceManager.GetString("NewApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Path.
         /// </summary>
         public static string Path {

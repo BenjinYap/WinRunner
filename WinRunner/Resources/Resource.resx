@@ -153,6 +153,9 @@
   <data name="NameRequired" xml:space="preserve">
     <value>Required</value>
   </data>
+  <data name="NewApplication" xml:space="preserve">
+    <value>New Application</value>
+  </data>
   <data name="Path" xml:space="preserve">
     <value>Path</value>
   </data>
