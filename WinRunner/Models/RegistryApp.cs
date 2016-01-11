@@ -52,17 +52,15 @@ namespace WinRunner.Models {
 			this.Path = "";
 		}
 
-		public RegistryApp (string name, string path) {
-			RegistryKey rootKey = this.OpenAppPathsKey ();
-			this.regKey = rootKey.OpenSubKey (name + ".exe", true);
-			
-			this.Name = name;
-			this.Path = path;
+		public RegistryApp (RegistryKey regKey) {
+			this.regKey = regKey;
+			this.Name = this.GetAppName (regKey.Name);
+			this.Path = regKey.GetValue ("").ToString ();
 		}
 
 		public bool FlushToRegistry () {
 			bool create = false;
-			RegistryKey rootKey = this.OpenAppPathsKey ();
+			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
 			
 			if (this.regKey == null) {
 				create = true;
@@ -70,7 +68,7 @@ namespace WinRunner.Models {
 				create = true;
 				this.DeleteFromRegistry ();
 			}
-
+			
 			if (create) {
 				this.regKey = rootKey.CreateSubKey (this.Name + ".exe");
 			}
@@ -82,19 +80,19 @@ namespace WinRunner.Models {
 		}
 
 		public bool DeleteFromRegistry () {
-			RegistryKey rootKey = this.OpenAppPathsKey ();
+			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
 			rootKey.DeleteSubKey (System.IO.Path.GetFileName (this.regKey.Name), true);
 			rootKey.Close ();
 			return true;
 		}
 
 		private void ValidateName ([CallerMemberName] string propertyName = null) {
-			RegistryKey rootKey = this.OpenAppPathsKey ();
-			string [] appKeys = rootKey.GetSubKeyNames ();
+			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
+			string [] appKeyNames = rootKey.GetSubKeyNames ();
 			rootKey.Close ();
 			
-			foreach (string key in appKeys) {
-				if (System.IO.Path.GetFileNameWithoutExtension (key.ToLower ()) == this.Name.ToLower () && (this.regKey == null || System.IO.Path.GetFileNameWithoutExtension (this.regKey.Name.ToLower ()) != this.Name.ToLower ())) {
+			foreach (string keyName in appKeyNames) {
+				if (this.GetAppName (keyName.ToLower ()) == this.Name.ToLower () && (this.regKey == null || this.GetAppName (this.regKey.Name.ToLower ()) != this.Name.ToLower ())) {
 					base.AddError (Resource.NameExists, propertyName);
 					break;
 				} else {
@@ -161,8 +159,8 @@ namespace WinRunner.Models {
 			}
 		}
 
-		private RegistryKey OpenAppPathsKey () {
-			return Registry.CurrentUser.CreateSubKey (@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths");
+		private string GetAppName (string path) {
+			return System.IO.Path.GetFileNameWithoutExtension (path);
 		}
 	}
 }

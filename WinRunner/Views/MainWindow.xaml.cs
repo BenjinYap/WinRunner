@@ -29,13 +29,7 @@ namespace WinRunner {
 
 			InitializeComponent ();
 			
-			this.LoadProfile ();
-
-			//this.AppList.Add (new RegistryApp ("", @"C:\Users\Benjin\Desktop\awd.bat"));
-			//this.AppList.Add (new RegistryApp ("goodbye", @"C:\Users\Benjin\Desktop\audacity-win-2.1.1.exe"));
-
-			
-			//OpenAppWindow (this.AppList [0]);
+			this.AppList.LoadAppsFromRegistry ();
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
@@ -56,8 +50,6 @@ namespace WinRunner {
 				if (isNew) {
 					this.AppList.Add (app);
 				}
-
-				this.SaveProfile ();
 			}
 
 			return result;
@@ -82,30 +74,7 @@ namespace WinRunner {
 			if (result.HasValue && result.Value) {
 				app.DeleteFromRegistry ();
 				this.AppList.Remove (app);
-				this.SaveProfile ();
 			}
-		}
-
-		private void LoadProfile () {
-			string filePath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\profile.txt";
-			FileInfo fileInfo = new FileInfo (filePath);
-			
-			if (fileInfo.Exists == false) {
-				return;
-			}
-
-			string serial = File.ReadAllText (fileInfo.FullName);
-			List <RegistryApp> apps = this.AppList.Deserialize (serial);
-			this.AppList.Clear ();
-			apps.ForEach (a => this.AppList.Add (a));
-		}
-
-		private void SaveProfile () {
-			string serial = this.AppList.Serialize ();
-			string filePath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\profile.txt";
-			FileInfo fileInfo = new FileInfo (filePath);
-			fileInfo.Directory.Create ();
-			File.WriteAllText (fileInfo.FullName, serial);
 		}
 	}
 }
