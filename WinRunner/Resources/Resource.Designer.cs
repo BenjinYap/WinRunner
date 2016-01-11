@@ -61,6 +61,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About WinRunner.
+        /// </summary>
+        public static string AboutWinRunner {
+            get {
+                return ResourceManager.GetString("AboutWinRunner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -93,6 +102,15 @@ namespace WinRunner.Resources {
         public static string DeleteText {
             get {
                 return ResourceManager.GetString("DeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
             }
         }
         
@@ -183,6 +201,15 @@ namespace WinRunner.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Help.
+        /// </summary>
+        public static string ViewHelp {
+            get {
+                return ResourceManager.GetString("ViewHelp", resourceCulture);
             }
         }
     }

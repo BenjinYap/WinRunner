@@ -3,10 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:root="clr-namespace:WinRunner"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:views="clr-namespace:WinRunner.Views"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
         MinWidth="300"
         Title="WinRunner" Height="200" Width="{Binding MinWidth}">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="Help" CanExecute="{x:Static views:Commands.CanExecuteAlways}" Executed="ViewHelpExecuted"></CommandBinding>
+        <CommandBinding Command="{x:Static views:Commands.About}" CanExecute="{x:Static views:Commands.CanExecuteAlways}" Executed="AboutWinRunnerExecuted"></CommandBinding>
+    </Window.CommandBindings>
     
     <Window.Resources>
         <sys:Double x:Key="ControlHeight">30</sys:Double>
@@ -17,40 +23,49 @@
         </Style>
     </Window.Resources>
     
-    <Grid Margin="5">
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Help">
+                <MenuItem Command="{x:Static ApplicationCommands.Help}"></MenuItem>
+                <MenuItem Command="{x:Static views:Commands.About}"></MenuItem>
+            </MenuItem>
+        </Menu>
         
-        <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" Grid.ColumnSpan="2">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="0 0 0 5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                            <ColumnDefinition Width="auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        
+            <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" Grid.ColumnSpan="2">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
                         
-                        <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
+                            <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
                         
-                        <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
-                            <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
+                            <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
+                                <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
+                            </Grid>
+                        
+                            <Button Click="EditAppClicked" Grid.Column="2">Edit</Button>
+                            <Button Click="DeleteAppClicked" Margin="5 0 0 0" Grid.Column="3">Delete</Button>
                         </Grid>
-                        
-                        <Button Click="EditAppClicked" Grid.Column="2">Edit</Button>
-                        <Button Click="DeleteAppClicked" Margin="5 0 0 0" Grid.Column="3">Delete</Button>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         
-        <Button Click="NewAppClicked" Grid.Row="1" Grid.Column="1">New Application</Button>
-    </Grid>
+            <Button Click="NewAppClicked" Grid.Row="1" Grid.Column="1">New Application</Button>
+        </Grid>
+    </DockPanel>
 </Window>

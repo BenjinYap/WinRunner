@@ -26,7 +26,7 @@ namespace WinRunner {
 
 		public MainWindow () {
 			this.AppList = new RegistryAppList ();
-
+			
 			InitializeComponent ();
 			
 			this.AppList.LoadAppsFromRegistry ();
@@ -75,6 +75,14 @@ namespace WinRunner {
 				app.DeleteFromRegistry ();
 				this.AppList.Remove (app);
 			}
+		}
+
+		private void ViewHelpExecuted (object sender, ExecutedRoutedEventArgs e) {
+			Debug.WriteLine ("A");
+		}
+
+		private void AboutWinRunnerExecuted (object sender, ExecutedRoutedEventArgs e) {
+			Debug.WriteLine ("B");
 		}
 	}
 }
