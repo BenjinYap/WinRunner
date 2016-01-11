@@ -64,7 +64,7 @@ namespace WinRunner.Models {
 			
 			if (this.regKey == null) {
 				create = true;
-			} else if (this.regKey.Name.ToLower ().Replace (".exe", "") != this.Name) {
+			} else if (this.GetAppName (this.regKey.Name) != this.Name) {
 				create = true;
 				this.DeleteFromRegistry ();
 			}
