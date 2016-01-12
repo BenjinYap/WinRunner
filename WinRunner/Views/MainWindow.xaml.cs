@@ -116,10 +116,24 @@ namespace WinRunner {
 
 		private void LoadPreferences () {
 			this.preferences.Load ();
-			this.Left = double.Parse (this.preferences.GetConfig (UserPreferences.WindowLeft));
-			this.Top = double.Parse (this.preferences.GetConfig (UserPreferences.WindowTop));
-			this.Width = double.Parse (this.preferences.GetConfig (UserPreferences.WindowWidth));
-			this.Height = double.Parse (this.preferences.GetConfig (UserPreferences.WindowHeight));
+
+			double left, top, width, height;
+
+			if (double.TryParse (this.preferences.GetConfig (UserPreferences.WindowLeft), out left)) {
+				this.Left = left;
+			}
+
+			if (double.TryParse (this.preferences.GetConfig (UserPreferences.WindowTop), out top)) {
+				this.Top = top;
+			}
+
+			if (double.TryParse (this.preferences.GetConfig (UserPreferences.WindowWidth), out width)) {
+				this.Width = width;
+			}
+
+			if (double.TryParse (this.preferences.GetConfig (UserPreferences.WindowHeight), out height)) {
+				this.Height = height;
+			}
 		}
 	}
 }
