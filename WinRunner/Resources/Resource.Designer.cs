@@ -97,11 +97,29 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Application.
+        /// </summary>
+        public static string DeleteApplication {
+            get {
+                return ResourceManager.GetString("DeleteApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Really delete this?.
         /// </summary>
         public static string DeleteText {
             get {
                 return ResourceManager.GetString("DeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Application.
+        /// </summary>
+        public static string EditApplication {
+            get {
+                return ResourceManager.GetString("EditApplication", resourceCulture);
             }
         }
         

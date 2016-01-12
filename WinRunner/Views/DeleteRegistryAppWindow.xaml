@@ -7,7 +7,7 @@
         SizeToContent="Height"
         ResizeMode="NoResize"
         Width="300"
-        Title="Delete Application">
+        Title="{x:Static res:Resource.DeleteApplication}">
 
     <Window.Resources>
         <sys:Double x:Key="ControlHeight">30</sys:Double>

@@ -129,8 +129,14 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="DeleteApplication" xml:space="preserve">
+    <value>Delete Application</value>
+  </data>
   <data name="DeleteText" xml:space="preserve">
     <value>Really delete this?</value>
+  </data>
+  <data name="EditApplication" xml:space="preserve">
+    <value>Edit Application</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Help</value>

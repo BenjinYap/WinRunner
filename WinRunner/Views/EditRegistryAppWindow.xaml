@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         Width="300"
         Closing="WindowClosing"
-        Title="Edit Application">
+        Title="{x:Static res:Resource.EditApplication}">
     
     <Window.Resources>
         <sys:Double x:Key="ControlHeight">30</sys:Double>
