@@ -69,10 +69,10 @@ namespace WinRunner {
 		private void EditAppClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
 			bool? result = OpenAppWindow ((RegistryApp) button.DataContext);
-
+			
 			if (result.HasValue && result.Value) {
 				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
-				((TextBlock) (button.Parent as Grid).Children [1]).GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
+				((TextBlock) ((Grid) (button.Parent as Grid).Children [1]).Children [0]).GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
 			}
 		}
 
