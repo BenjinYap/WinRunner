@@ -1,9 +1,9 @@
-﻿<views:CenteredDialogWindow x:Class="WinRunner.Views.EditRegistryAppWindow"
+﻿<Window x:Class="WinRunner.Views.EditRegistryAppWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:res="clr-namespace:WinRunner.Resources"
-        xmlns:views="clr-namespace:WinRunner.Views"
+        WindowStartupLocation="CenterOwner"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
         ResizeMode="NoResize"
@@ -95,4 +95,4 @@
             <Button Content="{x:Static res:Resource.Cancel}" IsCancel="True" Margin="2.5 0 0 0" Grid.Column="1"></Button>
         </Grid>
     </Grid>
-</views:CenteredDialogWindow>
+</Window>

@@ -20,7 +20,7 @@ namespace WinRunner.Views {
 	/// <summary>
 	/// Interaction logic for EditRegistryAppWindow.xaml
 	/// </summary>
-	public partial class EditRegistryAppWindow:CenteredDialogWindow {
+	public partial class EditRegistryAppWindow:Window {
 		public RegistryApp App { get; set; }
 
 		private string oldName;

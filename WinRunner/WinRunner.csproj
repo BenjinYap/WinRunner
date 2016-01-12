@@ -54,7 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\CenteredDialogWindow.cs" />
     <Compile Include="Views\UserPreferences.cs" />
     <Page Include="Views\AboutWindow.xaml">
       <SubType>Designer</SubType>
