@@ -156,13 +156,23 @@ WinRunner and its author(s) are NOT responsible or liable for any damages done t
 WinRunner is available for use under the GPL license and its full source code is available at the link below:</value>
   </data>
   <data name="HelpDeleteApplication" xml:space="preserve">
-    <value />
+    <value>To delete a registered application, click the Delete button next to the application in the main window. A new window will pop up where you will confirm the deletion.
+
+Click the Delete button in the confirmation window to actually delete the application. This will immediately remove the Registry entry and you will no longer be able to start the application using Run.</value>
   </data>
   <data name="HelpEditApplication" xml:space="preserve">
-    <value />
+    <value>To edit a registered application, click the Edit button next to the application in the main window. A new window will pop up where the details can be modified.
+
+The steps at this point are the same as with registering a new application.</value>
   </data>
   <data name="HelpNewApplication" xml:space="preserve">
-    <value />
+    <value>To register an application, click the New Application button. A new window will pop up where the details will be filled in.
+
+Name is the text you will enter in order to start the application using the Run command. This does not have to be related to the actual name of the application. The name cannot contain the dot and backslash characters. The name must be unique among all the registered applications.
+
+Path is the full file path of the application on your computer. The icon of the application will be displayed for convenience.
+
+Nothing on your computer is changed until you click the Save button. This will immediately register the application in the Windows Registry and you will be able to start it using Run right away.</value>
   </data>
   <data name="HelpOverview" xml:space="preserve">
     <value>WinRunner lets you register an application with Windows. This means that application can be started using the Run command by entering the name with which it was registered. This can save some time as it doesn't require any mouse clicks.

@@ -155,7 +155,9 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to To delete a registered application, click the Delete button next to the application in the main window. A new window will pop up where you will confirm the deletion.
+        ///
+        ///Click the Delete button in the confirmation window to actually delete the application. This will immediately remove the Registry entry and you will no longer be able to start the application using Run..
         /// </summary>
         public static string HelpDeleteApplication {
             get {
@@ -164,7 +166,9 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to To edit a registered application, click the Edit button next to the application in the main window. A new window will pop up where the details can be modified.
+        ///
+        ///The steps at this point are the same as with registering a new application..
         /// </summary>
         public static string HelpEditApplication {
             get {
@@ -173,7 +177,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to To register an application, click the New Application button. A new window will pop up where the details will be filled in.
+        ///
+        ///Name is the text you will enter in order to start the application using the Run command. This does not have to be related to the actual name of the application. The name cannot contain the dot and backslash characters. The name must be unique among all the registered applications.
+        ///
+        ///Path is the full file path of the application on your computer. The icon of the application will be  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string HelpNewApplication {
             get {

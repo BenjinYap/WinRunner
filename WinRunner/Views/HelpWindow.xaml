@@ -39,6 +39,21 @@
                     <TextBlock Text="{x:Static res:Resource.HelpOverview}"></TextBlock>
                 </ScrollViewer>
             </TabItem>
+            <TabItem Header="{x:Static res:Resource.NewApplication}">
+                <ScrollViewer>
+                    <TextBlock Text="{x:Static res:Resource.HelpNewApplication}"></TextBlock>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="{x:Static res:Resource.EditApplication}">
+                <ScrollViewer>
+                    <TextBlock Text="{x:Static res:Resource.HelpEditApplication}"></TextBlock>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="{x:Static res:Resource.DeleteApplication}">
+                <ScrollViewer>
+                    <TextBlock Text="{x:Static res:Resource.HelpDeleteApplication}"></TextBlock>
+                </ScrollViewer>
+            </TabItem>
         </TabControl>
 
     </Grid>
