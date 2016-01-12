@@ -79,6 +79,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Caution.
+        /// </summary>
+        public static string Caution {
+            get {
+                return ResourceManager.GetString("Caution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose File.
         /// </summary>
         public static string ChooseFile {
@@ -129,6 +138,59 @@ namespace WinRunner.Resources {
         public static string Help {
             get {
                 return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This program modifies the Windows Registry on the computer that it is started on. The Registry is a database for low-level settings and can be/is used by all parts of the operating system. Third-party applications, like WinRunner, can also use the Registry to store any settings they need to function better.
+        ///
+        ///WinRunner modifies only a single Registry key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths
+        ///
+        ///Do NOT use WinRunner unless you know what you are doing and how modifying the ab [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string HelpCaution {
+            get {
+                return ResourceManager.GetString("HelpCaution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HelpDeleteApplication {
+            get {
+                return ResourceManager.GetString("HelpDeleteApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HelpEditApplication {
+            get {
+                return ResourceManager.GetString("HelpEditApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HelpNewApplication {
+            get {
+                return ResourceManager.GetString("HelpNewApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WinRunner lets you register an application with Windows. This means that application can be started using the Run command by entering the name with which it was registered. This can save some time as it doesn&apos;t require any mouse clicks.
+        ///
+        ///Any applications you create in this program will result in a matching key entry being created in the Windows Registry and you&apos;ll be able to start that application using Run immediately.
+        ///
+        ///Upon starting WinRunner it will search the Registry for any registered applications [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string HelpOverview {
+            get {
+                return ResourceManager.GetString("HelpOverview", resourceCulture);
             }
         }
         
@@ -219,6 +281,15 @@ namespace WinRunner.Resources {
         public static string PathRequired {
             get {
                 return ResourceManager.GetString("PathRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://github.com/BenjinYap/WinRunner.
+        /// </summary>
+        public static string Repo {
+            get {
+                return ResourceManager.GetString("Repo", resourceCulture);
             }
         }
         

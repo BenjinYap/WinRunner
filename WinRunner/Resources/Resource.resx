@@ -123,6 +123,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="Caution" xml:space="preserve">
+    <value>Caution</value>
+  </data>
   <data name="ChooseFile" xml:space="preserve">
     <value>Choose File</value>
   </data>
@@ -140,6 +143,33 @@
   </data>
   <data name="Help" xml:space="preserve">
     <value>Help</value>
+  </data>
+  <data name="HelpCaution" xml:space="preserve">
+    <value>This program modifies the Windows Registry on the computer that it is started on. The Registry is a database for low-level settings and can be/is used by all parts of the operating system. Third-party applications, like WinRunner, can also use the Registry to store any settings they need to function better.
+
+WinRunner modifies only a single Registry key: HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths
+
+Do NOT use WinRunner unless you know what you are doing and how modifying the above Registry key impacts your computer. This is NOT meant for basic Windows users.
+
+WinRunner and its author(s) are NOT responsible or liable for any damages done to your computer when using this program.
+
+WinRunner is available for use under the GPL license and its full source code is available at the link below:</value>
+  </data>
+  <data name="HelpDeleteApplication" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HelpEditApplication" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HelpNewApplication" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HelpOverview" xml:space="preserve">
+    <value>WinRunner lets you register an application with Windows. This means that application can be started using the Run command by entering the name with which it was registered. This can save some time as it doesn't require any mouse clicks.
+
+Any applications you create in this program will result in a matching key entry being created in the Windows Registry and you'll be able to start that application using Run immediately.
+
+Upon starting WinRunner it will search the Registry for any registered applications and populate its list with them. This means that WinRunner does not keep track of any external changes to the Registry.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -170,6 +200,9 @@
   </data>
   <data name="PathRequired" xml:space="preserve">
     <value>Required</value>
+  </data>
+  <data name="Repo" xml:space="preserve">
+    <value>https://github.com/BenjinYap/WinRunner</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>

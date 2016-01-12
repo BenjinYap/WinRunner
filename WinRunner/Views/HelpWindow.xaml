@@ -1,0 +1,33 @@
+﻿<Window x:Class="WinRunner.Views.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:res="clr-namespace:WinRunner.Resources"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        SizeToContent="Height"
+        Width="500"
+        Title="{x:Static res:Resource.Help}" Height="300">
+    <Grid Margin="0">
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="{x:Static res:Resource.Caution}">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Text="{x:Static res:Resource.HelpCaution}" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock TextWrapping="Wrap" Grid.Row="1">
+                        <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
+                            <Run Text="{x:Static res:Resource.Repo}"></Run>
+                        </Hyperlink>
+                    </TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

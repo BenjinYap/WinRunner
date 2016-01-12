@@ -78,7 +78,7 @@ namespace WinRunner {
 		}
 
 		private void ViewHelpExecuted (object sender, ExecutedRoutedEventArgs e) {
-			Debug.WriteLine ("A");
+			new HelpWindow ().ShowDialog ();
 		}
 
 		private void AboutWinRunnerExecuted (object sender, ExecutedRoutedEventArgs e) {
