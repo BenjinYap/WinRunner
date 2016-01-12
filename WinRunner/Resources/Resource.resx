@@ -192,6 +192,9 @@ Upon starting WinRunner it will search the Registry for any registered applicati
   <data name="NewApplication" xml:space="preserve">
     <value>New Application</value>
   </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
   <data name="Path" xml:space="preserve">
     <value>Path</value>
   </data>

@@ -7,6 +7,14 @@
         SizeToContent="Height"
         Width="500"
         Title="{x:Static res:Resource.Help}" Height="300">
+    
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid Margin="0">
         <TabControl TabStripPlacement="Left">
             <TabItem Header="{x:Static res:Resource.Caution}">
@@ -16,16 +24,16 @@
                         <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
                     
-                    <TextBlock Text="{x:Static res:Resource.HelpCaution}" TextWrapping="Wrap"></TextBlock>
-                    <TextBlock TextWrapping="Wrap" Grid.Row="1">
+                    <TextBlock Text="{x:Static res:Resource.HelpCaution}" Margin="0"></TextBlock>
+                    <TextBlock TextWrapping="Wrap" Grid.Row="1" Margin="0">
                         <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
                             <Run Text="{x:Static res:Resource.Repo}"></Run>
                         </Hyperlink>
                     </TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
-                
+            <TabItem Header="{x:Static res:Resource.Overview}">
+                <TextBlock Text="{x:Static res:Resource.HelpOverview}"></TextBlock>
             </TabItem>
         </TabControl>
 
