@@ -44,31 +44,33 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-        
-            <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" Grid.ColumnSpan="2">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Margin="0 0 0 5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
+
+            <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="0 0 5 0" Margin="0 0 0 5" Grid.ColumnSpan="2">
+                <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0 0 0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
                         
-                            <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
+                                <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
                         
-                            <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
-                                <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
+                                <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
+                                </Grid>
+                        
+                                <Button Click="EditAppClicked" Grid.Column="2">Edit</Button>
+                                <Button Click="DeleteAppClicked" Margin="5 0 0 0" Grid.Column="3">Delete</Button>
                             </Grid>
-                        
-                            <Button Click="EditAppClicked" Grid.Column="2">Edit</Button>
-                            <Button Click="DeleteAppClicked" Margin="5 0 0 0" Grid.Column="3">Delete</Button>
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
             <Button Content="{x:Static res:Resource.NewApplication}" Click="NewAppClicked" Grid.Row="1" Grid.Column="1"></Button>
         </Grid>
     </DockPanel>
