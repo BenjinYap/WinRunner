@@ -1,0 +1,13 @@
+﻿<Window x:Class="WinRunner.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:res="clr-namespace:WinRunner.Resources"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        SizeToContent="Height"
+        Width="300"
+        Title="{x:Static res:Resource.AboutWinRunner}" Height="300">
+    <Grid>
+        
+    </Grid>
+</Window>
