@@ -6,9 +6,12 @@
         xmlns:views="clr-namespace:WinRunner.Views"
         xmlns:res="clr-namespace:WinRunner.Resources"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        SizeToContent="Height"
         MinWidth="300"
-        Title="WinRunner" Height="200" Width="{Binding MinWidth}">
+        MinHeight="200"
+        Height="{Binding MinHeight}"
+        LocationChanged="WindowLocationChanged"
+        SizeChanged="WindowSizeChanged"
+        Title="WinRunner" Width="{Binding MinWidth}">
     
     <Window.CommandBindings>
         <CommandBinding Command="Help" CanExecute="{x:Static views:Commands.CanExecuteAlways}" Executed="ViewHelpExecuted"></CommandBinding>

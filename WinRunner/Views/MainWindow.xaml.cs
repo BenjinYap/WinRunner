@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using WinRunner.Models;
 using WinRunner.Views;
 
@@ -24,12 +25,20 @@ namespace WinRunner {
 	public partial class MainWindow:Window {
 		public RegistryAppList AppList { get; set; }
 
+		private UserPreferences preferences = new UserPreferences ();
+		private DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 500) };
+
 		public MainWindow () {
 			this.AppList = new RegistryAppList ();
 			
 			InitializeComponent ();
 			
 			this.AppList.LoadAppsFromRegistry ();
+
+			this.timer.Tick += TimerTicked;
+			this.timer.IsEnabled = false;
+
+			this.LoadPreferences ();
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
@@ -83,6 +92,34 @@ namespace WinRunner {
 
 		private void AboutWinRunnerExecuted (object sender, ExecutedRoutedEventArgs e) {
 			new AboutWindow ().ShowDialog ();
+		}
+
+		private void WindowLocationChanged (object sender, EventArgs e) {
+			this.timer.Stop ();
+			this.timer.Start ();
+		}
+
+		private void WindowSizeChanged (object sender, SizeChangedEventArgs e) {
+			this.timer.Stop ();
+			this.timer.Start ();
+		}
+
+		private void TimerTicked (object sender, EventArgs e) {
+			this.timer.Stop ();
+
+			this.preferences.SetConfig (UserPreferences.WindowLeft, this.Left);
+			this.preferences.SetConfig (UserPreferences.WindowTop, this.Top);
+			this.preferences.SetConfig (UserPreferences.WindowWidth, this.Width);
+			this.preferences.SetConfig (UserPreferences.WindowHeight, this.Height);
+			this.preferences.Save ();
+		}
+
+		private void LoadPreferences () {
+			this.preferences.Load ();
+			this.Left = double.Parse (this.preferences.GetConfig (UserPreferences.WindowLeft));
+			this.Top = double.Parse (this.preferences.GetConfig (UserPreferences.WindowTop));
+			this.Width = double.Parse (this.preferences.GetConfig (UserPreferences.WindowWidth));
+			this.Height = double.Parse (this.preferences.GetConfig (UserPreferences.WindowHeight));
 		}
 	}
 }
