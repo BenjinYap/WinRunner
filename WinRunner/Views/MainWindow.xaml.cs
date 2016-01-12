@@ -53,7 +53,9 @@ namespace WinRunner {
 				app = new RegistryApp ();
 			}
 
-			bool? result = new EditRegistryAppWindow (app).ShowDialog ();
+			EditRegistryAppWindow window = new EditRegistryAppWindow (app);
+			window.Owner = this;
+			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
 				if (isNew) {
@@ -78,7 +80,9 @@ namespace WinRunner {
 			Button button = sender as Button;
 			RegistryApp app = (RegistryApp) button.DataContext;
 			
-			bool? result = new DeleteRegistryAppWindow (app).ShowDialog ();
+			DeleteRegistryAppWindow window = new DeleteRegistryAppWindow (app);
+			window.Owner = this;
+			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
 				app.DeleteFromRegistry ();
@@ -87,11 +91,15 @@ namespace WinRunner {
 		}
 
 		private void ViewHelpExecuted (object sender, ExecutedRoutedEventArgs e) {
-			new HelpWindow ().ShowDialog ();
+			HelpWindow window = new HelpWindow ();
+			window.Owner = this;
+			window.ShowDialog ();
 		}
 
 		private void AboutWinRunnerExecuted (object sender, ExecutedRoutedEventArgs e) {
-			new AboutWindow ().ShowDialog ();
+			AboutWindow window = new AboutWindow ();
+			window.Owner = this;
+			window.ShowDialog ();
 		}
 
 		private void WindowLocationChanged (object sender, EventArgs e) {
