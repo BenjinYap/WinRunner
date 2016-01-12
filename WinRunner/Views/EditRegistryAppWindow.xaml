@@ -82,11 +82,9 @@
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding ElementName=TxtName, Path=(Validation.HasError)}" Value="True">
                                 <Setter Property="IsEnabled" Value="False"></Setter>
-                                <Setter Property="Background" Value="Red"></Setter>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding ElementName=TxtPath, Path=(Validation.HasError)}" Value="True">
                                 <Setter Property="IsEnabled" Value="False"></Setter>
-                                <Setter Property="Background" Value="Red"></Setter>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
