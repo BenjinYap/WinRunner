@@ -9,8 +9,13 @@
         Title="{x:Static res:Resource.Help}" Height="300">
     
     <Window.Resources>
-        <Style TargetType="{x:Type TextBlock}">
+        <Style TargetType="{x:Type ScrollViewer}">
             <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="VerticalScrollBarVisibility" Value="Visible"></Setter>
+            <Setter Property="Padding" Value="0 0 5 0"></Setter>
+        </Style>
+        
+        <Style TargetType="{x:Type TextBlock}">
             <Setter Property="TextWrapping" Value="Wrap"></Setter>
         </Style>
     </Window.Resources>
@@ -18,22 +23,21 @@
     <Grid Margin="0">
         <TabControl TabStripPlacement="Left">
             <TabItem Header="{x:Static res:Resource.Caution}">
-                <Grid Margin="5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    
-                    <TextBlock Text="{x:Static res:Resource.HelpCaution}" Margin="0"></TextBlock>
-                    <TextBlock TextWrapping="Wrap" Grid.Row="1" Margin="0">
-                        <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
-                            <Run Text="{x:Static res:Resource.Repo}"></Run>
-                        </Hyperlink>
-                    </TextBlock>
-                </Grid>
+                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                    <StackPanel>
+                        <TextBlock Text="{x:Static res:Resource.HelpCaution}" Margin="0"></TextBlock>
+                            <TextBlock TextWrapping="Wrap" Grid.Row="1" Margin="0">
+                            <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
+                                <Run Text="{x:Static res:Resource.Repo}"></Run>
+                            </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="{x:Static res:Resource.Overview}">
-                <TextBlock Text="{x:Static res:Resource.HelpOverview}"></TextBlock>
+                <ScrollViewer>
+                    <TextBlock Text="{x:Static res:Resource.HelpOverview}"></TextBlock>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
 
