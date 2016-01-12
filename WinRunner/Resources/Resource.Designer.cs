@@ -124,6 +124,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Developed by Benjin Yap.
+        /// </summary>
+        public static string DevelopedBy {
+            get {
+                return ResourceManager.GetString("DevelopedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Application.
         /// </summary>
         public static string EditApplication {
@@ -199,6 +208,15 @@ namespace WinRunner.Resources {
         public static string HelpOverview {
             get {
                 return ResourceManager.GetString("HelpOverview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensed under GPL v2.
+        /// </summary>
+        public static string LicensedUnder {
+            get {
+                return ResourceManager.GetString("LicensedUnder", resourceCulture);
             }
         }
         
@@ -316,6 +334,15 @@ namespace WinRunner.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source code available at the link below:.
+        /// </summary>
+        public static string SourceCodeAt {
+            get {
+                return ResourceManager.GetString("SourceCodeAt", resourceCulture);
             }
         }
         

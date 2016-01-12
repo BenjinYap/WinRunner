@@ -82,7 +82,7 @@ namespace WinRunner {
 		}
 
 		private void AboutWinRunnerExecuted (object sender, ExecutedRoutedEventArgs e) {
-			Debug.WriteLine ("B");
+			new AboutWindow ().ShowDialog ();
 		}
 	}
 }

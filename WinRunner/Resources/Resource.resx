@@ -138,6 +138,9 @@
   <data name="DeleteText" xml:space="preserve">
     <value>Really delete this?</value>
   </data>
+  <data name="DevelopedBy" xml:space="preserve">
+    <value>Developed by Benjin Yap</value>
+  </data>
   <data name="EditApplication" xml:space="preserve">
     <value>Edit Application</value>
   </data>
@@ -181,6 +184,9 @@ Any applications you create in this program will result in a matching key entry 
 
 Upon starting WinRunner it will search the Registry for any registered applications and populate its list with them. This means that WinRunner does not keep track of any external changes to the Registry.</value>
   </data>
+  <data name="LicensedUnder" xml:space="preserve">
+    <value>Licensed under GPL v2</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -219,6 +225,9 @@ Upon starting WinRunner it will search the Registry for any registered applicati
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="SourceCodeAt" xml:space="preserve">
+    <value>Source code available at the link below:</value>
   </data>
   <data name="ViewHelp" xml:space="preserve">
     <value>View Help</value>

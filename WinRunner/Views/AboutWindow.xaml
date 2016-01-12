@@ -4,10 +4,25 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:res="clr-namespace:WinRunner.Resources"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        SizeToContent="Height"
-        Width="300"
-        Title="{x:Static res:Resource.AboutWinRunner}" Height="300">
-    <Grid>
-        
-    </Grid>
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Title="{x:Static res:Resource.AboutWinRunner}">
+    
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel Margin="20">
+        <TextBlock>WinRunner</TextBlock>
+        <TextBlock Text="{x:Static res:Resource.DevelopedBy}" Margin="20"></TextBlock>
+        <TextBlock Text="{x:Static res:Resource.LicensedUnder}" Margin="0 0 0 20"></TextBlock>
+        <TextBlock Text="{x:Static res:Resource.SourceCodeAt}"></TextBlock>
+        <TextBlock>
+            <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
+                <Run Text="{x:Static res:Resource.Repo}"></Run>
+            </Hyperlink>
+        </TextBlock>
+    </StackPanel>
 </Window>
