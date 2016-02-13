@@ -57,7 +57,7 @@ namespace WinRunner {
 				app = new App ();
 			}
 
-			EditRegistryAppWindow window = new EditRegistryAppWindow (app);
+			EditAppWindow window = new EditAppWindow (app);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 
@@ -84,7 +84,7 @@ namespace WinRunner {
 			Button button = sender as Button;
 			App app = (App) button.DataContext;
 			
-			DeleteRegistryAppWindow window = new DeleteRegistryAppWindow (app);
+			DeleteAppWindow window = new DeleteAppWindow (app);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 

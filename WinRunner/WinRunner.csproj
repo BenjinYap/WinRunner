@@ -60,11 +60,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DeleteRegistryAppWindow.xaml">
+    <Page Include="Views\DeleteAppWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\EditRegistryAppWindow.xaml">
+    <Page Include="Views\EditAppWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,11 +91,11 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Commands.cs" />
-    <Compile Include="Views\DeleteRegistryAppWindow.xaml.cs">
-      <DependentUpon>DeleteRegistryAppWindow.xaml</DependentUpon>
+    <Compile Include="Views\DeleteAppWindow.xaml.cs">
+      <DependentUpon>DeleteAppWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditRegistryAppWindow.xaml.cs">
-      <DependentUpon>EditRegistryAppWindow.xaml</DependentUpon>
+    <Compile Include="Views\EditAppWindow.xaml.cs">
+      <DependentUpon>EditAppWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HelpWindow.xaml.cs">
       <DependentUpon>HelpWindow.xaml</DependentUpon>
