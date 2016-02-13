@@ -34,8 +34,8 @@ namespace WinRunner {
 
 			if (parent != null)
 			{
-				var textBox = (TextBox)parent;
-				if (!textBox.IsKeyboardFocusWithin)
+				TextBox textBox = (TextBox)parent;
+				if (!textBox.IsKeyboardFocusWithin && textBox.IsReadOnly == false)
 				{
 					// If the text box is not yet focused, give it the focus and
 					// stop further processing of this click event.
@@ -46,9 +46,9 @@ namespace WinRunner {
 		}
 
 		private void SelectAllText(object sender, RoutedEventArgs e) {
-			var textBox = e.OriginalSource as TextBox;
+			TextBox textBox = e.OriginalSource as TextBox;
 
-			if (textBox != null) {
+			if (textBox != null && textBox.IsReadOnly == false) {
 				textBox.SelectAll();
 			}
 		}

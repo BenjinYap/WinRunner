@@ -14,13 +14,20 @@
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
     </Window.Resources>
     
     <StackPanel Margin="20">
-        <TextBlock>WinRunner</TextBlock>
-        <TextBlock Text="{x:Static res:Resource.DevelopedBy}" Margin="20"></TextBlock>
-        <TextBlock Text="{x:Static res:Resource.LicensedUnder}" Margin="0 0 0 20"></TextBlock>
-        <TextBlock Text="{x:Static res:Resource.SourceCodeAt}"></TextBlock>
+        <TextBox>WinRunner</TextBox>
+        <TextBox Text="{x:Static res:Resource.DevelopedBy}" Margin="20"></TextBox>
+        <TextBox Text="{x:Static res:Resource.LicensedUnder}" Margin="0 0 0 20"></TextBox>
+        <TextBox Text="{x:Static res:Resource.SourceCodeAt}"></TextBox>
         <TextBlock>
             <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
                 <Run Text="{x:Static res:Resource.Repo}"></Run>
