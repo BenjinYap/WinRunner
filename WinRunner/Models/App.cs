@@ -14,7 +14,7 @@ using WinRunner.Resources;
 namespace WinRunner.Models {
 	
 
-	public class RegistryApp:ModelBase {
+	public class App:ModelBase {
 		//public event PropertyChangedEventHandler PropertyChanged;
 
 		private BitmapImage icon;
@@ -49,12 +49,12 @@ namespace WinRunner.Models {
 
 		private RegistryKey regKey;
 
-		public RegistryApp () {
+		public App () {
 			this.Name = "";
 			this.Path = "";
 		}
 
-		public RegistryApp (RegistryKey regKey) {
+		public App (RegistryKey regKey) {
 			this.regKey = regKey;
 			this.Name = this.GetAppName (regKey.Name);
 			this.Path = regKey.GetValue ("").ToString ();

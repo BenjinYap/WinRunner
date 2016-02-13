@@ -7,7 +7,7 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
         ResizeMode="NoResize"
-        Width="300"
+        Width="400"
         Title="{x:Static res:Resource.DeleteApplication}">
 
     <Window.Resources>

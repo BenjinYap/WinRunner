@@ -21,12 +21,12 @@ namespace WinRunner.Views {
 	/// Interaction logic for EditRegistryAppWindow.xaml
 	/// </summary>
 	public partial class EditRegistryAppWindow:Window {
-		public RegistryApp App { get; set; }
+		public App App { get; set; }
 
 		private string oldName;
 		private string oldPath;
 
-		public EditRegistryAppWindow (RegistryApp app) {
+		public EditRegistryAppWindow (App app) {
 			this.App = app;
 
 			this.oldName = app.Name;

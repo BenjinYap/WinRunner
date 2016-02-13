@@ -50,11 +50,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Program.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\RegistryBatchApp.cs" />
+    <Compile Include="Models\BatchApp.cs" />
     <Compile Include="Views\UserPreferences.cs" />
     <Page Include="Views\AboutWindow.xaml">
       <SubType>Designer</SubType>
@@ -76,8 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
+    <Compile Include="Program.xaml.cs">
+      <DependentUpon>Program.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\ModelBase.cs" />
@@ -106,8 +106,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\RegistryApp.cs" />
-    <Compile Include="Models\RegistryAppList.cs" />
+    <Compile Include="Models\App.cs" />
+    <Compile Include="Models\AppList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

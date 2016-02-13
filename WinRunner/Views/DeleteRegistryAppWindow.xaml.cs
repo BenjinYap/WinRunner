@@ -18,9 +18,9 @@ namespace WinRunner.Views {
 	/// Interaction logic for DeleteRegistryAppWindow.xaml
 	/// </summary>
 	public partial class DeleteRegistryAppWindow:Window {
-		public RegistryApp App { get; set; }
+		public App App { get; set; }
 
-		public DeleteRegistryAppWindow (RegistryApp app) {
+		public DeleteRegistryAppWindow (App app) {
 			this.App = app;
 
 			InitializeComponent ();

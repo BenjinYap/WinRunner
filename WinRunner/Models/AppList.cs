@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 namespace WinRunner.Models {
-	public class RegistryAppList:ObservableCollection <RegistryApp> {
+	public class AppList:ObservableCollection <App> {
 
 		public void LoadAppsFromRegistry () {
 			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
@@ -14,7 +14,7 @@ namespace WinRunner.Models {
 			foreach (string keyName in keyNames) {
 				if (Regex.Match (keyName, @"\.exe$", RegexOptions.IgnoreCase).Success) {
 					RegistryKey key = rootKey.OpenSubKey (keyName, true);
-					this.Add (new RegistryApp (key));
+					this.Add (new App (key));
 				}
 			}
 

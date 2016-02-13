@@ -23,13 +23,13 @@ namespace WinRunner {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow:Window {
-		public RegistryAppList AppList { get; set; }
+		public AppList AppList { get; set; }
 
 		private UserPreferences preferences = new UserPreferences ();
 		private DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 500) };
 
 		public MainWindow () {
-			this.AppList = new RegistryAppList ();
+			this.AppList = new AppList ();
 			
 			InitializeComponent ();
 			
@@ -49,12 +49,12 @@ namespace WinRunner {
 			OpenAppWindow (null);
 		}
 
-		private bool? OpenAppWindow (RegistryApp app) {
+		private bool? OpenAppWindow (App app) {
 			bool isNew = false;
 
 			if (app == null) {
 				isNew = true;
-				app = new RegistryApp ();
+				app = new App ();
 			}
 
 			EditRegistryAppWindow window = new EditRegistryAppWindow (app);
@@ -72,7 +72,7 @@ namespace WinRunner {
 
 		private void EditAppClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			bool? result = OpenAppWindow ((RegistryApp) button.DataContext);
+			bool? result = OpenAppWindow ((App) button.DataContext);
 			
 			if (result.HasValue && result.Value) {
 				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
@@ -82,7 +82,7 @@ namespace WinRunner {
 
 		private void DeleteAppClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			RegistryApp app = (RegistryApp) button.DataContext;
+			App app = (App) button.DataContext;
 			
 			DeleteRegistryAppWindow window = new DeleteRegistryAppWindow (app);
 			window.Owner = this;
