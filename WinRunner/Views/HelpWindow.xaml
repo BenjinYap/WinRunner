@@ -7,6 +7,7 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
         Width="500"
+        KeyUp="KeyUpped"
         Title="{x:Static res:Resource.Help}" Height="300">
     
     <Window.Resources>

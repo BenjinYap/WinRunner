@@ -19,6 +19,8 @@ namespace WinRunner.Views {
 	/// Interaction logic for HelpWindow.xaml
 	/// </summary>
 	public partial class HelpWindow:Window {
+		private bool throwawayKeyUp = false;
+
 		public HelpWindow () {
 			InitializeComponent ();
 		}
@@ -26,6 +28,14 @@ namespace WinRunner.Views {
 		private void NavigateRequested (object sender, RequestNavigateEventArgs e) {
 			Process.Start (new ProcessStartInfo (e.Uri.AbsoluteUri));
 			e.Handled = true;
+		}
+
+		private void KeyUpped (object sender, KeyEventArgs e) {
+			if (throwawayKeyUp && e.Key == Key.F1 || e.Key == Key.Escape) {
+				this.Close ();
+			}
+
+			throwawayKeyUp = true;
 		}
 	}
 }
