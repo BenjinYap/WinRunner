@@ -9,11 +9,12 @@
         SizeToContent="Height"
         Width="500"
         KeyUp="KeyUpped"
+        FocusManager.FocusedElement="{Binding ElementName=Tabs}"
         Title="{x:Static res:Resource.Help}" d:DesignHeight="453.6">
 
     <Window.Resources>
         <Style TargetType="{x:Type ScrollViewer}">
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="5 0 0 0"/>
             <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
             <Setter Property="Padding" Value="0 0 5 0"/>
         </Style>
@@ -25,18 +26,18 @@
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="Padding" Value="-5"/>
+            <Setter Property="Padding" Value="-5 3 0 3"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
     </Window.Resources>
 
     <Grid Margin="0">
-        <TabControl TabStripPlacement="Left">
-            <TabItem Header="{x:Static res:Resource.Caution}">
+        <TabControl TabStripPlacement="Left" IsTabStop="False">
+            <TabItem Header="{x:Static res:Resource.Caution}" x:Name="Tabs">
                 <ScrollViewer VerticalScrollBarVisibility="Visible">
                     <StackPanel>
                         <TextBox Text="{x:Static res:Resource.HelpCaution}" Margin="0"/>
-                        <TextBlock TextWrapping="Wrap" Grid.Row="1" Margin="0">
+                        <TextBlock TextWrapping="Wrap" Grid.Row="1" Margin="0 0 0 5">
                             <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested"><Run Text="{x:Static res:Resource.Repo}"/></Hyperlink>
                         </TextBlock>
                     </StackPanel>
