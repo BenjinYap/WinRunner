@@ -12,6 +12,8 @@ using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
 namespace WinRunner.Models {
+	
+
 	public class RegistryApp:ModelBase {
 		//public event PropertyChangedEventHandler PropertyChanged;
 

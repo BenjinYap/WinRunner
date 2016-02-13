@@ -208,6 +208,9 @@ Upon starting WinRunner it will search the Registry for any registered applicati
   <data name="NewApplication" xml:space="preserve">
     <value>New Application</value>
   </data>
+  <data name="NewBatchApplication" xml:space="preserve">
+    <value>New Batch Application</value>
+  </data>
   <data name="Overview" xml:space="preserve">
     <value>Overview</value>
   </data>

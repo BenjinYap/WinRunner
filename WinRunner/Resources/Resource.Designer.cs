@@ -284,6 +284,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Batch Application.
+        /// </summary>
+        public static string NewBatchApplication {
+            get {
+                return ResourceManager.GetString("NewBatchApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overview.
         /// </summary>
         public static string Overview {

@@ -42,7 +42,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="0 0 5 0" Margin="0 0 0 5" Grid.ColumnSpan="2">
@@ -71,7 +71,14 @@
                 </ItemsControl>
             </ScrollViewer>
 
-            <Button Content="{x:Static res:Resource.NewApplication}" Click="NewAppClicked" Grid.Row="1" Grid.Column="1"></Button>
+            <Button Content="{x:Static res:Resource.NewBatchApplication}"
+                    Click="NewBatchAppClicked"
+                    Margin="0 0 2.5 0"
+                    Grid.Row="1" Grid.Column="0"></Button>
+            <Button Content="{x:Static res:Resource.NewApplication}"
+                    Click="NewAppClicked"
+                    Margin="2.5 0 0 0"
+                    Grid.Row="1" Grid.Column="1"></Button>
         </Grid>
     </DockPanel>
 </Window>

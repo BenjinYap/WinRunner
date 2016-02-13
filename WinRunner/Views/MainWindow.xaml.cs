@@ -41,6 +41,10 @@ namespace WinRunner {
 			this.LoadPreferences ();
 		}
 
+		private void NewBatchAppClicked (object sender, RoutedEventArgs e) {
+			//OpenAppWindow (null);
+		}
+
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
 			OpenAppWindow (null);
 		}
