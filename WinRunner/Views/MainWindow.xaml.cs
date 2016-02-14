@@ -42,16 +42,14 @@ namespace WinRunner {
 		}
 
 		private void NewBatchAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new BatchApp ());
+			OpenAppWindow (new BatchApp (), true);
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new App ());
+			OpenAppWindow (new App (), true);
 		}
 
-		private bool? OpenAppWindow (App app) {
-			bool isNew = false;
-
+		private bool? OpenAppWindow (App app, bool isNew) {
 			EditAppWindow window = new EditAppWindow (app);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
@@ -67,7 +65,7 @@ namespace WinRunner {
 
 		private void EditAppClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			bool? result = OpenAppWindow ((App) button.DataContext);
+			bool? result = OpenAppWindow ((App) button.DataContext, false);
 			
 			if (result.HasValue && result.Value) {
 				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
