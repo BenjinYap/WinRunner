@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Data;
 using WinRunner.Models;
+using WinRunner.Models.Apps;
 namespace WinRunner.Views {
 	public class AppTypeToEnumConverter:IValueConverter {
 

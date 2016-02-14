@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using WinRunner.Models;
+using WinRunner.Models.Apps;
 namespace WinRunner.Views.EditAppWidgets {
 	public class EditAppWidget:UserControl, INotifyPropertyChanged {
 		#region INotifyPropertyChanged

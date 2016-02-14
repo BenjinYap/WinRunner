@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WinRunner.Models;
+using WinRunner.Models.Apps;
 using WinRunner.Views;
 
 namespace WinRunner {

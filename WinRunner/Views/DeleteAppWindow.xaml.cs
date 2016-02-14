@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WinRunner.Models;
+using WinRunner.Models.Apps;
 
 namespace WinRunner.Views {
 	/// <summary>

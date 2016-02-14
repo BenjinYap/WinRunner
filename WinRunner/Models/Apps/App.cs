@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
-namespace WinRunner.Models {
+namespace WinRunner.Models.Apps {
 	public enum AppType { Path, Batch }
 
 	public class App:ModelBase {

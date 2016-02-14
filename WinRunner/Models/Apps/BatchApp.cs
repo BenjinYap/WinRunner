@@ -1,6 +1,6 @@
 ﻿
 
-namespace WinRunner.Models {
+namespace WinRunner.Models.Apps {
 	public class BatchApp:App {
 
 	}

@@ -5,7 +5,7 @@
         xmlns:res="clr-namespace:WinRunner.Resources"
         xmlns:widgets="clr-namespace:WinRunner.Views.EditAppWidgets"
         xmlns:views="clr-namespace:WinRunner.Views"
-        xmlns:models="clr-namespace:WinRunner.Models"
+        xmlns:apps="clr-namespace:WinRunner.Models.Apps"
         WindowStartupLocation="CenterOwner"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
@@ -67,7 +67,7 @@
             <ContentControl.Style>
                 <Style TargetType="{x:Type ContentControl}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static models:AppType.Path}">
+                        <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>

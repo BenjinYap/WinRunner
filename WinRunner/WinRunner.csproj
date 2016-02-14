@@ -54,7 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\BatchApp.cs" />
+    <Compile Include="Models\Apps\BatchApp.cs" />
     <Compile Include="Views\Converters.cs" />
     <Compile Include="Views\EditAppWidgets\BatchAppWidget.xaml.cs">
       <DependentUpon>BatchAppWidget.xaml</DependentUpon>
@@ -122,7 +122,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\App.cs" />
+    <Compile Include="Models\Apps\App.cs" />
     <Compile Include="Models\AppList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
