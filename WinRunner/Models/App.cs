@@ -12,11 +12,10 @@ using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
 namespace WinRunner.Models {
-	
+	public enum AppType { Path, Batch }
 
 	public class App:ModelBase {
-		//public event PropertyChangedEventHandler PropertyChanged;
-
+		
 		private BitmapImage icon;
 		public BitmapImage Icon {
 			get { return this.icon; }

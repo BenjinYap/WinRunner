@@ -42,20 +42,15 @@ namespace WinRunner {
 		}
 
 		private void NewBatchAppClicked (object sender, RoutedEventArgs e) {
-			//OpenAppWindow (null);
+			OpenAppWindow (new BatchApp ());
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (null);
+			OpenAppWindow (new App ());
 		}
 
 		private bool? OpenAppWindow (App app) {
 			bool isNew = false;
-
-			if (app == null) {
-				isNew = true;
-				app = new App ();
-			}
 
 			EditAppWindow window = new EditAppWindow (app);
 			window.Owner = this;

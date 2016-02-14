@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -12,27 +11,20 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WinRunner.Models;
 
-namespace WinRunner.Views {
+namespace WinRunner.Views.EditAppWidgets {
 	/// <summary>
-	/// Interaction logic for EditRegistryAppWindow.xaml
+	/// Interaction logic for PathAppWidget.xaml
 	/// </summary>
-	public partial class EditAppWindow:Window {
-		public App App { get; set; }
-
-		private string oldName;
-		private string oldPath;
-
-		public EditAppWindow (App app) {
-			this.App = app;
-			
-			this.oldName = app.Name;
-			this.oldPath = app.Path;
-
+	public partial class PathAppWidget:EditAppWidget {
+		public PathAppWidget () {
 			InitializeComponent ();
+
+			
 		}
 
 		private void ChooseFileClicked (object sender, RoutedEventArgs e) {
@@ -49,19 +41,6 @@ namespace WinRunner.Views {
 			
 			if (result.HasValue && result.Value) {
 				this.App.Path = dialog.FileName;
-			}
-		}
-
-		private void SaveClicked (object sender, RoutedEventArgs e) {
-			this.DialogResult = true;
-		}
-
-		private void WindowClosing (object sender, CancelEventArgs e) {
-			if (this.DialogResult == true) {
-				this.App.FlushToRegistry ();
-			} else {
-				this.App.Name = this.oldName;
-				this.App.Path = this.oldPath;
 			}
 		}
 	}

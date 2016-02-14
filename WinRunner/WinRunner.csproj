@@ -55,12 +55,28 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\BatchApp.cs" />
+    <Compile Include="Views\Converters.cs" />
+    <Compile Include="Views\EditAppWidgets\BatchAppWidget.xaml.cs">
+      <DependentUpon>BatchAppWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditAppWidgets\EditAppWidget.cs" />
+    <Compile Include="Views\EditAppWidgets\PathAppWidget.xaml.cs">
+      <DependentUpon>PathAppWidget.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserPreferences.cs" />
     <Page Include="Views\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DeleteAppWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditAppWidgets\BatchAppWidget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditAppWidgets\PathAppWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +154,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

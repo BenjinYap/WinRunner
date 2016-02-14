@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 namespace WinRunner.Models {
 	public class ModelBase:INotifyPropertyChanged, INotifyDataErrorInfo {
@@ -15,6 +16,7 @@ namespace WinRunner.Models {
 
 			if (handler != null) {
 				handler (this, new PropertyChangedEventArgs (propertyName));
+				handler (this, new PropertyChangedEventArgs ("HasErrors"));
 			}
 		}
 		#endregion

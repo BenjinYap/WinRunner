@@ -1,0 +1,28 @@
+﻿<widgets:EditAppWidget x:Class="WinRunner.Views.EditAppWidgets.PathAppWidget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:widgets="clr-namespace:WinRunner.Views.EditAppWidgets"
+                       xmlns:res="clr-namespace:WinRunner.Resources"
+             mc:Ignorable="d"
+                       DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <Grid Grid.Row="1" Margin="0 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label>Path</Label>
+        <Button Content="{x:Static res:Resource.ChooseFile}" Click="ChooseFileClicked" Grid.Column="1"></Button>
+        <TextBox x:Name="TxtPath" Text="{Binding App.Path, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" Margin="0 5 0 0" Grid.Row="1" Grid.ColumnSpan="100"></TextBox>
+        <ItemsControl ItemsSource="{Binding ElementName=TxtPath, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="2" Grid.ColumnSpan="10"></ItemsControl>
+    </Grid>
+</widgets:EditAppWidget>
