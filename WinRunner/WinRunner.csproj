@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Apps\BatchApp.cs" />
+    <Compile Include="Models\Apps\PathApp.cs" />
     <Compile Include="Views\Converters.cs" />
     <Compile Include="Views\EditAppWidgets\BatchAppWidget.xaml.cs">
       <DependentUpon>BatchAppWidget.xaml</DependentUpon>

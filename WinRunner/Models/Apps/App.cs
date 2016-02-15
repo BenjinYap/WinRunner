@@ -14,7 +14,7 @@ using WinRunner.Resources;
 namespace WinRunner.Models.Apps {
 	public enum AppType { Path, Batch }
 
-	public class App:ModelBase {
+	public abstract class App:ModelBase {
 		
 		private BitmapImage icon;
 		public BitmapImage Icon {
@@ -35,31 +35,28 @@ namespace WinRunner.Models.Apps {
 			}
 		}
 
-		private string path;
-		public string Path {
-			get { return this.path; }
-			set {
-				this.path = value;
-				this.ValidatePath ();
-				base.OnPropertyChanged ();
-				this.GetIconFromPath (value);
-			}
-		}
+		protected RegistryKey regKey;
 
-		private RegistryKey regKey;
+		private string oldName;
 
 		public App () {
 			this.Name = "";
-			this.Path = "";
 		}
 
 		public App (RegistryKey regKey) {
 			this.regKey = regKey;
 			this.Name = this.GetAppName (regKey.Name);
-			this.Path = regKey.GetValue ("").ToString ();
 		}
 
-		public bool FlushToRegistry () {
+		public virtual void RememberProperties () {
+			this.oldName = this.Name;
+		}
+
+		public virtual void RevertProperties () {
+			this.Name = this.oldName;
+		}
+
+		public virtual void FlushToRegistry () {
 			bool create = false;
 			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
 			
@@ -75,9 +72,6 @@ namespace WinRunner.Models.Apps {
 			}
 
 			rootKey.Close ();
-			this.regKey.SetValue ("", this.Path);
-			
-			return true;
 		}
 
 		public bool DeleteFromRegistry () {
@@ -123,40 +117,6 @@ namespace WinRunner.Models.Apps {
 				base.AddError (Resource.NameInvalidDot, propertyName);
 			} else {
 				base.RemoveError (Resource.NameInvalidDot, propertyName);
-			}
-		}
-
-		private void ValidatePath ([CallerMemberName] string propertyName = null) {
-			if (this.Path.Length <= 0) {
-				base.AddError (Resource.PathRequired, propertyName);
-			} else {
-				base.RemoveError (Resource.PathRequired, propertyName);
-
-				if (File.Exists (this.Path) == false) {
-					base.AddError (Resource.PathDoesNotExist, propertyName);
-				} else {
-					base.RemoveError (Resource.PathDoesNotExist, propertyName);
-				}
-			}
-		}
-
-		private void GetIconFromPath (string path) {
-			if (File.Exists (path)) {
-				System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon (path);
-				Bitmap bitmap = icon.ToBitmap ();
-
-				using (MemoryStream memory = new MemoryStream ())
-				{
-					bitmap.Save (memory, ImageFormat.Bmp);
-					memory.Position = 0;
-					BitmapImage bitmapimage = new BitmapImage();
-					bitmapimage.BeginInit ();
-					bitmapimage.StreamSource = memory;
-					bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
-					bitmapimage.EndInit ();
-					
-					this.Icon = bitmapimage;
-				}
 			}
 		}
 

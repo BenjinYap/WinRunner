@@ -24,33 +24,11 @@ namespace WinRunner.Views {
 	public partial class EditAppWindow:Window {
 		public App App { get; set; }
 
-		private string oldName;
-		private string oldPath;
-
 		public EditAppWindow (App app) {
 			this.App = app;
+			this.App.RememberProperties ();
 			
-			this.oldName = app.Name;
-			this.oldPath = app.Path;
-
 			InitializeComponent ();
-		}
-
-		private void ChooseFileClicked (object sender, RoutedEventArgs e) {
-			OpenFileDialog dialog = new OpenFileDialog ();
-			
-			if (File.Exists (this.App.Path)) {
-				dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.App.Path);
-			}
-
-			dialog.FileName = this.App.Path;
-			dialog.CheckFileExists = true;
-			dialog.CheckPathExists = true;
-			bool? result = dialog.ShowDialog ();
-			
-			if (result.HasValue && result.Value) {
-				this.App.Path = dialog.FileName;
-			}
 		}
 
 		private void SaveClicked (object sender, RoutedEventArgs e) {
@@ -61,8 +39,7 @@ namespace WinRunner.Views {
 			if (this.DialogResult == true) {
 				this.App.FlushToRegistry ();
 			} else {
-				this.App.Name = this.oldName;
-				this.App.Path = this.oldPath;
+				this.App.RevertProperties ();
 			}
 		}
 	}

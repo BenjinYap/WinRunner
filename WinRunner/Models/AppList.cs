@@ -15,7 +15,7 @@ namespace WinRunner.Models {
 			foreach (string keyName in keyNames) {
 				if (Regex.Match (keyName, @"\.exe$", RegexOptions.IgnoreCase).Success) {
 					RegistryKey key = rootKey.OpenSubKey (keyName, true);
-					this.Add (new App (key));
+					this.Add (new PathApp (key));
 				}
 			}
 

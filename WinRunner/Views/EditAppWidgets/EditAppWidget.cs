@@ -28,7 +28,7 @@ namespace WinRunner.Views.EditAppWidgets {
 				this.OnPropertyChanged ();
 			}
 		}
-
+		
 		public static readonly DependencyProperty AppProperty = DependencyProperty.Register ("App", typeof (App), typeof (EditAppWidget));
 
 		public App App {

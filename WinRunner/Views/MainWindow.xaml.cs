@@ -47,7 +47,7 @@ namespace WinRunner {
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new App (), true);
+			OpenAppWindow (new PathApp (), true);
 		}
 
 		private bool? OpenAppWindow (App app, bool isNew) {
