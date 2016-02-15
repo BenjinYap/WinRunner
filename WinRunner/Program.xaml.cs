@@ -14,7 +14,7 @@ namespace WinRunner {
 	/// Interaction logic for App.xaml
 	/// </summary>
 	public partial class Program:Application {
-
+		
 		protected override void OnStartup(StartupEventArgs e) {
 			// Select the text in a TextBox when it receives focus.
 			EventManager.RegisterClassHandler(typeof(TextBox), TextBox.PreviewMouseLeftButtonDownEvent,
