@@ -4,9 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:widgets="clr-namespace:WinRunner.Views.EditAppWidgets"
+                       xmlns:res="clr-namespace:WinRunner.Resources"
              mc:Ignorable="d" 
+                       IsTabStop="False"
+                       DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Button>dwadwadwa</Button>
+    <Grid Grid.Row="1" Margin="0 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="{x:Static res:Resource.BatchScript}"></Label>
+        <TextBox Text="{Binding App.Script, UpdateSourceTrigger=PropertyChanged}" Margin="0 5 0 0" Grid.Row="1" Grid.ColumnSpan="100"></TextBox>
     </Grid>
 </widgets:EditAppWidget>

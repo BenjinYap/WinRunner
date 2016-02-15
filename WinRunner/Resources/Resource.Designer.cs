@@ -70,6 +70,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Batch Script.
+        /// </summary>
+        public static string BatchScript {
+            get {
+                return ResourceManager.GetString("BatchScript", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {

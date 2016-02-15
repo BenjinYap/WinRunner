@@ -6,6 +6,7 @@
              xmlns:widgets="clr-namespace:WinRunner.Views.EditAppWidgets"
                        xmlns:res="clr-namespace:WinRunner.Resources"
              mc:Ignorable="d"
+                       IsTabStop="False"
                        DataContext="{Binding RelativeSource={RelativeSource Self}}"
              d:DesignHeight="300" d:DesignWidth="300">
     

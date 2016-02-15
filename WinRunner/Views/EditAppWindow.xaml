@@ -16,10 +16,6 @@
         Title="{x:Static res:Resource.EditApplication}">
     
     <Window.Resources>
-        <DataTemplate x:Key="PathAppWidget">
-            <widgets:PathAppWidget></widgets:PathAppWidget>
-        </DataTemplate>
-        
         <views:AppTypeToEnumConverter x:Key="AppTypeToEnum"></views:AppTypeToEnumConverter>
         
         <sys:Double x:Key="ControlHeight">30</sys:Double>
@@ -63,7 +59,7 @@
             <ItemsControl ItemsSource="{Binding ElementName=TxtName, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="1" Grid.Column="2"></ItemsControl>
         </Grid>
 
-        <ContentControl Grid.Row="1">
+        <ContentControl Grid.Row="1" IsTabStop="False">
             <ContentControl.Style>
                 <Style TargetType="{x:Type ContentControl}">
                     <Style.Triggers>
@@ -72,6 +68,15 @@
                                 <Setter.Value>
                                     <DataTemplate>
                                         <widgets:PathAppWidget x:Name="awd" App="{Binding App, ElementName=Self}"></widgets:PathAppWidget>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <widgets:BatchAppWidget x:Name="awd" App="{Binding App, ElementName=Self}"></widgets:BatchAppWidget>
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>

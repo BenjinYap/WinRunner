@@ -120,6 +120,9 @@
   <data name="AboutWinRunner" xml:space="preserve">
     <value>About WinRunner</value>
   </data>
+  <data name="BatchScript" xml:space="preserve">
+    <value>Batch Script</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
