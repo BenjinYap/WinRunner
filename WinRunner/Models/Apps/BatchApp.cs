@@ -37,14 +37,18 @@ namespace WinRunner.Models.Apps {
 
 		public override void FlushToRegistry () {
 			this.WriteToBatchFile ();
-			//base.FlushToRegistry ();
-			//this.regKey.SetValue ("", this.Path);
+			base.FlushToRegistry ();
+			this.regKey.SetValue ("", this.GetBatchFilePath ());
 		}
 
 		public static string BatchFilesPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\BatchFiles\";
 
+		private string GetBatchFilePath () {
+			return BatchFilesPath + this.Name + ".bat";
+		}
+
 		private void WriteToBatchFile () {
-			FileInfo fileInfo = new FileInfo (BatchFilesPath + this.Name + ".bat");
+			FileInfo fileInfo = new FileInfo (this.GetBatchFilePath ());
 			fileInfo.Directory.Create ();
 			File.WriteAllText (fileInfo.FullName, this.Script);
 		}
