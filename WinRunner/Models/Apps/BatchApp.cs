@@ -22,7 +22,7 @@ namespace WinRunner.Models.Apps {
 		}
 
 		public BatchApp (RegistryKey regKey):base (regKey) {
-			//this.Path = regKey.GetValue ("").ToString ();
+			this.Script = File.ReadAllText (this.GetBatchFilePath ());
 		}
 
 		public override void RememberProperties () {
