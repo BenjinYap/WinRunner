@@ -81,6 +81,26 @@ namespace WinRunner.Models.Apps {
 			return true;
 		}
 
+		protected void GetIconFromPath (string path) {
+			if (File.Exists (path)) {
+				System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon (path);
+				Bitmap bitmap = icon.ToBitmap ();
+
+				using (MemoryStream memory = new MemoryStream ())
+				{
+					bitmap.Save (memory, ImageFormat.Bmp);
+					memory.Position = 0;
+					BitmapImage bitmapimage = new BitmapImage();
+					bitmapimage.BeginInit ();
+					bitmapimage.StreamSource = memory;
+					bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+					bitmapimage.EndInit ();
+					
+					this.Icon = bitmapimage;
+				}
+			}
+		}
+
 		private void ValidateName ([CallerMemberName] string propertyName = null) {
 			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
 			string [] appKeyNames = rootKey.GetSubKeyNames ();

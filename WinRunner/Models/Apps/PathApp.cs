@@ -18,7 +18,7 @@ namespace WinRunner.Models.Apps {
 				this.path = value;
 				this.ValidatePath ();
 				base.OnPropertyChanged ();
-				this.GetIconFromPath (value);
+				base.GetIconFromPath (value);
 			}
 		}
 
@@ -57,26 +57,6 @@ namespace WinRunner.Models.Apps {
 					base.AddError (Resource.PathDoesNotExist, propertyName);
 				} else {
 					base.RemoveError (Resource.PathDoesNotExist, propertyName);
-				}
-			}
-		}
-
-		private void GetIconFromPath (string path) {
-			if (File.Exists (path)) {
-				System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon (path);
-				Bitmap bitmap = icon.ToBitmap ();
-
-				using (MemoryStream memory = new MemoryStream ())
-				{
-					bitmap.Save (memory, ImageFormat.Bmp);
-					memory.Position = 0;
-					BitmapImage bitmapimage = new BitmapImage();
-					bitmapimage.BeginInit ();
-					bitmapimage.StreamSource = memory;
-					bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
-					bitmapimage.EndInit ();
-					
-					this.Icon = bitmapimage;
 				}
 			}
 		}

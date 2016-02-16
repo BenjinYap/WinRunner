@@ -23,6 +23,7 @@ namespace WinRunner.Models.Apps {
 
 		public BatchApp (RegistryKey regKey):base (regKey) {
 			this.Script = File.ReadAllText (this.GetBatchFilePath ());
+			base.GetIconFromPath (this.GetBatchFilePath ());
 		}
 
 		public override void RememberProperties () {
@@ -37,6 +38,7 @@ namespace WinRunner.Models.Apps {
 
 		public override void FlushToRegistry () {
 			this.WriteToBatchFile ();
+			base.GetIconFromPath (this.GetBatchFilePath ());
 			base.FlushToRegistry ();
 			this.regKey.SetValue ("", this.GetBatchFilePath ());
 		}
