@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using WinRunner.Views;
 
 namespace WinRunner {
 	/// <summary>
@@ -32,11 +34,13 @@ namespace WinRunner {
 			while (parent != null && !(parent is TextBox))
 				parent = VisualTreeHelper.GetParent(parent);
 			
-			if (parent != null)
-			{
-				TextBox textBox = (TextBox)parent;
-				if (!textBox.IsKeyboardFocusWithin && textBox.IsReadOnly == false)
-				{
+			if (parent != null) {
+				if (this.BelongsToHelpWindows (parent)) {
+					return;
+				}
+
+				TextBox textBox = (TextBox) parent;
+				if (!textBox.IsKeyboardFocusWithin) {
 					// If the text box is not yet focused, give it the focus and
 					// stop further processing of this click event.
 					textBox.Focus();
@@ -48,9 +52,23 @@ namespace WinRunner {
 		private void SelectAllText(object sender, RoutedEventArgs e) {
 			TextBox textBox = e.OriginalSource as TextBox;
 
-			if (textBox != null && textBox.IsReadOnly == false) {
+			if (textBox != null && this.BelongsToHelpWindows (textBox) == false) {
 				textBox.SelectAll();
 			}
+		}
+
+		private bool BelongsToHelpWindows (DependencyObject element) {
+			DependencyObject parent = element;
+
+			while (parent != null) {
+				parent = VisualTreeHelper.GetParent (parent);
+
+				if (parent != null && parent is AboutWindow || parent is HelpWindow) {
+					return true;
+				}
+			}
+
+			return false;
 		}
 	}
 }
