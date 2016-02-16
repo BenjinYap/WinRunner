@@ -14,8 +14,6 @@
 
     <Window.Resources>
         <views:AppTypeToEnumConverter x:Key="AppTypeToEnum"></views:AppTypeToEnumConverter>
-        
-        <sys:Double x:Key="ControlHeight">30</sys:Double>
 
         <Style TargetType="{x:Type Label}">
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>

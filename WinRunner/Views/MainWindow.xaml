@@ -19,8 +19,6 @@
     </Window.CommandBindings>
     
     <Window.Resources>
-        <sys:Double x:Key="ControlHeight">30</sys:Double>
-        
         <Style TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="5 0"></Setter>
             <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
