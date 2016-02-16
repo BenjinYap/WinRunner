@@ -22,7 +22,6 @@
             <Setter Property="AcceptsTab" Value="True"></Setter>
             <Setter Property="MinHeight" Value="{StaticResource ControlHeight}"></Setter>
             <Setter Property="FontFamily" Value="consolas"></Setter>
-            <Setter Property="TextWrapping" Value="WrapWithOverflow"></Setter>
             <Setter Property="Height" Value="auto"></Setter>
             <Setter Property="Padding" Value="3 5 3 5"></Setter>
         </Style>
