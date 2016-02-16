@@ -61,6 +61,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Batch Script.
+        /// </summary>
+        public static string BatchScript {
+            get {
+                return ResourceManager.GetString("BatchScript", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Batch Application.
         /// </summary>
         public static string DeleteBatchApplication {
@@ -93,6 +102,24 @@ namespace WinRunner.Resources {
         public static string EditPathApplication {
             get {
                 return ResourceManager.GetString("EditPathApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path.
+        /// </summary>
+        public static string Path {
+            get {
+                return ResourceManager.GetString("Path", resourceCulture);
             }
         }
     }

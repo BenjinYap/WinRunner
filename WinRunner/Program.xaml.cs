@@ -31,7 +31,7 @@ namespace WinRunner {
 			DependencyObject parent = e.OriginalSource as UIElement;
 			while (parent != null && !(parent is TextBox))
 				parent = VisualTreeHelper.GetParent(parent);
-
+			
 			if (parent != null)
 			{
 				TextBox textBox = (TextBox)parent;

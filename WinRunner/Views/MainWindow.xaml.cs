@@ -44,7 +44,7 @@ namespace WinRunner {
 			DispatcherTimer awd = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 200) };
 			awd.Start ();
 			awd.Tick += (a, b) => {
-				//new DeleteAppWindow (this.AppList [1]).ShowDialog ();
+				//new DeleteAppWindow (this.AppList [0]).ShowDialog ();
 				//OpenAppWindow (this.AppList [0], true);
 				awd.Stop ();
 			};

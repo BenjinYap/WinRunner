@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BatchScript" xml:space="preserve">
+    <value>Batch Script</value>
+  </data>
   <data name="DeleteBatchApplication" xml:space="preserve">
     <value>Delete Batch Application</value>
   </data>
@@ -128,5 +131,11 @@
   </data>
   <data name="EditPathApplication" xml:space="preserve">
     <value>Edit Path Application</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
   </data>
 </root>
