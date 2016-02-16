@@ -13,10 +13,6 @@
         Width="400"
         >
 
-    <Window.Resources>
-        <views:AppTypeToEnumConverter x:Key="AppTypeToEnum"></views:AppTypeToEnumConverter>
-    </Window.Resources>
-
     <Window.Style>
         <Style TargetType="{x:Type Window}">
             <Style.Triggers>

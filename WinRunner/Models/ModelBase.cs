@@ -27,7 +27,7 @@ namespace WinRunner.Models {
 		public event EventHandler <DataErrorsChangedEventArgs> ErrorsChanged;
 
 		public IEnumerable GetErrors (string propertyName) {
-			if (this.errors.ContainsKey (propertyName)) {
+			if (string.IsNullOrEmpty (propertyName) == false && this.errors.ContainsKey (propertyName)) {
 				return this.errors [propertyName];
 			}
 

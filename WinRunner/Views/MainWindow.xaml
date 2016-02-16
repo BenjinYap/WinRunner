@@ -4,10 +4,12 @@
         xmlns:root="clr-namespace:WinRunner"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:views="clr-namespace:WinRunner.Views"
+        xmlns:apps="clr-namespace:WinRunner.Models.Apps"
         xmlns:res="clr-namespace:WinRunner.Resources"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         MinWidth="300"
         MinHeight="200"
+        x:Name="Self"
         Height="{Binding MinHeight}"
         LocationChanged="WindowLocationChanged"
         SizeChanged="WindowSizeChanged"
@@ -44,29 +46,53 @@
             </Grid.ColumnDefinitions>
             
             <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="0 0 5 0" Margin="0 0 0 5" Grid.ColumnSpan="2">
-                <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" IsTabStop="False">
+                <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" IsTabStop="False" Grid.IsSharedSizeScope="True">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0 0 0 5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="auto" SharedSizeGroup="A"></ColumnDefinition>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                         
                                 <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
-                        
+
+                                <Border Grid.Column="2"
+                                        Background="#FFBEE6FD"
+                                        BorderBrush="#FF3C7FB1"
+                                        Padding="1 0"
+                                        BorderThickness="1"
+                                        Margin="0 0 5 0"
+                                        VerticalAlignment="Center">
+                                    <TextBlock HorizontalAlignment="Center">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
+                                                        <Setter Property="Text" Value="{x:Static res:General.Path}"></Setter>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
+                                                        <Setter Property="Text" Value="{x:Static res:General.Batch}"></Setter>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Border>
+                                
                                 <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
                                     <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
                                 </Grid>
                         
                                 <Button Click="EditAppClicked"
-                                        Grid.Column="2"
+                                        Grid.Column="3"
                                         Content="{x:Static res:General.Edit}"></Button>
                                 <Button Click="DeleteAppClicked"
-                                        Margin="5 0 0 0"
-                                        Grid.Column="3"
+                                        Margin="5 0 1 0"
+                                        Grid.Column="4"
                                         Content="{x:Static res:General.Delete}"></Button>
                             </Grid>
                         </DataTemplate>

@@ -2,8 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:views="clr-namespace:WinRunner.Views"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
+        <views:AppTypeToEnumConverter x:Key="AppTypeToEnum"></views:AppTypeToEnumConverter>
+        
         <sys:Double x:Key="ControlHeight">30</sys:Double>
 
         <Style TargetType="{x:Type Label}">
