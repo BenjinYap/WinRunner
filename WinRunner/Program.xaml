@@ -1,8 +1,11 @@
 ﻿<Application x:Class="WinRunner.Program"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
+        <sys:Double x:Key="ControlHeight">30</sys:Double>
+        
         <Style x:Key="ErrorListStyle" TargetType="{x:Type ItemsControl}">
             <Setter Property="ItemTemplate">
                 <Setter.Value>

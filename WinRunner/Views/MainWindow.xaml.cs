@@ -40,6 +40,13 @@ namespace WinRunner {
 			this.timer.IsEnabled = false;
 
 			this.LoadPreferences ();
+
+			DispatcherTimer awd = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 200) };
+			awd.Start ();
+			awd.Tick += (a, b) => {
+				OpenAppWindow (new BatchApp (), true);
+				awd.Stop ();
+			};
 		}
 
 		private void NewBatchAppClicked (object sender, RoutedEventArgs e) {
