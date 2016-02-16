@@ -22,14 +22,8 @@
 
         <Label Content="{x:Static res:Resource.BatchScript}"></Label>
         <TextBox Text="{Binding App.Script, UpdateSourceTrigger=PropertyChanged}"
+                 Style="{StaticResource ScriptTextBox}"
                  Margin="0 5 0 0"
-                 Grid.Row="1" Grid.ColumnSpan="100"
-                 AcceptsReturn="True"
-                 AcceptsTab="True"
-                 MinHeight="{StaticResource ControlHeight}"
-                 FontFamily="consolas"
-                 Padding="0 5 0 5"
-                 Height="auto"
-                 TextWrapping="WrapWithOverflow"></TextBox>
+                 Grid.Row="1" Grid.ColumnSpan="100"></TextBox>
     </Grid>
 </widgets:EditAppWidget>

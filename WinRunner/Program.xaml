@@ -5,7 +5,32 @@
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <sys:Double x:Key="ControlHeight">30</sys:Double>
+
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Padding" Value="0"></Setter>
+        </Style>
         
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Padding" Value="3 5 3 5"></Setter>
+            <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
+        </Style>
+        
+        <Style x:Key="ScriptTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="AcceptsReturn" Value="True"></Setter>
+            <Setter Property="AcceptsTab" Value="True"></Setter>
+            <Setter Property="MinHeight" Value="{StaticResource ControlHeight}"></Setter>
+            <Setter Property="FontFamily" Value="consolas"></Setter>
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"></Setter>
+            <Setter Property="Height" Value="auto"></Setter>
+            <Setter Property="Padding" Value="3 5 3 5"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
+        </Style>
+
         <Style x:Key="ErrorListStyle" TargetType="{x:Type ItemsControl}">
             <Setter Property="ItemTemplate">
                 <Setter.Value>

@@ -27,8 +27,7 @@
                  Text="{Binding App.Path, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0 5 0 0"
                  Grid.Row="1"
-                 Grid.ColumnSpan="100"
-                 TextWrapping="Wrap"></TextBox>
+                 Grid.ColumnSpan="100"></TextBox>
         <ItemsControl ItemsSource="{Binding ElementName=TxtPath, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="2" Grid.ColumnSpan="10"></ItemsControl>
     </Grid>
 </widgets:EditAppWidget>
