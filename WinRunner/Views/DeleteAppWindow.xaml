@@ -3,14 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:res="clr-namespace:WinRunner.Resources"
+        xmlns:views="clr-namespace:WinRunner.Views"
+        xmlns:apps="clr-namespace:WinRunner.Models.Apps"
         WindowStartupLocation="CenterOwner"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
         ResizeMode="NoResize"
         Width="400"
-        Title="{x:Static res:Resource.DeleteApplication}">
+        >
 
     <Window.Resources>
+        <views:AppTypeToEnumConverter x:Key="AppTypeToEnum"></views:AppTypeToEnumConverter>
+        
         <sys:Double x:Key="ControlHeight">30</sys:Double>
 
         <Style TargetType="{x:Type Label}">
@@ -28,6 +32,19 @@
         </Style>
     </Window.Resources>
 
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
+                    <Setter Property="Title" Value="{x:Static res:General.DeleteBatchApplication}"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
+                    <Setter Property="Title" Value="{x:Static res:General.DeletePathApplication}"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+    
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

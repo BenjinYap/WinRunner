@@ -13,7 +13,7 @@
         x:Name="Self"
         Width="400"
         Closing="WindowClosing"
-        Title="{x:Static res:Resource.EditApplication}">
+        >
     
     <Window.Resources>
         <views:AppTypeToEnumConverter x:Key="AppTypeToEnum"></views:AppTypeToEnumConverter>
@@ -35,6 +35,19 @@
         </Style>
     </Window.Resources>
 
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
+                    <Setter Property="Title" Value="{x:Static res:General.EditBatchApplication}"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
+                    <Setter Property="Title" Value="{x:Static res:General.EditPathApplication}"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+    
     <Grid FocusManager.FocusedElement="{Binding ElementName=TxtName}" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

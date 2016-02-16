@@ -56,6 +56,11 @@
     </ApplicationDefinition>
     <Compile Include="Models\Apps\BatchApp.cs" />
     <Compile Include="Models\Apps\PathApp.cs" />
+    <Compile Include="Resources\General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Converters.cs" />
     <Compile Include="Views\EditAppWidgets\BatchAppWidget.xaml.cs">
       <DependentUpon>BatchAppWidget.xaml</DependentUpon>
@@ -141,6 +146,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\General.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>General.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
