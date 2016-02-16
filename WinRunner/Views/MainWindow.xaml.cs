@@ -45,7 +45,7 @@ namespace WinRunner {
 			awd.Start ();
 			awd.Tick += (a, b) => {
 				//new DeleteAppWindow (this.AppList [0]).ShowDialog ();
-				//OpenAppWindow (this.AppList [0], true);
+				OpenAppWindow (this.AppList [0], false);
 				awd.Stop ();
 			};
 		}
