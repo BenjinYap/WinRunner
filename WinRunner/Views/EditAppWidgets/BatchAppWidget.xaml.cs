@@ -28,7 +28,7 @@ namespace WinRunner.Views.EditAppWidgets {
 			if (e.Key == Key.Tab && this.TxtScript.SelectionLength > 0) {
 				string script = this.TxtScript.Text;
 				string newScript = script;
-				
+
 				//how many new lines are in the selection
 				int numNewLines = this.TxtScript.SelectedText.Split ('\n').Length - 1;
 
@@ -46,15 +46,19 @@ namespace WinRunner.Views.EditAppWidgets {
 					lastLineEndIndex = script.Length;
 				}
 
-				//insert a tab after every selected newline
-				newScript = new Regex ("\n").Replace (newScript, "\n\t", numNewLines, firstLineStartIndex + 1);
+				if (Keyboard.IsKeyDown (Key.LeftShift) || Keyboard.IsKeyDown (Key.RightShift)) {
+					
+				} else {
+					//insert a tab after every selected newline
+					newScript = new Regex ("\n").Replace (newScript, "\n\t", numNewLines, firstLineStartIndex + 1);
 
-				//insert tab in the first line
-				newScript = newScript.Insert (firstLineStartIndex, "\t");
+					//insert tab in the first line
+					newScript = newScript.Insert (firstLineStartIndex, "\t");
 
-				this.TxtScript.Text = newScript;
-				this.TxtScript.SelectionStart = firstLineStartIndex;
-				this.TxtScript.SelectionLength = lastLineEndIndex - firstLineStartIndex + numNewLines;
+					this.TxtScript.Text = newScript;
+					this.TxtScript.SelectionStart = firstLineStartIndex;
+					this.TxtScript.SelectionLength = lastLineEndIndex - firstLineStartIndex + numNewLines;
+				}
 
 				//cancel event
 				e.Handled = true;
