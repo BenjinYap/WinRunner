@@ -107,35 +107,35 @@ namespace WinRunner.Models.Apps {
 			
 			foreach (string keyName in appKeyNames) {
 				if (this.GetAppName (keyName.ToLower ()) == this.Name.ToLower () && (this.regKey == null || this.GetAppName (this.regKey.Name.ToLower ()) != this.Name.ToLower ())) {
-					base.AddError (Resource.NameExists, propertyName);
+					base.AddError (General.NameExists, propertyName);
 					break;
 				} else {
-					base.RemoveError (Resource.NameExists, propertyName);
+					base.RemoveError (General.NameExists, propertyName);
 				}
 			}
 
 			if (this.Name.Length <= 0) {
-				base.AddError (Resource.NameRequired, propertyName);
+				base.AddError (General.NameRequired, propertyName);
 			} else {
-				base.RemoveError (Resource.NameRequired, propertyName);
+				base.RemoveError (General.NameRequired, propertyName);
 			}
 
 			if (this.Name.Contains (@"\")) {
-				base.AddError (Resource.NameInvalidBackslash, propertyName);
+				base.AddError (General.NameInvalidBackslash, propertyName);
 			} else {
-				base.RemoveError (Resource.NameInvalidBackslash, propertyName);
+				base.RemoveError (General.NameInvalidBackslash, propertyName);
 			}
 
 			if (this.Name.Contains (" ")) {
-				base.AddError (Resource.NameInvalidSpace, propertyName);
+				base.AddError (General.NameInvalidSpace, propertyName);
 			} else {
-				base.RemoveError (Resource.NameInvalidSpace, propertyName);
+				base.RemoveError (General.NameInvalidSpace, propertyName);
 			}
 
 			if (this.Name.Contains (".")) {
-				base.AddError (Resource.NameInvalidDot, propertyName);
+				base.AddError (General.NameInvalidDot, propertyName);
 			} else {
-				base.RemoveError (Resource.NameInvalidDot, propertyName);
+				base.RemoveError (General.NameInvalidDot, propertyName);
 			}
 		}
 

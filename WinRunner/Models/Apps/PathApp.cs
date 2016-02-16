@@ -49,14 +49,14 @@ namespace WinRunner.Models.Apps {
 
 		private void ValidatePath ([CallerMemberName] string propertyName = null) {
 			if (this.Path.Length <= 0) {
-				base.AddError (Resource.PathRequired, propertyName);
+				base.AddError (General.PathRequired, propertyName);
 			} else {
-				base.RemoveError (Resource.PathRequired, propertyName);
+				base.RemoveError (General.PathRequired, propertyName);
 
 				if (File.Exists (this.Path) == false) {
-					base.AddError (Resource.PathDoesNotExist, propertyName);
+					base.AddError (General.PathDoesNotExist, propertyName);
 				} else {
-					base.RemoveError (Resource.PathDoesNotExist, propertyName);
+					base.RemoveError (General.PathDoesNotExist, propertyName);
 				}
 			}
 		}

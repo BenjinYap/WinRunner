@@ -45,8 +45,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid Height="{StaticResource ControlHeight}"
-              Grid.ColumnSpan="100">
-            <TextBlock Text="{x:Static res:Resource.DeleteText}"
+              Grid.ColumnSpan="100"
+              Margin="0 0 0 5">
+            <TextBlock Text="{x:Static res:General.DeleteText}"
                        FontWeight="Bold"
                        VerticalAlignment="Center"></TextBlock>
         </Grid>
@@ -120,8 +121,8 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Click="DeleteClicked" Content="{x:Static res:Resource.Delete}" Margin="0 0 2.5 0"></Button>
-            <Button Content="{x:Static res:Resource.Cancel}" IsDefault="True" IsCancel="True" Margin="2.5 0 0 0" Grid.Column="1"></Button>
+            <Button Click="DeleteClicked" Content="{x:Static res:General.Delete}" Margin="0 0 2.5 0"></Button>
+            <Button Content="{x:Static res:General.Cancel}" IsDefault="True" IsCancel="True" Margin="2.5 0 0 0" Grid.Column="1"></Button>
         </Grid>
     </Grid>
 </Window>

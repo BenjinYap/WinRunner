@@ -27,7 +27,7 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="{x:Static res:Resource.Help}">
+            <MenuItem Header="{x:Static res:Menu.Help}">
                 <MenuItem Command="{x:Static ApplicationCommands.Help}"></MenuItem>
                 <MenuItem Command="{x:Static views:Commands.About}"></MenuItem>
             </MenuItem>
@@ -42,17 +42,6 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
-            <!--<Label>awdgea</Label>
-            <TextBox Grid.ColumnSpan="1"
-                     Grid.Column="1"
-                     VerticalContentAlignment="Center"
-                     TextBlock.LineStackingStrategy="MaxHeight"
-                     AcceptsReturn="False"
-                     Height="30"
-                     Padding="3 5 3 5"
-                     
-                     Text="awd/gj&#x0a;dw/ajgi"></TextBox>-->
             
             <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="0 0 5 0" Margin="0 0 0 5" Grid.ColumnSpan="2">
                 <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" IsTabStop="False">
@@ -72,19 +61,24 @@
                                     <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
                                 </Grid>
                         
-                                <Button Click="EditAppClicked" Grid.Column="2">Edit</Button>
-                                <Button Click="DeleteAppClicked" Margin="5 0 0 0" Grid.Column="3">Delete</Button>
+                                <Button Click="EditAppClicked"
+                                        Grid.Column="2"
+                                        Content="{x:Static res:General.Edit}"></Button>
+                                <Button Click="DeleteAppClicked"
+                                        Margin="5 0 0 0"
+                                        Grid.Column="3"
+                                        Content="{x:Static res:General.Delete}"></Button>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </ScrollViewer>
 
-            <Button Content="{x:Static res:Resource.NewBatchApplication}"
+            <Button Content="{x:Static res:General.NewBatchApplication}"
                     Click="NewBatchAppClicked"
                     Margin="0 0 2.5 0"
                     Grid.Row="1" Grid.Column="0"></Button>
-            <Button Content="{x:Static res:Resource.NewApplication}"
+            <Button Content="{x:Static res:General.NewPathApplication}"
                     Click="NewAppClicked"
                     Margin="2.5 0 0 0"
                     Grid.Row="1" Grid.Column="1"></Button>

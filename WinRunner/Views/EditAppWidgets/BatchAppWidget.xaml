@@ -20,7 +20,7 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Content="{x:Static res:Resource.BatchScript}"></Label>
+        <Label Content="{x:Static res:General.BatchScript}"></Label>
         <TextBox Text="{Binding App.Script, UpdateSourceTrigger=PropertyChanged}"
                  Style="{StaticResource ScriptTextBox}"
                  Margin="0 5 0 0"

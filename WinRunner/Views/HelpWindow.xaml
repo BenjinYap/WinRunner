@@ -10,7 +10,7 @@
         Width="500"
         KeyUp="KeyUpped"
         FocusManager.FocusedElement="{Binding ElementName=Tabs}"
-        Title="{x:Static res:Resource.Help}" d:DesignHeight="453.6">
+        Title="{x:Static res:Help.HelpTitle}" d:DesignHeight="453.6">
 
     <Window.Resources>
         <Style TargetType="{x:Type ScrollViewer}">
@@ -33,34 +33,35 @@
 
     <Grid Margin="0">
         <TabControl TabStripPlacement="Left" IsTabStop="False">
-            <TabItem Header="{x:Static res:Resource.Caution}" x:Name="Tabs">
+            <TabItem Header="{x:Static res:Help.Caution}" x:Name="Tabs">
                 <ScrollViewer VerticalScrollBarVisibility="Visible">
                     <StackPanel>
-                        <TextBox Text="{x:Static res:Resource.HelpCaution}" Margin="0"/>
+                        <TextBox Text="{x:Static res:Help.HelpCaution}" Margin="0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Row="1" Margin="0 0 0 5">
-                            <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested"><Run Text="{x:Static res:Resource.Repo}"/></Hyperlink>
+                            <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
+                                <Run Text="{x:Static res:Help.Repo}"/></Hyperlink>
                         </TextBlock>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="{x:Static res:Resource.Overview}" IsSelected="True">
+            <TabItem Header="{x:Static res:Help.Overview}" IsSelected="True">
                 <ScrollViewer>
-                    <TextBox Text="{x:Static res:Resource.HelpOverview}"/>
+                    <TextBox Text="{x:Static res:Help.HelpOverview}"/>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="{x:Static res:Resource.NewApplication}">
+            <TabItem Header="{x:Static res:Help.NewApplication}">
                 <ScrollViewer>
-                    <TextBox Text="{x:Static res:Resource.HelpNewApplication}"/>
+                    <TextBox Text="{x:Static res:Help.HelpNewApplication}"/>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="{x:Static res:Resource.EditApplication}">
+            <TabItem Header="{x:Static res:Help.EditApplication}">
                 <ScrollViewer>
-                    <TextBox Text="{x:Static res:Resource.HelpEditApplication}"/>
+                    <TextBox Text="{x:Static res:Help.HelpEditApplication}"/>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="{x:Static res:Resource.DeleteApplication}">
+            <TabItem Header="{x:Static res:Help.DeleteApplication}">
                 <ScrollViewer>
-                    <TextBox Text="{x:Static res:Resource.HelpDeleteApplication}"/>
+                    <TextBox Text="{x:Static res:Help.HelpDeleteApplication}"/>
                 </ScrollViewer>
             </TabItem>
         </TabControl>

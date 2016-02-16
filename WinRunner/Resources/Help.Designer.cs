@@ -22,14 +22,14 @@ namespace WinRunner.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resource {
+    public class Help {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource() {
+        internal Help() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace WinRunner.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WinRunner.Resources.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WinRunner.Resources.Help", typeof(Help).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About WinRunner.
-        /// </summary>
-        public static string AboutWinRunner {
-            get {
-                return ResourceManager.GetString("AboutWinRunner", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Batch Script.
-        /// </summary>
-        public static string BatchScript {
-            get {
-                return ResourceManager.GetString("BatchScript", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cancel.
-        /// </summary>
-        public static string Cancel {
-            get {
-                return ResourceManager.GetString("Cancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Caution.
         /// </summary>
         public static string Caution {
             get {
                 return ResourceManager.GetString("Caution", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose File.
-        /// </summary>
-        public static string ChooseFile {
-            get {
-                return ResourceManager.GetString("ChooseFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Delete.
-        /// </summary>
-        public static string Delete {
-            get {
-                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -124,38 +79,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Really delete this?.
-        /// </summary>
-        public static string DeleteText {
-            get {
-                return ResourceManager.GetString("DeleteText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Developed by Benjin Yap.
-        /// </summary>
-        public static string DevelopedBy {
-            get {
-                return ResourceManager.GetString("DevelopedBy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Application.
         /// </summary>
         public static string EditApplication {
             get {
                 return ResourceManager.GetString("EditApplication", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Help.
-        /// </summary>
-        public static string Help {
-            get {
-                return ResourceManager.GetString("Help", resourceCulture);
             }
         }
         
@@ -221,65 +149,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licensed under GPL v2.
+        ///   Looks up a localized string similar to Help.
         /// </summary>
-        public static string LicensedUnder {
+        public static string HelpTitle {
             get {
-                return ResourceManager.GetString("LicensedUnder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name.
-        /// </summary>
-        public static string Name {
-            get {
-                return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Already exists.
-        /// </summary>
-        public static string NameExists {
-            get {
-                return ResourceManager.GetString("NameExists", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cannot contain \.
-        /// </summary>
-        public static string NameInvalidBackslash {
-            get {
-                return ResourceManager.GetString("NameInvalidBackslash", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cannot contain ..
-        /// </summary>
-        public static string NameInvalidDot {
-            get {
-                return ResourceManager.GetString("NameInvalidDot", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cannot contain spaces.
-        /// </summary>
-        public static string NameInvalidSpace {
-            get {
-                return ResourceManager.GetString("NameInvalidSpace", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Required.
-        /// </summary>
-        public static string NameRequired {
-            get {
-                return ResourceManager.GetString("NameRequired", resourceCulture);
+                return ResourceManager.GetString("HelpTitle", resourceCulture);
             }
         }
         
@@ -293,15 +167,6 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Batch Application.
-        /// </summary>
-        public static string NewBatchApplication {
-            get {
-                return ResourceManager.GetString("NewBatchApplication", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Overview.
         /// </summary>
         public static string Overview {
@@ -311,65 +176,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Path.
-        /// </summary>
-        public static string Path {
-            get {
-                return ResourceManager.GetString("Path", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Does not exist.
-        /// </summary>
-        public static string PathDoesNotExist {
-            get {
-                return ResourceManager.GetString("PathDoesNotExist", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Required.
-        /// </summary>
-        public static string PathRequired {
-            get {
-                return ResourceManager.GetString("PathRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to https://github.com/BenjinYap/WinRunner.
         /// </summary>
         public static string Repo {
             get {
                 return ResourceManager.GetString("Repo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save.
-        /// </summary>
-        public static string Save {
-            get {
-                return ResourceManager.GetString("Save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Source code available at the link below:.
-        /// </summary>
-        public static string SourceCodeAt {
-            get {
-                return ResourceManager.GetString("SourceCodeAt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View Help.
-        /// </summary>
-        public static string ViewHelp {
-            get {
-                return ResourceManager.GetString("ViewHelp", resourceCulture);
             }
         }
     }

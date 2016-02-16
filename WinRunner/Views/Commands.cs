@@ -9,7 +9,7 @@ using WinRunner.Resources;
 namespace WinRunner.Views {
 	public static class Commands {
 		static Commands () {
-			ApplicationCommands.Help.Text = Resource.ViewHelp;
+			ApplicationCommands.Help.Text = Menu.ViewHelp;
 			about.InputGestures.Add (new KeyGesture (Key.F12));
 		}
 
@@ -20,6 +20,6 @@ namespace WinRunner.Views {
 		}
 
 		public static RoutedUICommand About { get { return about; } }
-		private static RoutedUICommand about = new RoutedUICommand (Resource.AboutWinRunner, Resource.AboutWinRunner, typeof (Commands));
+		private static RoutedUICommand about = new RoutedUICommand (Menu.AboutWinRunner, Menu.AboutWinRunner, typeof (Commands));
 	}
 }

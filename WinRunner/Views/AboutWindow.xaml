@@ -8,7 +8,7 @@
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
         KeyUp="KeyUpped"
-        Title="{x:Static res:Resource.AboutWinRunner}">
+        Title="{x:Static res:About.AboutWinRunner}">
     
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -25,12 +25,12 @@
     
     <StackPanel Margin="20">
         <TextBox>WinRunner</TextBox>
-        <TextBox Text="{x:Static res:Resource.DevelopedBy}" Margin="20"></TextBox>
-        <TextBox Text="{x:Static res:Resource.LicensedUnder}" Margin="0 0 0 20"></TextBox>
-        <TextBox Text="{x:Static res:Resource.SourceCodeAt}"></TextBox>
+        <TextBox Text="{x:Static res:About.DevelopedBy}" Margin="20"></TextBox>
+        <TextBox Text="{x:Static res:About.LicensedUnder}" Margin="0 0 0 20"></TextBox>
+        <TextBox Text="{x:Static res:About.SourceCodeAt}"></TextBox>
         <TextBlock>
             <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="NavigateRequested">
-                <Run Text="{x:Static res:Resource.Repo}"></Run>
+                <Run Text="{x:Static res:About.Repo}"></Run>
             </Hyperlink>
         </TextBlock>
     </StackPanel>
