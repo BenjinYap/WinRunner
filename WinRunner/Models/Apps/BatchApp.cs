@@ -43,6 +43,11 @@ namespace WinRunner.Models.Apps {
 			this.regKey.SetValue ("", this.GetBatchFilePath ());
 		}
 
+		public override void DeleteFromRegistry () {
+			base.DeleteFromRegistry ();
+			File.Delete (this.GetBatchFilePath ());
+		}
+
 		public static string BatchFilesPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\BatchFiles\";
 
 		private string GetBatchFilePath () {

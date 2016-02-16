@@ -74,11 +74,10 @@ namespace WinRunner.Models.Apps {
 			rootKey.Close ();
 		}
 
-		public bool DeleteFromRegistry () {
+		public virtual void DeleteFromRegistry () {
 			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
 			rootKey.DeleteSubKey (System.IO.Path.GetFileName (this.regKey.Name), true);
 			rootKey.Close ();
-			return true;
 		}
 
 		protected void GetIconFromPath (string path) {
