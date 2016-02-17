@@ -24,7 +24,7 @@
     </Window.Resources>
     
     <StackPanel Margin="20">
-        <TextBox>WinRunner</TextBox>
+        <TextBox>WinRunner v1.2.0</TextBox>
         <TextBox Text="{x:Static res:About.DevelopedBy}" Margin="20"></TextBox>
         <TextBox Text="{x:Static res:About.LicensedUnder}" Margin="0 0 0 20"></TextBox>
         <TextBox Text="{x:Static res:About.SourceCodeAt}"></TextBox>

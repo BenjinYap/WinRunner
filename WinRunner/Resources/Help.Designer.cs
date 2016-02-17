@@ -103,7 +103,9 @@ namespace WinRunner.Resources {
         /// <summary>
         ///   Looks up a localized string similar to To delete a registered application, click the Delete button next to the application in the main window. A new window will pop up where you will confirm the deletion.
         ///
-        ///Click the Delete button in the confirmation window to actually delete the application. This will immediately remove the Registry entry and you will no longer be able to start the application using Run..
+        ///Click the Delete button in the confirmation window to actually delete the application. This will immediately remove the Registry entry and you will no longer be able to start the application using Run.
+        ///
+        ///Deleting a Batch application will also delete the Batch file associated with it..
         /// </summary>
         public static string HelpDeleteApplication {
             get {
