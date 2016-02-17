@@ -7,6 +7,13 @@ WinRunner makes this process easier by providing a nicer graphical interface for
 
 Upon starting WinRunner it will search the Registry for any registered applications and populate its list with them. This means that WinRunner does not keep track of any external changes to the Registry.
 
+## Path Applications
+These apps simply run the file you specify in the Path section.
+
+## Batch Applications
+These apps will execute a Batch script that you provide in the Batch Script section. When you create a Batch app, the program will create a Batch file in your Documents folder that contains the script you provided. That Batch file is what gets executed when you run the app through Run.
+
+## Caution
 Do NOT use WinRunner unless you know what you are doing and how modifying the above Registry key impacts your computer. This is NOT meant for basic Windows users.
 
 You can learn more about this process by visiting [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
