@@ -53,7 +53,7 @@ namespace WinRunner.Views.EditAppWidgets {
 					newScript = new Regex ("\n").Replace (newScript, "\n\t", numNewLines, firstLineStartIndex + 1);
 
 					//insert tab in the first line
-					newScript = newScript.Insert (firstLineStartIndex, "\t");
+					newScript = newScript.Insert (firstLineStartIndex + (firstLineStartIndex == 0 ? 0 : 1), "\t");
 
 					this.TxtScript.Text = newScript;
 					this.TxtScript.SelectionStart = firstLineStartIndex;
