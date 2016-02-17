@@ -47,7 +47,20 @@ namespace WinRunner.Views.EditAppWidgets {
 				}
 
 				if (Keyboard.IsKeyDown (Key.LeftShift) || Keyboard.IsKeyDown (Key.RightShift)) {
+					//string interestedText = script.Substring (firstLineStartIndex, lastLineEndIndex - firstLineStartIndex);
+					//string newText = interestedText;
+					//string [] lines = interestedText.Split ('\n');
 					
+					//for (int i = 0; i < lines.Length; i++) {
+						
+					//	if (lines [i][0] == '\t') {
+					//		lines [i] = lines [i].Substring (1);
+					//	}
+					//}
+
+					//newText = string.Join ("\n", lines);
+					//newScript = script.Replace (interestedText, newText);
+					//this.TxtScript.Text = newScript;
 				} else {
 					//insert a tab after every selected newline
 					newScript = new Regex ("\n").Replace (newScript, "\n\t", numNewLines, firstLineStartIndex + 1);
@@ -57,7 +70,7 @@ namespace WinRunner.Views.EditAppWidgets {
 
 					this.TxtScript.Text = newScript;
 					this.TxtScript.SelectionStart = firstLineStartIndex;
-					this.TxtScript.SelectionLength = lastLineEndIndex - firstLineStartIndex + numNewLines;
+					this.TxtScript.SelectionLength = lastLineEndIndex - firstLineStartIndex + numNewLines + 1;
 				}
 
 				//cancel event
