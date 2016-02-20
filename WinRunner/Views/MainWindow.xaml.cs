@@ -78,7 +78,10 @@ namespace WinRunner {
 			
 			if (result.HasValue && result.Value) {
 				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
-				((TextBlock) ((Grid) (button.Parent as Grid).Children [1]).Children [0]).GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
+				Grid grid = (Grid) button.Parent;
+				Grid grid2 = (Grid) grid.Children [1];
+				TextBlock textBlock = (TextBlock) grid2.Children [0];
+				textBlock.GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
 			}
 		}
 
