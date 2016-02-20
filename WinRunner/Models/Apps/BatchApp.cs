@@ -22,7 +22,13 @@ namespace WinRunner.Models.Apps {
 		}
 
 		public BatchApp (RegistryKey regKey):base (regKey) {
-			this.Script = File.ReadAllText (this.GetBatchFilePath ());
+			if (File.Exists (this.GetBatchFilePath ())) {
+				this.Script = File.ReadAllText (this.GetBatchFilePath ());
+			} else {
+				this.Script = "";
+				this.WriteToBatchFile ();
+			}
+
 			base.GetIconFromPath (this.GetBatchFilePath ());
 		}
 
