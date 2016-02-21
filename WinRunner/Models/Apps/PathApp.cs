@@ -53,7 +53,7 @@ namespace WinRunner.Models.Apps {
 			} else {
 				base.RemoveError (General.PathRequired, propertyName);
 
-				if (Directory.Exists (this.Path) == false && File.Exists (this.Path) == false) {
+				if (File.Exists (this.Path) == false) {
 					base.AddError (General.PathDoesNotExist, propertyName);
 				} else {
 					base.RemoveError (General.PathDoesNotExist, propertyName);
