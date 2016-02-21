@@ -19,6 +19,9 @@ namespace WinRunner.Views {
 			e.CanExecute = true;
 		}
 
+		public static RoutedUICommand OpenDocumentsFolder { get { return openDocumentsFolder; } }
+		private static RoutedUICommand openDocumentsFolder = new RoutedUICommand (Menu.OpenDocumentsFolder, Menu.OpenDocumentsFolder, typeof (Commands));
+
 		public static RoutedUICommand About { get { return about; } }
 		private static RoutedUICommand about = new RoutedUICommand (Menu.AboutWinRunner, Menu.AboutWinRunner, typeof (Commands));
 	}

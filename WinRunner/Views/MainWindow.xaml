@@ -16,6 +16,7 @@
         Title="WinRunner" Width="{Binding MinWidth}">
     
     <Window.CommandBindings>
+        <CommandBinding Command="{x:Static views:Commands.OpenDocumentsFolder}" CanExecute="{x:Static views:Commands.CanExecuteAlways}" Executed="OpenDocumentsFolderExecuted"></CommandBinding>
         <CommandBinding Command="Help" CanExecute="{x:Static views:Commands.CanExecuteAlways}" Executed="ViewHelpExecuted"></CommandBinding>
         <CommandBinding Command="{x:Static views:Commands.About}" CanExecute="{x:Static views:Commands.CanExecuteAlways}" Executed="AboutWinRunnerExecuted"></CommandBinding>
     </Window.CommandBindings>
@@ -29,6 +30,9 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
+            <MenuItem Header="{x:Static res:Menu.Preferences}">
+                <MenuItem Command="{x:Static views:Commands.OpenDocumentsFolder}"></MenuItem>
+            </MenuItem>
             <MenuItem Header="{x:Static res:Menu.Help}">
                 <MenuItem Command="{x:Static ApplicationCommands.Help}"></MenuItem>
                 <MenuItem Command="{x:Static views:Commands.About}"></MenuItem>

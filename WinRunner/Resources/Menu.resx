@@ -121,7 +121,13 @@
     <value>About WinRunner</value>
   </data>
   <data name="Help" xml:space="preserve">
-    <value>Help</value>
+    <value>_Help</value>
+  </data>
+  <data name="OpenDocumentsFolder" xml:space="preserve">
+    <value>Open Documents Folder</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>_Preferences</value>
   </data>
   <data name="ViewHelp" xml:space="preserve">
     <value>View Help</value>

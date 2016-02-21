@@ -70,11 +70,29 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Help.
+        ///   Looks up a localized string similar to _Help.
         /// </summary>
         public static string Help {
             get {
                 return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Documents Folder.
+        /// </summary>
+        public static string OpenDocumentsFolder {
+            get {
+                return ResourceManager.GetString("OpenDocumentsFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Preferences.
+        /// </summary>
+        public static string Preferences {
+            get {
+                return ResourceManager.GetString("Preferences", resourceCulture);
             }
         }
         

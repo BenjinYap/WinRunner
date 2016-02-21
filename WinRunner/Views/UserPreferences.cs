@@ -9,10 +9,12 @@ namespace WinRunner.Views {
 	public class UserPreferences {
 		private Dictionary <string, string> configs = new Dictionary <string,string> ();
 
-		private string configPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\config.txt";
+		public string DocumentsPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\";
+
+		private string configPath;
 
 		public UserPreferences () {
-
+			this.configPath = this.DocumentsPath + "config.txt";
 		}
 
 		public void SetConfig (string config, object value) {

@@ -99,6 +99,10 @@ namespace WinRunner {
 			}
 		}
 
+		private void OpenDocumentsFolderExecuted (object sender, ExecutedRoutedEventArgs e) {
+			Process.Start (preferences.DocumentsPath);
+		}
+
 		private void ViewHelpExecuted (object sender, ExecutedRoutedEventArgs e) {
 			HelpWindow window = new HelpWindow ();
 			window.Owner = this;
