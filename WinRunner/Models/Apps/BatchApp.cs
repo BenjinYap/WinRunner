@@ -43,10 +43,10 @@ namespace WinRunner.Models.Apps {
 		}
 
 		public override void FlushToRegistry () {
-			this.WriteToBatchFile ();
-			base.GetIconFromPath (this.GetBatchFilePath ());
 			base.FlushToRegistry ();
 			this.regKey.SetValue ("", this.GetBatchFilePath ());
+			this.WriteToBatchFile ();
+			base.GetIconFromPath (this.GetBatchFilePath ());
 		}
 
 		public override void DeleteFromRegistry () {
