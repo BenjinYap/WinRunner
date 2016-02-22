@@ -37,7 +37,7 @@ namespace WinRunner.Models.Apps {
 
 		protected RegistryKey regKey;
 
-		private string oldName;
+		protected string oldName;
 
 		public App () {
 			this.Name = "";
