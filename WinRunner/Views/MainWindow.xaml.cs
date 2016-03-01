@@ -18,6 +18,7 @@ using System.Windows.Threading;
 using WinRunner.Models;
 using WinRunner.Models.Apps;
 using WinRunner.Views;
+using WinRunner.Views.Help;
 
 namespace WinRunner {
 	/// <summary>
@@ -44,6 +45,7 @@ namespace WinRunner {
 			DispatcherTimer awd = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 200) };
 			awd.Start ();
 			awd.Tick += (a, b) => {
+				this.ViewHelpExecuted (null, null);
 				//new DeleteAppWindow (this.AppList [0]).ShowDialog ();
 				//OpenAppWindow (this.AppList [0], false);
 				awd.Stop ();

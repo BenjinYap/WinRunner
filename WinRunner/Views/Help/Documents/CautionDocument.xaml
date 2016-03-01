@@ -1,0 +1,30 @@
+﻿<documents:HelpDocument x:Class="WinRunner.Views.Help.Documents.CautionDocument"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:WinRunner.Resources.Help"
+             xmlns:documents="clr-namespace:WinRunner.Views.Help.Documents"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+                        Title="{x:Static res:Caution.Title}">
+    <FlowDocumentScrollViewer>
+        <FlowDocument>
+            <Paragraph>
+                <Run Text="{x:Static res:Caution.Paragraph1}"></Run>
+            </Paragraph>
+            <Paragraph>
+                <Run Text="{x:Static res:Caution.Paragraph2}"></Run>
+            </Paragraph>
+            <Paragraph>
+                <Run Text="{x:Static res:Caution.Paragraph3}"></Run>
+            </Paragraph>
+            <Paragraph>
+                <Run Text="{x:Static res:Caution.Paragraph4}"></Run>
+            </Paragraph>
+            <Paragraph>
+                <Run Text="{x:Static res:Caution.Paragraph5}"></Run>
+            </Paragraph>
+        </FlowDocument>
+    </FlowDocumentScrollViewer>
+</documents:HelpDocument>

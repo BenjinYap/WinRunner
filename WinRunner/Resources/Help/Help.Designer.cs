@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WinRunner.Resources {
+namespace WinRunner.Resources.Help {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WinRunner.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WinRunner.Resources.Help", typeof(Help).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WinRunner.Resources.Help.Help", typeof(Help).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

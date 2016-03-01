@@ -42,5 +42,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style TargetType="{x:Type FlowDocument}">
+            <Setter Property="FontFamily" Value="segoe ui"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

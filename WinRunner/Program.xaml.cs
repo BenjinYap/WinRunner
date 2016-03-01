@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using WinRunner.Views;
+using WinRunner.Views.Help;
 
 namespace WinRunner {
 	/// <summary>

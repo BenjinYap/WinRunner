@@ -72,10 +72,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>General.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Help.Designer.cs">
+    <Compile Include="Resources\Help\Caution.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Caution.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Help\Help.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Help.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Help\Overview.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Overview.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Menu.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,6 +99,13 @@
     <Compile Include="Views\EditAppWidgets\EditAppWidget.cs" />
     <Compile Include="Views\EditAppWidgets\PathAppWidget.xaml.cs">
       <DependentUpon>PathAppWidget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\Documents\CautionDocument.xaml.cs">
+      <DependentUpon>CautionDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\Documents\HelpDocument.cs" />
+    <Compile Include="Views\Help\Documents\OverviewDocument.xaml.cs">
+      <DependentUpon>OverviewDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserPreferences.cs" />
     <Page Include="Views\AboutWindow.xaml">
@@ -111,7 +128,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HelpWindow.xaml">
+    <Page Include="Views\Help\Documents\CautionDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\Documents\OverviewDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\HelpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,7 +160,7 @@
     <Compile Include="Views\EditAppWindow.xaml.cs">
       <DependentUpon>EditAppWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HelpWindow.xaml.cs">
+    <Compile Include="Views\Help\HelpWindow.xaml.cs">
       <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
@@ -171,9 +196,17 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>General.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Help.resx">
+    <EmbeddedResource Include="Resources\Help\Caution.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Caution.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Help\Help.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Help.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Help\Overview.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Overview.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Menu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -192,6 +225,7 @@
   <ItemGroup>
     <Resource Include="Resources\icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
