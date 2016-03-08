@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using WinRunner.Utils;
 using WinRunner.Views.Help.Documents;
 
 namespace WinRunner.Views.Help {
@@ -15,8 +16,8 @@ namespace WinRunner.Views.Help {
 	public partial class HelpWindow:Window {
 		public HelpDocument [] Documents { get; set; }
 
-		public Stack <Action> BackCommands { get; set; }
-		public Stack <Action> ForwardCommands { get; set; }
+		public ObservableStack <Action> BackCommands { get; set; }
+		public ObservableStack <Action> ForwardCommands { get; set; }
 
 		private bool throwawayKeyUp = false;
 		private bool ignoreSelectionChange = false;
@@ -27,10 +28,10 @@ namespace WinRunner.Views.Help {
 				new OverviewDocument (),
 			};
 			
-			InitializeComponent ();
+			this.BackCommands = new ObservableStack <Action> ();
+			this.ForwardCommands = new ObservableStack <Action> ();
 
-			this.BackCommands = new Stack <Action> ();
-			this.ForwardCommands = new Stack <Action> ();
+			InitializeComponent ();
 		}
 
 		private void SelectionChanged (object sender, SelectionChangedEventArgs e) {

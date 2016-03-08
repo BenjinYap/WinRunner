@@ -19,6 +19,8 @@
     </Window.CommandBindings>
     
     <Window.Resources>
+        <views:GreaterThanZeroToBoolConverter x:Key="GreaterThanZeroToBool"></views:GreaterThanZeroToBoolConverter>
+        
         <Style TargetType="{x:Type ScrollViewer}">
             <Setter Property="Margin" Value="5 0 0 0"/>
             <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
@@ -39,8 +41,10 @@
 
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top">
-            <Button Command="{x:Static NavigationCommands.BrowseBack}">back</Button>
-            <Button Command="{x:Static NavigationCommands.BrowseForward}">forward</Button>
+            <Button Command="{x:Static NavigationCommands.BrowseBack}"
+                    IsEnabled="{Binding BackCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">back</Button>
+            <Button Command="{x:Static NavigationCommands.BrowseForward}"
+                    IsEnabled="{Binding ForwardCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">forward</Button>
         </WrapPanel>
         <Grid>
             <Grid.ColumnDefinitions>
