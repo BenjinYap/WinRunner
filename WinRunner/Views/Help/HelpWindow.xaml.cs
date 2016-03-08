@@ -32,6 +32,8 @@ namespace WinRunner.Views.Help {
 			this.ForwardCommands = new ObservableStack <Action> ();
 
 			InitializeComponent ();
+
+			this.DocumentListBox.SelectedItem = this.Documents [0];
 		}
 
 		private void SelectionChanged (object sender, SelectionChangedEventArgs e) {
