@@ -5,7 +5,7 @@
              xmlns:views="clr-namespace:WinRunner.Views"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-        <views:AppTypeToEnumConverter x:Key="AppTypeToEnum"></views:AppTypeToEnumConverter>
+        <views:ShortcutTypeToEnumConverter x:Key="ShortcutTypeToEnum"></views:ShortcutTypeToEnumConverter>
         
         <sys:Double x:Key="ControlHeight">30</sys:Double>
 

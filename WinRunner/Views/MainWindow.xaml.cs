@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WinRunner.Models;
-using WinRunner.Models.Apps;
+using WinRunner.Models.Shortcuts;
 using WinRunner.Views;
 
 namespace WinRunner {
@@ -24,17 +24,17 @@ namespace WinRunner {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow:Window {
-		public AppList AppList { get; set; }
+		public ShortcutList ShortcutList { get; set; }
 
 		private UserPreferences preferences = new UserPreferences ();
 		private DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 500) };
 
 		public MainWindow () {
-			this.AppList = new AppList ();
+			this.ShortcutList = new ShortcutList ();
 			
 			InitializeComponent ();
 			
-			this.AppList.LoadAppsFromRegistry ();
+			this.ShortcutList.LoadShortcutsFromRegistry ();
 
 			this.timer.Tick += TimerTicked;
 			this.timer.IsEnabled = false;
@@ -51,21 +51,21 @@ namespace WinRunner {
 		}
 
 		private void NewBatchAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new BatchApp (), true);
+			OpenAppWindow (new BatchShortcut (), true);
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new PathApp (), true);
+			OpenAppWindow (new PathShortcut (), true);
 		}
 
-		private bool? OpenAppWindow (App app, bool isNew) {
-			EditAppWindow window = new EditAppWindow (app);
+		private bool? OpenAppWindow (Shortcut app, bool isNew) {
+			EditShortcutWindow window = new EditShortcutWindow (app);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
 				if (isNew) {
-					this.AppList.Add (app);
+					this.ShortcutList.Add (app);
 				}
 			}
 			
@@ -74,7 +74,7 @@ namespace WinRunner {
 
 		private void EditAppClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			bool? result = OpenAppWindow ((App) button.DataContext, false);
+			bool? result = OpenAppWindow ((Shortcut) button.DataContext, false);
 			
 			if (result.HasValue && result.Value) {
 				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
@@ -87,15 +87,15 @@ namespace WinRunner {
 
 		private void DeleteAppClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			App app = (App) button.DataContext;
+			Shortcut app = (Shortcut) button.DataContext;
 			
-			DeleteAppWindow window = new DeleteAppWindow (app);
+			DeleteShortcutWindow window = new DeleteShortcutWindow (app);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
 				app.DeleteFromRegistry ();
-				this.AppList.Remove (app);
+				this.ShortcutList.Remove (app);
 			}
 		}
 

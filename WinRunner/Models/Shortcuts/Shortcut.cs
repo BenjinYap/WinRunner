@@ -11,10 +11,10 @@ using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
-namespace WinRunner.Models.Apps {
-	public enum AppType { Path, Batch }
+namespace WinRunner.Models.Shortcuts {
+	public enum ShortcutType { Path, Batch }
 
-	public abstract class App:ModelBase {
+	public abstract class Shortcut:ModelBase {
 		
 		private BitmapImage icon;
 		public BitmapImage Icon {
@@ -39,11 +39,11 @@ namespace WinRunner.Models.Apps {
 
 		protected string oldName;
 
-		public App () {
+		public Shortcut () {
 			this.Name = "";
 		}
 
-		public App (RegistryKey regKey) {
+		public Shortcut (RegistryKey regKey) {
 			this.regKey = regKey;
 			this.Name = this.GetAppName (regKey.Name);
 		}

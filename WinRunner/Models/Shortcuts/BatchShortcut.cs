@@ -4,8 +4,8 @@ using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
-namespace WinRunner.Models.Apps {
-	public class BatchApp:App {
+namespace WinRunner.Models.Shortcuts {
+	public class BatchShortcut:Shortcut {
 		private string script;
 		public string Script {
 			get { return this.script; }
@@ -17,11 +17,11 @@ namespace WinRunner.Models.Apps {
 
 		private string oldScript;
 
-		public BatchApp ():base () {
+		public BatchShortcut ():base () {
 			this.Script = "";
 		}
 
-		public BatchApp (RegistryKey regKey):base (regKey) {
+		public BatchShortcut (RegistryKey regKey):base (regKey) {
 			if (File.Exists (this.GetBatchFilePath ())) {
 				this.Script = File.ReadAllText (this.GetBatchFilePath ());
 			} else {

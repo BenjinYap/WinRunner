@@ -5,26 +5,26 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
-using WinRunner.Models.Apps;
+using WinRunner.Models.Shortcuts;
 namespace WinRunner.Models {
-	public class AppList:ObservableCollection <App> {
+	public class ShortcutList:ObservableCollection <Shortcut> {
 
-		public void LoadAppsFromRegistry () {
+		public void LoadShortcutsFromRegistry () {
 			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
 			string [] keyNames = rootKey.GetSubKeyNames ();
 
 			foreach (string keyName in keyNames) {
 				if (Regex.Match (keyName, @"\.exe$", RegexOptions.IgnoreCase).Success) {
 					RegistryKey key = rootKey.OpenSubKey (keyName, true);
-					App app = null;
+					Shortcut Shortcut = null;
 
-					if (key.GetValue ("").ToString ().Contains (BatchApp.BatchFilesPath)) {
-						app = new BatchApp (key);
+					if (key.GetValue ("").ToString ().Contains (BatchShortcut.BatchFilesPath)) {
+						Shortcut = new BatchShortcut (key);
 					} else {
-						app = new PathApp (key);
+						Shortcut = new PathShortcut (key);
 					}
 
-					this.Add (app);
+					this.Add (Shortcut);
 				}
 			}
 

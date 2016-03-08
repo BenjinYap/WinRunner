@@ -8,8 +8,8 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
-namespace WinRunner.Models.Apps {
-	public class PathApp:App {
+namespace WinRunner.Models.Shortcuts {
+	public class PathShortcut:Shortcut {
 
 		private string path;
 		public string Path {
@@ -24,11 +24,11 @@ namespace WinRunner.Models.Apps {
 
 		private string oldPath;
 
-		public PathApp ():base () {
+		public PathShortcut ():base () {
 			this.Path = "";
 		}
 
-		public PathApp (RegistryKey regKey):base (regKey) {
+		public PathShortcut (RegistryKey regKey):base (regKey) {
 			this.Path = regKey.GetValue ("").ToString ();
 		}
 

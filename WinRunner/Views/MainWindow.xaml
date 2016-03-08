@@ -4,7 +4,7 @@
         xmlns:root="clr-namespace:WinRunner"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:views="clr-namespace:WinRunner.Views"
-        xmlns:apps="clr-namespace:WinRunner.Models.Apps"
+        xmlns:shortcuts="clr-namespace:WinRunner.Models.Shortcuts"
         xmlns:res="clr-namespace:WinRunner.Resources"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         MinWidth="300"
@@ -50,7 +50,7 @@
             </Grid.ColumnDefinitions>
             
             <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="0 0 5 0" Margin="0 0 0 5" Grid.ColumnSpan="2">
-                <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" IsTabStop="False" Grid.IsSharedSizeScope="True">
+                <ItemsControl x:Name="ShortcutListView" ItemsSource="{Binding ShortcutList}" IsTabStop="False" Grid.IsSharedSizeScope="True">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0 0 0 5">
@@ -79,10 +79,10 @@
                                         <TextBlock.Style>
                                             <Style TargetType="{x:Type TextBlock}">
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
+                                                    <DataTrigger Binding="{Binding Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Path}">
                                                         <Setter Property="Text" Value="{x:Static res:General.Path}"></Setter>
                                                     </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
+                                                    <DataTrigger Binding="{Binding Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
                                                         <Setter Property="Text" Value="{x:Static res:General.Batch}"></Setter>
                                                     </DataTrigger>
                                                 </Style.Triggers>
