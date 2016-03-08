@@ -56,6 +56,10 @@ namespace WinRunner.Views.Help {
 		private void BrowseBackExecuted (object sender, ExecutedRoutedEventArgs e) {
 			if (this.BackCommands.Count > 0) {
 				this.ignoreSelectionChange = true;
+
+				object doc = this.DocumentListBox.SelectedItem;
+				this.ForwardCommands.Push (() => { this.DocumentListBox.SelectedItem = doc; });
+
 				this.BackCommands.Pop () ();
 				this.ignoreSelectionChange = false;
 			}
@@ -63,7 +67,13 @@ namespace WinRunner.Views.Help {
 
 		private void BrowseForwardExecuted (object sender, ExecutedRoutedEventArgs e) {
 			if (this.ForwardCommands.Count > 0) {
+				this.ignoreSelectionChange = true;
 
+				object doc = this.DocumentListBox.SelectedItem;
+				this.BackCommands.Push (() => { this.DocumentListBox.SelectedItem = doc; });
+
+				this.ForwardCommands.Pop () ();
+				this.ignoreSelectionChange = false;
 			}
 		}
 	}
