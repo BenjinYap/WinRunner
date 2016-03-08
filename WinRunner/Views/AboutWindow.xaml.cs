@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,9 @@ namespace WinRunner.Views {
 
 		public AboutWindow () {
 			InitializeComponent ();
+
+			Assembly ass = Assembly.GetExecutingAssembly ();
+			this.TxtNameVersion.Text = "WinRunner v" + FileVersionInfo.GetVersionInfo (ass.Location).FileVersion;
 		}
 
 		private void NavigateRequested (object sender, RequestNavigateEventArgs e) {
