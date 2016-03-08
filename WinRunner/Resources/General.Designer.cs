@@ -106,20 +106,20 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Batch Application.
+        ///   Looks up a localized string similar to Delete Batch Shortcut.
         /// </summary>
-        public static string DeleteBatchApplication {
+        public static string DeleteBatchShortcut {
             get {
-                return ResourceManager.GetString("DeleteBatchApplication", resourceCulture);
+                return ResourceManager.GetString("DeleteBatchShortcut", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Path Application.
+        ///   Looks up a localized string similar to Delete Path Shortcut.
         /// </summary>
-        public static string DeletePathApplication {
+        public static string DeletePathShortcut {
             get {
-                return ResourceManager.GetString("DeletePathApplication", resourceCulture);
+                return ResourceManager.GetString("DeletePathShortcut", resourceCulture);
             }
         }
         
@@ -142,20 +142,20 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Batch Application.
+        ///   Looks up a localized string similar to Edit Batch Shortcut.
         /// </summary>
-        public static string EditBatchApplication {
+        public static string EditBatchShortcut {
             get {
-                return ResourceManager.GetString("EditBatchApplication", resourceCulture);
+                return ResourceManager.GetString("EditBatchShortcut", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Path Application.
+        ///   Looks up a localized string similar to Edit Path Shortcut.
         /// </summary>
-        public static string EditPathApplication {
+        public static string EditPathShortcut {
             get {
-                return ResourceManager.GetString("EditPathApplication", resourceCulture);
+                return ResourceManager.GetString("EditPathShortcut", resourceCulture);
             }
         }
         
@@ -214,20 +214,20 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Batch Application.
+        ///   Looks up a localized string similar to New Batch Shortcut.
         /// </summary>
-        public static string NewBatchApplication {
+        public static string NewBatchShortcut {
             get {
-                return ResourceManager.GetString("NewBatchApplication", resourceCulture);
+                return ResourceManager.GetString("NewBatchShortcut", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Path Application.
+        ///   Looks up a localized string similar to New Path Shortcut.
         /// </summary>
-        public static string NewPathApplication {
+        public static string NewPathShortcut {
             get {
-                return ResourceManager.GetString("NewPathApplication", resourceCulture);
+                return ResourceManager.GetString("NewPathShortcut", resourceCulture);
             }
         }
         

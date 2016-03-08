@@ -68,7 +68,7 @@ namespace WinRunner {
 					this.AppList.Add (app);
 				}
 			}
-
+			
 			return result;
 		}
 

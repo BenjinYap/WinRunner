@@ -18,10 +18,10 @@
         <Style TargetType="{x:Type Window}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
-                    <Setter Property="Title" Value="{x:Static res:General.EditBatchApplication}"></Setter>
+                    <Setter Property="Title" Value="{x:Static res:General.EditBatchShortcut}"></Setter>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
-                    <Setter Property="Title" Value="{x:Static res:General.EditPathApplication}"></Setter>
+                    <Setter Property="Title" Value="{x:Static res:General.EditPathShortcut}"></Setter>
                 </DataTrigger>
             </Style.Triggers>
         </Style>

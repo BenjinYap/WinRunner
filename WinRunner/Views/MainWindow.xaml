@@ -104,11 +104,11 @@
                 </ItemsControl>
             </ScrollViewer>
 
-            <Button Content="{x:Static res:General.NewBatchApplication}"
+            <Button Content="{x:Static res:General.NewBatchShortcut}"
                     Click="NewBatchAppClicked"
                     Margin="0 0 2.5 0"
                     Grid.Row="1" Grid.Column="0"></Button>
-            <Button Content="{x:Static res:General.NewPathApplication}"
+            <Button Content="{x:Static res:General.NewPathShortcut}"
                     Click="NewAppClicked"
                     Margin="2.5 0 0 0"
                     Grid.Row="1" Grid.Column="1"></Button>

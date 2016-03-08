@@ -132,11 +132,11 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="DeleteBatchApplication" xml:space="preserve">
-    <value>Delete Batch Application</value>
+  <data name="DeleteBatchShortcut" xml:space="preserve">
+    <value>Delete Batch Shortcut</value>
   </data>
-  <data name="DeletePathApplication" xml:space="preserve">
-    <value>Delete Path Application</value>
+  <data name="DeletePathShortcut" xml:space="preserve">
+    <value>Delete Path Shortcut</value>
   </data>
   <data name="DeleteText" xml:space="preserve">
     <value>Really delete this?</value>
@@ -144,11 +144,11 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="EditBatchApplication" xml:space="preserve">
-    <value>Edit Batch Application</value>
+  <data name="EditBatchShortcut" xml:space="preserve">
+    <value>Edit Batch Shortcut</value>
   </data>
-  <data name="EditPathApplication" xml:space="preserve">
-    <value>Edit Path Application</value>
+  <data name="EditPathShortcut" xml:space="preserve">
+    <value>Edit Path Shortcut</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -168,11 +168,11 @@
   <data name="NameRequired" xml:space="preserve">
     <value>Required</value>
   </data>
-  <data name="NewBatchApplication" xml:space="preserve">
-    <value>New Batch Application</value>
+  <data name="NewBatchShortcut" xml:space="preserve">
+    <value>New Batch Shortcut</value>
   </data>
-  <data name="NewPathApplication" xml:space="preserve">
-    <value>New Path Application</value>
+  <data name="NewPathShortcut" xml:space="preserve">
+    <value>New Path Shortcut</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Path</value>
