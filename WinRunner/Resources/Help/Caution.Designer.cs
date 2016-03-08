@@ -61,6 +61,15 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://github.com/BenjinYap/WinRunner.
+        /// </summary>
+        public static string Hyperlink6 {
+            get {
+                return ResourceManager.GetString("Hyperlink6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This program modifies the Windows Registry on the computer that it is started on. The Registry is a database for low-level settings and can be/is used by all parts of the operating system. Third-party applications, like WinRunner, can also use the Registry to store any settings they need to function better..
         /// </summary>
         public static string Paragraph1 {

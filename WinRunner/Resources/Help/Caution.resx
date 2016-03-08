@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Hyperlink6" xml:space="preserve">
+    <value>https://github.com/BenjinYap/WinRunner</value>
+  </data>
   <data name="Paragraph1" xml:space="preserve">
     <value>This program modifies the Windows Registry on the computer that it is started on. The Registry is a database for low-level settings and can be/is used by all parts of the operating system. Third-party applications, like WinRunner, can also use the Registry to store any settings they need to function better.</value>
   </data>

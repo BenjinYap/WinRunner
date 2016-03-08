@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,11 @@ namespace WinRunner.Views.Help.Documents {
 	public partial class CautionDocument:HelpDocument {
 		public CautionDocument () {
 			InitializeComponent ();
+		}
+
+		private void InternetNavigateRequested (object sender, RequestNavigateEventArgs e) {
+			Process.Start (new ProcessStartInfo (e.Uri.AbsoluteUri));
+			e.Handled = true;
 		}
 	}
 }

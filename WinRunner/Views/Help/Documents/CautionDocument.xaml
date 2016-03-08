@@ -25,6 +25,11 @@
             <Paragraph>
                 <Run Text="{x:Static res:Caution.Paragraph5}"></Run>
             </Paragraph>
+            <Paragraph>
+                <Hyperlink NavigateUri="https://github.com/BenjinYap/WinRunner" RequestNavigate="InternetNavigateRequested">
+                    <Run Text="{x:Static res:Caution.Hyperlink6}"></Run>
+                </Hyperlink>
+            </Paragraph>
         </FlowDocument>
     </FlowDocumentScrollViewer>
 </documents:HelpDocument>
