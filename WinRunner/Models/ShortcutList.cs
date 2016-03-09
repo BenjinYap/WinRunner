@@ -17,21 +17,21 @@ namespace WinRunner.Models {
 			foreach (string keyName in keyNames) {
 				if (Regex.Match (keyName, @"\.exe$", RegexOptions.IgnoreCase).Success) {
 					RegistryKey key = rootKey.OpenSubKey (keyName, true);
-					Shortcut Shortcut = null;
+					Shortcut shortcut = null;
 					
 					//figure out the shortcut type from the type key
 					ShortcutType type = (ShortcutType) Enum.Parse (typeof (ShortcutType), key.GetValue (Shortcut.TypeKeyName).ToString ());
 
 					//create appropriate shortcut instance based on type
 					if (type == ShortcutType.Batch) {
-						Shortcut = new BatchShortcut (key);
+						shortcut = new BatchShortcut (key);
 					} else if (type == ShortcutType.File) {
-						Shortcut = new FileShortcut (key);
-					} else {
-						throw new Exception ();
+						shortcut = new FileShortcut (key);
+					} else if (type == ShortcutType.Folder) {
+						shortcut = new FolderShortcut (key);
 					}
 
-					this.Add (Shortcut);
+					this.Add (shortcut);
 				}
 			}
 

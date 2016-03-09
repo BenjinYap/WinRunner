@@ -61,8 +61,7 @@ namespace WinRunner.Models.Shortcuts {
 		}
 
 		private void SetIcon () {
-			this.Icon = new System.Windows.Media.Imaging.BitmapImage (new Uri ("Resources/folder.png", UriKind.Relative));
-			Debug.WriteLine (this.Icon);
+			this.Icon = new System.Windows.Media.Imaging.BitmapImage (new Uri ("../Resources/folder.png", UriKind.Relative));
 		}
 	}
 }
