@@ -15,7 +15,8 @@ namespace WinRunner.Models.Shortcuts {
 	public enum ShortcutType { File, Batch, Folder }
 
 	public abstract class Shortcut:ModelBase {
-		
+		protected readonly static string DocumentsPath = Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), "WinRunner");
+
 		private BitmapImage icon;
 		public BitmapImage Icon {
 			get { return this.icon; }

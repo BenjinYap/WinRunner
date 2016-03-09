@@ -52,13 +52,13 @@ namespace WinRunner.Models.Shortcuts {
 		public override void DeleteFromRegistry () {
 			base.DeleteFromRegistry ();
 			File.Delete (this.GetBatchFilePath ());
-			File.Delete (BatchFilesPath + this.oldName + ".bat");
+			File.Delete (BatchShortcut.ScriptFolderPath + this.oldName + ".bat");
 		}
 
-		public static string BatchFilesPath = Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments) + @"\WinRunner\BatchFiles\";
+		public readonly static string ScriptFolderPath = Path.Combine (Shortcut.DocumentsPath, "BatchFiles");
 
 		private string GetBatchFilePath () {
-			return BatchFilesPath + this.Name + ".bat";
+			return Path.Combine (BatchShortcut.ScriptFolderPath, this.Name + ".bat");
 		}
 
 		private void WriteToBatchFile () {

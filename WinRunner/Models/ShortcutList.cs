@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using WinRunner.Models.Shortcuts;
 namespace WinRunner.Models {
@@ -17,8 +18,8 @@ namespace WinRunner.Models {
 				if (Regex.Match (keyName, @"\.exe$", RegexOptions.IgnoreCase).Success) {
 					RegistryKey key = rootKey.OpenSubKey (keyName, true);
 					Shortcut Shortcut = null;
-
-					if (key.GetValue ("").ToString ().Contains (BatchShortcut.BatchFilesPath)) {
+					
+					if (key.GetValue ("").ToString ().Contains (BatchShortcut.ScriptFolderPath)) {
 						Shortcut = new BatchShortcut (key);
 					} else {
 						Shortcut = new FileShortcut (key);
