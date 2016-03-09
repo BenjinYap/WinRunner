@@ -4,10 +4,39 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Data;
+using System.Windows.Media;
 using WinRunner.Models;
 using WinRunner.Models.Shortcuts;
 using WinRunner.Resources;
 namespace WinRunner.Views {
+	public class HasErrorsToBackgroundConverter:IValueConverter {
+		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
+			if (System.Convert.ToBoolean (value)) {
+				return Brushes.Pink;
+			}
+
+			return Brushes.Transparent;
+		}
+
+		public object ConvertBack (object value, Type targetType, object parameter, CultureInfo culture) {
+			throw new NotImplementedException ();
+		}
+	}
+
+	public class HasErrorsToEditTextConverter:IValueConverter {
+		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
+			if (System.Convert.ToBoolean (value)) {
+				return General.Fix;
+			}
+
+			return General.Edit;
+		}
+
+		public object ConvertBack (object value, Type targetType, object parameter, CultureInfo culture) {
+			throw new NotImplementedException ();
+		}
+	}
+
 	public class ShortcutTypeToEnumConverter:IValueConverter {
 		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value is BatchShortcut) {

@@ -82,11 +82,27 @@ namespace WinRunner {
 			bool? result = OpenShortcutWindow ((Shortcut) button.DataContext, false);
 			
 			if (result.HasValue && result.Value) {
-				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
+
+				//get the top level grid and update the background
 				Grid grid = (Grid) button.Parent;
+				grid.GetBindingExpression (Grid.BackgroundProperty).UpdateTarget ();
+				
+				//get the image icon and update it
+				Image image = (Image) grid.Children [0];
+				image.GetBindingExpression (Image.SourceProperty).UpdateTarget ();
+
+				//get the inner grid that contains the name textblock
 				Grid grid2 = (Grid) grid.Children [1];
+
+				//get the textblock and update it
 				TextBlock textBlock = (TextBlock) grid2.Children [0];
 				textBlock.GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
+
+				//get the edit button
+				Button edit = (Button) grid.Children [3];
+
+				//update the edit button's text
+				edit.GetBindingExpression (Button.ContentProperty).UpdateTarget ();
 			}
 		}
 

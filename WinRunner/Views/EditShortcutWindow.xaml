@@ -46,7 +46,7 @@
 
             <Label Content="{x:Static res:General.Name}"></Label>
             <Image Source="{Binding Shortcut.Icon}" Width="30" Margin="0 0 5 0" Grid.Column="1"></Image>
-            <TextBox x:Name="TxtName" Text="{Binding Shortcut.Name, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Grid.Column="2"></TextBox>
+            <TextBox x:Name="TxtName" Text="{Binding Shortcut.Name, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Grid.Column="2"></TextBox>
             <ItemsControl ItemsSource="{Binding ElementName=TxtName, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="1" Grid.Column="2"></ItemsControl>
         </Grid>
 

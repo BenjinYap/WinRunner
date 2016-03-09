@@ -165,6 +165,9 @@
   <data name="File" xml:space="preserve">
     <value>File</value>
   </data>
+  <data name="Fix" xml:space="preserve">
+    <value>Fix</value>
+  </data>
   <data name="Folder" xml:space="preserve">
     <value>Folder</value>
   </data>
