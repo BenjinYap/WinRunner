@@ -21,7 +21,7 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Content="{x:Static res:General.Path}"></Label>
+        <Label Content="{x:Static res:General.File}"></Label>
         <Button Content="{x:Static res:General.ChooseFile}" Click="ChooseFileClicked" Grid.Column="1"></Button>
         <TextBox x:Name="TxtPath"
                  Text="{Binding Shortcut.Path, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"

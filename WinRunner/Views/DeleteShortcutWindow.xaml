@@ -19,8 +19,8 @@
                 <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
                     <Setter Property="Title" Value="{x:Static res:General.DeleteBatchShortcut}"></Setter>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Path}">
-                    <Setter Property="Title" Value="{x:Static res:General.DeletePathShortcut}"></Setter>
+                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
+                    <Setter Property="Title" Value="{x:Static res:General.DeleteFileShortcut}"></Setter>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -69,7 +69,7 @@
             <ContentControl.Style>
                 <Style TargetType="{x:Type ContentControl}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Path}">
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
@@ -80,7 +80,7 @@
                                                 <ColumnDefinition></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label Content="{x:Static res:General.Path}"></Label>
+                                            <Label Content="{x:Static res:General.File}"></Label>
                                             <TextBox Grid.Column="1"
                                                      IsReadOnly="True"
                                                      Text="{Binding Shortcut.Path, ElementName=Self}"></TextBox>

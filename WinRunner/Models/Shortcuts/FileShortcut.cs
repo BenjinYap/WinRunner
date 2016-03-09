@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
-	public class PathShortcut:Shortcut {
+	public class FileShortcut:Shortcut {
 
 		private string path;
 		public string Path {
@@ -24,11 +24,11 @@ namespace WinRunner.Models.Shortcuts {
 
 		private string oldPath;
 
-		public PathShortcut ():base () {
+		public FileShortcut ():base () {
 			this.Path = "";
 		}
 
-		public PathShortcut (RegistryKey regKey):base (regKey) {
+		public FileShortcut (RegistryKey regKey):base (regKey) {
 			this.Path = regKey.GetValue ("").ToString ();
 		}
 
@@ -49,14 +49,14 @@ namespace WinRunner.Models.Shortcuts {
 
 		private void ValidatePath ([CallerMemberName] string propertyName = null) {
 			if (this.Path.Length <= 0) {
-				base.AddError (General.PathRequired, propertyName);
+				base.AddError (General.Required, propertyName);
 			} else {
-				base.RemoveError (General.PathRequired, propertyName);
+				base.RemoveError (General.Required, propertyName);
 
 				if (File.Exists (this.Path) == false) {
-					base.AddError (General.PathDoesNotExist, propertyName);
+					base.AddError (General.DoesNotExist, propertyName);
 				} else {
-					base.RemoveError (General.PathDoesNotExist, propertyName);
+					base.RemoveError (General.DoesNotExist, propertyName);
 				}
 			}
 		}

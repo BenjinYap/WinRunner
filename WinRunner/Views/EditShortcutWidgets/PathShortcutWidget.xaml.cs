@@ -22,14 +22,14 @@ namespace WinRunner.Views.EditShortcutWidgets {
 	/// Interaction logic for PathAppWidget.xaml
 	/// </summary>
 	public partial class PathShortcutWidget:EditShortcutWidget {
-		private PathShortcut shortcut;
+		private FileShortcut shortcut;
 		
 		public PathShortcutWidget () {
 			InitializeComponent ();
 		}
 
 		private void ChooseFileClicked (object sender, RoutedEventArgs e) {
-			this.shortcut = (PathShortcut) this.Shortcut;
+			this.shortcut = (FileShortcut) this.Shortcut;
 
 			OpenFileDialog dialog = new OpenFileDialog ();
 			

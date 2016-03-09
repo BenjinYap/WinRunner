@@ -55,7 +55,7 @@ namespace WinRunner {
 		}
 
 		private void NewAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new PathShortcut (), true);
+			OpenAppWindow (new FileShortcut (), true);
 		}
 
 		private bool? OpenAppWindow (Shortcut app, bool isNew) {

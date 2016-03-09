@@ -21,7 +21,7 @@ namespace WinRunner.Models {
 					if (key.GetValue ("").ToString ().Contains (BatchShortcut.BatchFilesPath)) {
 						Shortcut = new BatchShortcut (key);
 					} else {
-						Shortcut = new PathShortcut (key);
+						Shortcut = new FileShortcut (key);
 					}
 
 					this.Add (Shortcut);

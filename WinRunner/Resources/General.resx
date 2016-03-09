@@ -135,11 +135,14 @@
   <data name="DeleteBatchShortcut" xml:space="preserve">
     <value>Delete Batch Shortcut</value>
   </data>
-  <data name="DeletePathShortcut" xml:space="preserve">
-    <value>Delete Path Shortcut</value>
+  <data name="DeleteFileShortcut" xml:space="preserve">
+    <value>Delete File Shortcut</value>
   </data>
   <data name="DeleteText" xml:space="preserve">
     <value>Really delete this?</value>
+  </data>
+  <data name="DoesNotExist" xml:space="preserve">
+    <value>Does not exist</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
@@ -147,8 +150,11 @@
   <data name="EditBatchShortcut" xml:space="preserve">
     <value>Edit Batch Shortcut</value>
   </data>
-  <data name="EditPathShortcut" xml:space="preserve">
-    <value>Edit Path Shortcut</value>
+  <data name="EditFileShortcut" xml:space="preserve">
+    <value>Edit File Shortcut</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -171,16 +177,10 @@
   <data name="NewBatchShortcut" xml:space="preserve">
     <value>New Batch Shortcut</value>
   </data>
-  <data name="NewPathShortcut" xml:space="preserve">
-    <value>New Path Shortcut</value>
+  <data name="NewFileShortcut" xml:space="preserve">
+    <value>New File Shortcut</value>
   </data>
-  <data name="Path" xml:space="preserve">
-    <value>Path</value>
-  </data>
-  <data name="PathDoesNotExist" xml:space="preserve">
-    <value>Does not exist</value>
-  </data>
-  <data name="PathRequired" xml:space="preserve">
+  <data name="Required" xml:space="preserve">
     <value>Required</value>
   </data>
   <data name="Save" xml:space="preserve">

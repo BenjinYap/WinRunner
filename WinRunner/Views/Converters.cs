@@ -13,7 +13,7 @@ namespace WinRunner.Views {
 			if (value is BatchShortcut) {
 				return ShortcutType.Batch;
 			} else if (value is Shortcut) {
-				return ShortcutType.Path;
+				return ShortcutType.File;
 			}
 
 			return null;

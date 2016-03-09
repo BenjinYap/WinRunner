@@ -12,7 +12,7 @@ using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
-	public enum ShortcutType { Path, Batch }
+	public enum ShortcutType { File, Batch }
 
 	public abstract class Shortcut:ModelBase {
 		

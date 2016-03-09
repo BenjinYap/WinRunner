@@ -20,8 +20,8 @@
                 <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
                     <Setter Property="Title" Value="{x:Static res:General.EditBatchShortcut}"></Setter>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Path}">
-                    <Setter Property="Title" Value="{x:Static res:General.EditPathShortcut}"></Setter>
+                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
+                    <Setter Property="Title" Value="{x:Static res:General.EditFileShortcut}"></Setter>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -55,7 +55,7 @@
             <ContentControl.Style>
                 <Style TargetType="{x:Type ContentControl}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Path}">
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>

@@ -115,11 +115,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Path Shortcut.
+        ///   Looks up a localized string similar to Delete File Shortcut.
         /// </summary>
-        public static string DeletePathShortcut {
+        public static string DeleteFileShortcut {
             get {
-                return ResourceManager.GetString("DeletePathShortcut", resourceCulture);
+                return ResourceManager.GetString("DeleteFileShortcut", resourceCulture);
             }
         }
         
@@ -129,6 +129,15 @@ namespace WinRunner.Resources {
         public static string DeleteText {
             get {
                 return ResourceManager.GetString("DeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Does not exist.
+        /// </summary>
+        public static string DoesNotExist {
+            get {
+                return ResourceManager.GetString("DoesNotExist", resourceCulture);
             }
         }
         
@@ -151,11 +160,20 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Path Shortcut.
+        ///   Looks up a localized string similar to Edit File Shortcut.
         /// </summary>
-        public static string EditPathShortcut {
+        public static string EditFileShortcut {
             get {
-                return ResourceManager.GetString("EditPathShortcut", resourceCulture);
+                return ResourceManager.GetString("EditFileShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File.
+        /// </summary>
+        public static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
             }
         }
         
@@ -223,38 +241,20 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Path Shortcut.
+        ///   Looks up a localized string similar to New File Shortcut.
         /// </summary>
-        public static string NewPathShortcut {
+        public static string NewFileShortcut {
             get {
-                return ResourceManager.GetString("NewPathShortcut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Path.
-        /// </summary>
-        public static string Path {
-            get {
-                return ResourceManager.GetString("Path", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Does not exist.
-        /// </summary>
-        public static string PathDoesNotExist {
-            get {
-                return ResourceManager.GetString("PathDoesNotExist", resourceCulture);
+                return ResourceManager.GetString("NewFileShortcut", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Required.
         /// </summary>
-        public static string PathRequired {
+        public static string Required {
             get {
-                return ResourceManager.GetString("PathRequired", resourceCulture);
+                return ResourceManager.GetString("Required", resourceCulture);
             }
         }
         
