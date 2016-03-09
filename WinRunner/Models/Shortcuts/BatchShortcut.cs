@@ -55,7 +55,7 @@ namespace WinRunner.Models.Shortcuts {
 			File.Delete (BatchShortcut.ScriptFolderPath + this.oldName + ".bat");
 		}
 
-		public readonly static string ScriptFolderPath = Path.Combine (Shortcut.DocumentsPath, "BatchFiles");
+		public readonly static string ScriptFolderPath = Path.Combine (Shortcut.DocumentsPath, "BatchScripts");
 
 		private string GetBatchFilePath () {
 			return Path.Combine (BatchShortcut.ScriptFolderPath, this.Name + ".bat");
