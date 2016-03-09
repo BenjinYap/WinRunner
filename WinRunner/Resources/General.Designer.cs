@@ -97,6 +97,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose Folder.
+        /// </summary>
+        public static string ChooseFolder {
+            get {
+                return ResourceManager.GetString("ChooseFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {

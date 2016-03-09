@@ -2,6 +2,7 @@
 
 using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -50,8 +51,8 @@ namespace WinRunner.Models.Shortcuts {
 				base.AddError (General.Required, propertyName);
 			} else {
 				base.RemoveError (General.Required, propertyName);
-
-				if (File.Exists (this.Path) == false) {
+				
+				if (Directory.Exists (this.Path) == false) {
 					base.AddError (General.DoesNotExist, propertyName);
 				} else {
 					base.RemoveError (General.DoesNotExist, propertyName);
@@ -61,6 +62,7 @@ namespace WinRunner.Models.Shortcuts {
 
 		private void SetIcon () {
 			this.Icon = new System.Windows.Media.Imaging.BitmapImage (new Uri ("Resources/folder.png", UriKind.Relative));
+			Debug.WriteLine (this.Icon);
 		}
 	}
 }

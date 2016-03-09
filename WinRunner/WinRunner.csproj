@@ -103,6 +103,9 @@
       <DependentUpon>BatchShortcutWidget.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditShortcutWidgets\EditShortcutWidget.cs" />
+    <Compile Include="Views\EditShortcutWidgets\FolderShortcutWidget.xaml.cs">
+      <DependentUpon>FolderShortcutWidget.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditShortcutWidgets\FileShortcutWidget.xaml.cs">
       <DependentUpon>FileShortcutWidget.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
     <Page Include="Views\EditShortcutWidgets\BatchShortcutWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditShortcutWidgets\FolderShortcutWidget.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EditShortcutWidgets\FileShortcutWidget.xaml">
       <SubType>Designer</SubType>

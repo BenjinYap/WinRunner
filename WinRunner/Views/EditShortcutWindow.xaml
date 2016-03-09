@@ -58,7 +58,7 @@
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
-                                        <widgets:FileShortcutWidget x:Name="awd" Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:FileShortcutWidget>
+                                        <widgets:FileShortcutWidget Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:FileShortcutWidget>
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -67,7 +67,16 @@
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
-                                        <widgets:BatchShortcutWidget x:Name="awd" Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:BatchShortcutWidget>
+                                        <widgets:BatchShortcutWidget Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:BatchShortcutWidget>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Folder}">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <widgets:FolderShortcutWidget Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:FolderShortcutWidget>
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>

@@ -129,6 +129,9 @@
   <data name="ChooseFile" xml:space="preserve">
     <value>Choose File</value>
   </data>
+  <data name="ChooseFolder" xml:space="preserve">
+    <value>Choose Folder</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>

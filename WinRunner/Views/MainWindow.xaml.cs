@@ -44,6 +44,7 @@ namespace WinRunner {
 			DispatcherTimer awd = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 200) };
 			awd.Start ();
 			awd.Tick += (a, b) => {
+				//NewFolderShortcutClicked (null, null);
 				//new DeleteAppWindow (this.AppList [0]).ShowDialog ();
 				//OpenShortcutWindow (this.AppList [0], false);
 				awd.Stop ();
