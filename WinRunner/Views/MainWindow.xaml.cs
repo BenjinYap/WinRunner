@@ -59,7 +59,7 @@ namespace WinRunner {
 		}
 
 		private void NewFolderShortcutClicked (object sender, RoutedEventArgs e) {
-
+			OpenShortcutWindow (new FolderShortcut (), true);
 		}
 
 		private bool? OpenShortcutWindow (Shortcut shortcut, bool isNew) {
