@@ -63,7 +63,7 @@ namespace WinRunner.Models.Shortcuts {
 		public override void DeleteFromRegistry () {
 			base.DeleteFromRegistry ();
 			File.Delete (this.scriptPath);
-			File.Delete (BatchShortcut.ScriptFolderPath + this.oldName + ".bat");
+			File.Delete (Path.Combine (BatchShortcut.ScriptFolderPath, this.oldName + ".bat"));
 		}
 
 		private readonly static string ScriptFolderPath = Path.Combine (Shortcut.DocumentsPath, "BatchScripts");
