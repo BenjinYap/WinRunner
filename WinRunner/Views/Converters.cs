@@ -43,4 +43,22 @@ namespace WinRunner.Views {
 			throw new NotImplementedException ();
 		}
 	}
+
+	public class ShortcutToDeleteWindowTitleConverter:IValueConverter {
+		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
+			if (value is BatchShortcut) {
+				return General.DeleteBatchShortcut;
+			} else if (value is FileShortcut) {
+				return General.DeleteFileShortcut;
+			} else if (value is FolderShortcut) {
+				return General.DeleteFolderShortcut;
+			}
+
+			return null;
+		}
+
+		public object ConvertBack (object value, Type targetType, object parameter, CultureInfo culture) {
+			throw new NotImplementedException ();
+		}
+	}
 }

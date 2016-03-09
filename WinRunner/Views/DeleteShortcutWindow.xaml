@@ -13,19 +13,18 @@
         Width="400"
         >
 
-    <Window.Style>
-        <Style TargetType="{x:Type Window}">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
-                    <Setter Property="Title" Value="{x:Static res:General.DeleteBatchShortcut}"></Setter>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
-                    <Setter Property="Title" Value="{x:Static res:General.DeleteFileShortcut}"></Setter>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Style>
-    
+    <Window.Resources>
+        <views:ShortcutToDeleteWindowTitleConverter x:Key="ShortcutToDeleteWindowTitle"></views:ShortcutToDeleteWindowTitleConverter>
+    </Window.Resources>
+
+    <Window.Title>
+        <Binding Path="Shortcut">
+            <Binding.Converter>
+                <StaticResource ResourceKey="ShortcutToDeleteWindowTitle"></StaticResource>
+            </Binding.Converter>
+        </Binding>
+    </Window.Title>
+
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

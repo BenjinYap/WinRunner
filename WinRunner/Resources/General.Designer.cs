@@ -124,6 +124,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Folder Shortcut.
+        /// </summary>
+        public static string DeleteFolderShortcut {
+            get {
+                return ResourceManager.GetString("DeleteFolderShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Really delete this?.
         /// </summary>
         public static string DeleteText {
