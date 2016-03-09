@@ -58,7 +58,7 @@
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
-                                        <widgets:PathShortcutWidget x:Name="awd" Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:PathShortcutWidget>
+                                        <widgets:FileShortcutWidget x:Name="awd" Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:FileShortcutWidget>
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>

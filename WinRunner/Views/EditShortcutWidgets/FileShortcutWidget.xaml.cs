@@ -21,10 +21,10 @@ namespace WinRunner.Views.EditShortcutWidgets {
 	/// <summary>
 	/// Interaction logic for PathAppWidget.xaml
 	/// </summary>
-	public partial class PathShortcutWidget:EditShortcutWidget {
+	public partial class FileShortcutWidget:EditShortcutWidget {
 		private FileShortcut shortcut;
 		
-		public PathShortcutWidget () {
+		public FileShortcutWidget () {
 			InitializeComponent ();
 		}
 

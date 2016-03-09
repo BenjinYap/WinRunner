@@ -103,8 +103,8 @@
       <DependentUpon>BatchShortcutWidget.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditShortcutWidgets\EditShortcutWidget.cs" />
-    <Compile Include="Views\EditShortcutWidgets\PathShortcutWidget.xaml.cs">
-      <DependentUpon>PathShortcutWidget.xaml</DependentUpon>
+    <Compile Include="Views\EditShortcutWidgets\FileShortcutWidget.xaml.cs">
+      <DependentUpon>FileShortcutWidget.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserPreferences.cs" />
     <Page Include="Views\AboutWindow.xaml">
@@ -119,7 +119,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\EditShortcutWidgets\PathShortcutWidget.xaml">
+    <Page Include="Views\EditShortcutWidgets\FileShortcutWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
