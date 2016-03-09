@@ -19,10 +19,16 @@ namespace WinRunner.Models {
 					RegistryKey key = rootKey.OpenSubKey (keyName, true);
 					Shortcut Shortcut = null;
 					
-					if (key.GetValue ("").ToString ().Contains (BatchShortcut.ScriptFolderPath)) {
+					//figure out the shortcut type from the type key
+					ShortcutType type = (ShortcutType) Enum.Parse (typeof (ShortcutType), key.GetValue (Shortcut.TypeKeyName).ToString ());
+
+					//create appropriate shortcut instance based on type
+					if (type == ShortcutType.Batch) {
 						Shortcut = new BatchShortcut (key);
-					} else {
+					} else if (type == ShortcutType.File) {
 						Shortcut = new FileShortcut (key);
+					} else {
+						throw new Exception ();
 					}
 
 					this.Add (Shortcut);
