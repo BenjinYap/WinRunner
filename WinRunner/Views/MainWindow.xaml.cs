@@ -58,6 +58,10 @@ namespace WinRunner {
 			OpenAppWindow (new FileShortcut (), true);
 		}
 
+		private void NewFolderShortcutClicked (object sender, RoutedEventArgs e) {
+
+		}
+
 		private bool? OpenAppWindow (Shortcut app, bool isNew) {
 			EditShortcutWindow window = new EditShortcutWindow (app);
 			window.Owner = this;
