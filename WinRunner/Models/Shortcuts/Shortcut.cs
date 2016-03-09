@@ -15,6 +15,8 @@ namespace WinRunner.Models.Shortcuts {
 	public enum ShortcutType { File, Batch, Folder }
 
 	public abstract class Shortcut:ModelBase {
+		public const string TypeKeyName = "Type";
+
 		protected readonly static string DocumentsPath = Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.MyDocuments), "WinRunner");
 
 		private BitmapImage icon;
@@ -40,11 +42,22 @@ namespace WinRunner.Models.Shortcuts {
 
 		protected string oldName;
 
+		private ShortcutType type;
+
 		public Shortcut () {
 			this.Name = "";
+			
+			//assign the type of the shortcut
+			if (this is FileShortcut) {
+				this.type = ShortcutType.File;
+			} else if (this is FolderShortcut) {
+				this.type = ShortcutType.Folder;
+			} else if (this is BatchShortcut) {
+				this.type = ShortcutType.Batch;
+			}
 		}
 
-		public Shortcut (RegistryKey regKey) {
+		public Shortcut (RegistryKey regKey):this () {
 			this.regKey = regKey;
 			this.Name = this.GetAppName (regKey.Name);
 		}
@@ -61,16 +74,20 @@ namespace WinRunner.Models.Shortcuts {
 			bool create = false;
 			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
 			
-			if (this.regKey == null) {
+			if (this.regKey == null) {  //new shortcut, must create key
 				create = true;
-			} else if (this.GetAppName (this.regKey.Name) != this.Name) {
-				create = true;
-				this.DeleteFromRegistry ();
+			} else if (this.GetAppName (this.regKey.Name) != this.Name) {  //shortcut was renamed
+				create = true;  //must create key
+				this.DeleteFromRegistry ();  //delete old key first
 			}
 			
+			//create the key if required
 			if (create) {
 				this.regKey = rootKey.CreateSubKey (this.Name + ".exe");
 			}
+
+			//set the type key
+			this.regKey.SetValue (Shortcut.TypeKeyName, this.type);
 
 			rootKey.Close ();
 		}
