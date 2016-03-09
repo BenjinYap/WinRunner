@@ -37,7 +37,9 @@ namespace WinRunner.Models.Shortcuts {
 		}
 
 		public FolderShortcut (RegistryKey regKey):base (regKey) {
+			//get the folder path from the key
 			this.Path = regKey.GetValue (FolderShortcut.PathKeyName).ToString ();
+
 			this.SetIcon ();
 
 			//create the batch file
