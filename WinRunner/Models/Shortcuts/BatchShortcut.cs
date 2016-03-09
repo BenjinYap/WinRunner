@@ -31,10 +31,8 @@ namespace WinRunner.Models.Shortcuts {
 			//get the code from the key
 			this.Script = regKey.GetValue (BatchShortcut.CodeKeyName).ToString ();
 
-			//create the batch file
-			this.FlushToScript ();
-
-			base.GetIconFromPath (this.scriptPath);
+			//flush immediately to generate the batch file and to ensure the exe path matches
+			this.FlushToRegistry ();
 		}
 
 		public override void RememberProperties () {
