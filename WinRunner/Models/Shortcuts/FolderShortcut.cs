@@ -42,8 +42,8 @@ namespace WinRunner.Models.Shortcuts {
 
 			this.SetIcon ();
 
-			//create the batch file
-			this.FlushToScript ();
+			//flush immediately to generate the batch file and to ensure the exe path matches
+			this.FlushToRegistry ();
 		}
 
 		public override void RememberProperties () {
