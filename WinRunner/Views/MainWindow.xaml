@@ -22,6 +22,8 @@
     </Window.CommandBindings>
     
     <Window.Resources>
+        <views:ShortcutToTypeNameConverter x:Key="ShortcutToTypeName"></views:ShortcutToTypeNameConverter>
+        
         <Style TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="5 0"></Setter>
             <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
@@ -71,20 +73,8 @@
                                         BorderThickness="1"
                                         Margin="0 0 5 0"
                                         VerticalAlignment="Center">
-                                    <TextBlock HorizontalAlignment="Center">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
-                                                        <Setter Property="Text" Value="{x:Static res:General.File}"></Setter>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
-                                                        <Setter Property="Text" Value="{x:Static res:General.Batch}"></Setter>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="{Binding Converter={StaticResource ShortcutToTypeName}}"></TextBlock>
                                 </Border>
                                 
                                 <Button Click="EditShortcutClicked"

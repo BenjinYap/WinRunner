@@ -26,6 +26,24 @@ namespace WinRunner.Views {
 		}
 	}
 
+	public class ShortcutToTypeNameConverter:IValueConverter {
+		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
+			if (value is BatchShortcut) {
+				return General.Batch;
+			} else if (value is FileShortcut) {
+				return General.File;
+			} else if (value is FolderShortcut) {
+				return General.Folder;
+			}
+
+			return null;
+		}
+
+		public object ConvertBack (object value, Type targetType, object parameter, CultureInfo culture) {
+			throw new NotImplementedException ();
+		}
+	}
+
 	public class ShortcutToEditWindowTitleConverter:IValueConverter {
 		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value is BatchShortcut) {
