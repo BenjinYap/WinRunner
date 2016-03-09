@@ -9,6 +9,8 @@ using System.Runtime.CompilerServices;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
 	public class FolderShortcut:Shortcut {
+		private const string PathKeyName = "FolderPath";
+
 		private string path;
 		public string Path {
 			get { return this.path; }
@@ -21,14 +23,25 @@ namespace WinRunner.Models.Shortcuts {
 
 		private string oldPath;
 
+		private string script {
+			get { return "start explorer \"" + this.Path + "\""; }
+		}
+
+		private string scriptPath {
+			get { return System.IO.Path.Combine (FolderShortcut.ScriptFolderPath, this.Name + ".bat"); }
+		}
+
 		public FolderShortcut ():base () {
 			this.Path = "";
 			this.SetIcon ();
 		}
 
 		public FolderShortcut (RegistryKey regKey):base (regKey) {
-			this.Path = regKey.GetValue ("").ToString ();
+			this.Path = regKey.GetValue (FolderShortcut.PathKeyName).ToString ();
 			this.SetIcon ();
+
+			//create the batch file
+			this.FlushToScript ();
 		}
 
 		public override void RememberProperties () {
@@ -43,7 +56,21 @@ namespace WinRunner.Models.Shortcuts {
 
 		public override void FlushToRegistry () {
 			base.FlushToRegistry ();
-			this.regKey.SetValue ("", this.Path);
+
+			//set the exe path to the batch file
+			this.regKey.SetValue ("", this.scriptPath);
+
+			//save the path of the folder to be opened
+			this.regKey.SetValue (FolderShortcut.PathKeyName, this.Path);
+
+			//create the batch file
+			this.FlushToScript ();
+		}
+
+		public override void DeleteFromRegistry () {
+			base.DeleteFromRegistry ();
+			File.Delete (this.scriptPath);
+			//File.Delete (BatchShortcut.ScriptFolderPath + this.oldName + ".bat");
 		}
 
 		private void ValidatePath ([CallerMemberName] string propertyName = null) {
@@ -62,6 +89,14 @@ namespace WinRunner.Models.Shortcuts {
 
 		private void SetIcon () {
 			this.Icon = new System.Windows.Media.Imaging.BitmapImage (new Uri ("../Resources/folder.png", UriKind.Relative));
+		}
+
+		private readonly static string ScriptFolderPath = System.IO.Path.Combine (Shortcut.DocumentsPath, "FolderScripts");
+
+		private void FlushToScript () {
+			FileInfo fileInfo = new FileInfo (this.scriptPath);
+			fileInfo.Directory.Create ();
+			File.WriteAllText (fileInfo.FullName, this.script);
 		}
 	}
 }
