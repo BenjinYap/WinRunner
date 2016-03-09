@@ -34,16 +34,10 @@ namespace WinRunner.Views.EditShortcutWidgets {
 
 			//use fancy Ookii vista browser dialog
 			VistaFolderBrowserDialog dialog = new VistaFolderBrowserDialog ();
-			
-			//if (File.Exists (this.shortcut.Path)) {
-			//	dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.shortcut.Path);
-			//}
 
+			//set the starting path
+			dialog.SelectedPath = this.shortcut.Path;
 			
-			//dialog.FileName = this.shortcut.Path;
-			//dialog.CheckFileExists = true;
-			//dialog.CheckPathExists = true;
-
 			//show the dialog
 			bool? result = dialog.ShowDialog ();
 			
