@@ -45,40 +45,40 @@ namespace WinRunner {
 			awd.Start ();
 			awd.Tick += (a, b) => {
 				//new DeleteAppWindow (this.AppList [0]).ShowDialog ();
-				//OpenAppWindow (this.AppList [0], false);
+				//OpenShortcutWindow (this.AppList [0], false);
 				awd.Stop ();
 			};
 		}
 
-		private void NewBatchAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new BatchShortcut (), true);
+		private void NewBatchShortcutClicked (object sender, RoutedEventArgs e) {
+			OpenShortcutWindow (new BatchShortcut (), true);
 		}
 
-		private void NewAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new FileShortcut (), true);
+		private void NewFileShortcutClicked (object sender, RoutedEventArgs e) {
+			OpenShortcutWindow (new FileShortcut (), true);
 		}
 
 		private void NewFolderShortcutClicked (object sender, RoutedEventArgs e) {
 
 		}
 
-		private bool? OpenAppWindow (Shortcut app, bool isNew) {
-			EditShortcutWindow window = new EditShortcutWindow (app);
+		private bool? OpenShortcutWindow (Shortcut shortcut, bool isNew) {
+			EditShortcutWindow window = new EditShortcutWindow (shortcut);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
 				if (isNew) {
-					this.ShortcutList.Add (app);
+					this.ShortcutList.Add (shortcut);
 				}
 			}
 			
 			return result;
 		}
 
-		private void EditAppClicked (object sender, RoutedEventArgs e) {
+		private void EditShortcutClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			bool? result = OpenAppWindow ((Shortcut) button.DataContext, false);
+			bool? result = OpenShortcutWindow ((Shortcut) button.DataContext, false);
 			
 			if (result.HasValue && result.Value) {
 				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
@@ -89,17 +89,17 @@ namespace WinRunner {
 			}
 		}
 
-		private void DeleteAppClicked (object sender, RoutedEventArgs e) {
+		private void DeleteShortcutClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			Shortcut app = (Shortcut) button.DataContext;
+			Shortcut shortcut = (Shortcut) button.DataContext;
 			
-			DeleteShortcutWindow window = new DeleteShortcutWindow (app);
+			DeleteShortcutWindow window = new DeleteShortcutWindow (shortcut);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
-				app.DeleteFromRegistry ();
-				this.ShortcutList.Remove (app);
+				shortcut.DeleteFromRegistry ();
+				this.ShortcutList.Remove (shortcut);
 			}
 		}
 
