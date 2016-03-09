@@ -153,6 +153,9 @@
   <data name="EditFileShortcut" xml:space="preserve">
     <value>Edit File Shortcut</value>
   </data>
+  <data name="EditFolderShortcut" xml:space="preserve">
+    <value>Edit Folder Shortcut</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>File</value>
   </data>
@@ -176,12 +179,6 @@
   </data>
   <data name="NameRequired" xml:space="preserve">
     <value>Required</value>
-  </data>
-  <data name="NewBatchShortcut" xml:space="preserve">
-    <value>New Batch Shortcut</value>
-  </data>
-  <data name="NewFileShortcut" xml:space="preserve">
-    <value>New File Shortcut</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Required</value>

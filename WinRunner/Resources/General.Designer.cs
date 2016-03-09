@@ -169,6 +169,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Folder Shortcut.
+        /// </summary>
+        public static string EditFolderShortcut {
+            get {
+                return ResourceManager.GetString("EditFolderShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File.
         /// </summary>
         public static string File {
@@ -237,24 +246,6 @@ namespace WinRunner.Resources {
         public static string NameRequired {
             get {
                 return ResourceManager.GetString("NameRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to New Batch Shortcut.
-        /// </summary>
-        public static string NewBatchShortcut {
-            get {
-                return ResourceManager.GetString("NewBatchShortcut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to New File Shortcut.
-        /// </summary>
-        public static string NewFileShortcut {
-            get {
-                return ResourceManager.GetString("NewFileShortcut", resourceCulture);
             }
         }
         

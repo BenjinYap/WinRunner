@@ -14,18 +14,17 @@
         Width="400"
         Closing="WindowClosing">
 
-    <Window.Style>
-        <Style TargetType="{x:Type Window}">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
-                    <Setter Property="Title" Value="{x:Static res:General.EditBatchShortcut}"></Setter>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
-                    <Setter Property="Title" Value="{x:Static res:General.EditFileShortcut}"></Setter>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Style>
+    <Window.Resources>
+        <views:ShortcutToEditWindowTitleConverter x:Key="ShortcutToEditWindowTitle"></views:ShortcutToEditWindowTitleConverter>
+    </Window.Resources>
+    
+    <Window.Title>
+        <Binding Path="Shortcut">
+            <Binding.Converter>
+                <StaticResource ResourceKey="ShortcutToEditWindowTitle"></StaticResource>
+            </Binding.Converter>
+        </Binding>
+    </Window.Title>
     
     <Grid FocusManager.FocusedElement="{Binding ElementName=TxtName}" Margin="5">
         <Grid.RowDefinitions>
