@@ -151,7 +151,7 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Really delete this?.
+        ///   Looks up a localized string similar to Really delete this? There is no way to undo this..
         /// </summary>
         public static string DeleteText {
             get {

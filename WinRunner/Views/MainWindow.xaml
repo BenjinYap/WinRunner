@@ -66,7 +66,7 @@
                                 <Border Grid.Column="2"
                                         Background="#BEE6FD"
                                         BorderBrush="#3C7FB1"
-                                        Padding="1 0"
+                                        Padding="3 0"
                                         BorderThickness="1"
                                         Margin="{StaticResource MarginRight}"
                                         VerticalAlignment="Center">
