@@ -115,6 +115,8 @@ namespace WinRunner.Models.Shortcuts {
 					
 					this.Icon = bitmapimage;
 				}
+			} else {
+				this.Icon = new System.Windows.Media.Imaging.BitmapImage (new Uri ("../Resources/missing-file.png", UriKind.Relative));
 			}
 		}
 
