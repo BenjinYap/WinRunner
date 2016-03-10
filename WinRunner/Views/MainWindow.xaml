@@ -25,11 +25,6 @@
         <views:ShortcutToTypeNameConverter x:Key="ShortcutToTypeName"></views:ShortcutToTypeNameConverter>
         <views:HasErrorsToBackgroundConverter x:Key="HasErrorsToBackground"></views:HasErrorsToBackgroundConverter>
         <views:HasErrorsToEditTextConverter x:Key="HasErrorsToEditText"></views:HasErrorsToEditTextConverter>
-        
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Padding" Value="5 0"></Setter>
-            <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
-        </Style>
     </Window.Resources>
     
     <DockPanel>
@@ -62,18 +57,18 @@
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                         
-                                <Image Source="{Binding Icon, Mode=OneTime}" Width="{StaticResource ControlHeight}" Margin="5 5 0 5"></Image>
+                                <Image Source="{Binding Icon, Mode=OneTime}" Width="{StaticResource ControlHeight}" Margin="{StaticResource MarginLeftUpDown}"></Image>
 
-                                <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
+                                <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="{StaticResource MarginLeftRight}">
                                     <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
                                 </Grid>
 
                                 <Border Grid.Column="2"
-                                        Background="#FFBEE6FD"
-                                        BorderBrush="#FF3C7FB1"
+                                        Background="#BEE6FD"
+                                        BorderBrush="#3C7FB1"
                                         Padding="1 0"
                                         BorderThickness="1"
-                                        Margin="0 0 5 0"
+                                        Margin="{StaticResource MarginRight}"
                                         VerticalAlignment="Center">
                                     <TextBlock HorizontalAlignment="Center"
                                                Text="{Binding Converter={StaticResource ShortcutToTypeName}}"></TextBlock>
@@ -84,7 +79,7 @@
                                         Content="{Binding HasErrors, Converter={StaticResource HasErrorsToEditText}, Mode=OneTime}">
                                 </Button>
                                 <Button Click="DeleteShortcutClicked"
-                                        Margin="5 0 5 0"
+                                        Margin="{StaticResource MarginLeftRight}"
                                         Grid.Column="4"
                                         Content="{x:Static res:General.Delete}"></Button>
                             </Grid>
@@ -96,19 +91,19 @@
             <Border Grid.Row="1"
                     BorderBrush="Gray"
                     BorderThickness="0 1 0 0"
-                    Padding="5">
+                    Padding="{StaticResource MarginAll}">
                 <WrapPanel HorizontalAlignment="Right">
                     <Label Content="{x:Static res:General.CreateNewShortcut}"></Label>
                 
                     <Button Content="{x:Static res:General.Batch}"
                             Click="NewBatchShortcutClicked"
-                            Margin="5 0 2.5 0"></Button>
+                            Margin="{StaticResource MarginLeftHalfRight}"></Button>
                     <Button Content="{x:Static res:General.Folder}"
                             Click="NewFolderShortcutClicked"
-                            Margin="2.5 0"></Button>
+                            Margin="{StaticResource MarginHalfLeftRight}"></Button>
                     <Button Content="{x:Static res:General.File}"
                             Click="NewFileShortcutClicked"
-                            Margin="2.5 0 0 0"></Button>
+                            Margin="{StaticResource MarginHalfLeft}"></Button>
                 </WrapPanel>
             </Border>
         </Grid>
