@@ -4,7 +4,7 @@
         xmlns:root="clr-namespace:WinRunner"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:views="clr-namespace:WinRunner.Views"
-        xmlns:apps="clr-namespace:WinRunner.Models.Apps"
+        xmlns:shortcuts="clr-namespace:WinRunner.Models.Shortcuts"
         xmlns:res="clr-namespace:WinRunner.Resources"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         MinWidth="300"
@@ -22,15 +22,14 @@
     </Window.CommandBindings>
     
     <Window.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Padding" Value="5 0"></Setter>
-            <Setter Property="Height" Value="{StaticResource ControlHeight}"></Setter>
-        </Style>
+        <views:ShortcutToTypeNameConverter x:Key="ShortcutToTypeName"></views:ShortcutToTypeNameConverter>
+        <views:HasErrorsToBackgroundConverter x:Key="HasErrorsToBackground"></views:HasErrorsToBackgroundConverter>
+        <views:HasErrorsToEditTextConverter x:Key="HasErrorsToEditText"></views:HasErrorsToEditTextConverter>
     </Window.Resources>
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="{x:Static res:Menu.Preferences}">
+            <MenuItem Header="{x:Static res:Menu.Preferences}" Padding="5 2">
                 <MenuItem Command="{x:Static views:Commands.OpenDocumentsFolder}"></MenuItem>
             </MenuItem>
             <MenuItem Header="{x:Static res:Menu.Help}">
@@ -39,63 +38,48 @@
             </MenuItem>
         </Menu>
         
-        <Grid Margin="5">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
             
-            <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="0 0 5 0" Margin="0 0 0 5" Grid.ColumnSpan="2">
-                <ItemsControl x:Name="AppListView" ItemsSource="{Binding AppList}" IsTabStop="False" Grid.IsSharedSizeScope="True">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" IsTabStop="False">
+                <ItemsControl x:Name="ShortcutListView" ItemsSource="{Binding ShortcutList}" IsTabStop="False" Grid.IsSharedSizeScope="True">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="0 0 0 5">
+                            <Grid Background="{Binding HasErrors, Converter={StaticResource HasErrorsToBackground}, Mode=OneTime}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition Width="auto" SharedSizeGroup="A"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto" SharedSizeGroup="B"></ColumnDefinition>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                         
-                                <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
+                                <Image Source="{Binding Icon, Mode=OneTime}" Width="{StaticResource ControlHeight}" Margin="{StaticResource MarginLeftUpDown}"></Image>
 
-                                <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
+                                <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="{StaticResource MarginLeftRight}">
                                     <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
                                 </Grid>
 
                                 <Border Grid.Column="2"
-                                        Background="#FFBEE6FD"
-                                        BorderBrush="#FF3C7FB1"
-                                        Padding="1 0"
+                                        Background="#BEE6FD"
+                                        BorderBrush="#3C7FB1"
+                                        Padding="3 0"
                                         BorderThickness="1"
-                                        Margin="0 0 5 0"
+                                        Margin="{StaticResource MarginRight}"
                                         VerticalAlignment="Center">
-                                    <TextBlock HorizontalAlignment="Center">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
-                                                        <Setter Property="Text" Value="{x:Static res:General.Path}"></Setter>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
-                                                        <Setter Property="Text" Value="{x:Static res:General.Batch}"></Setter>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
-                                    </TextBlock>
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="{Binding Converter={StaticResource ShortcutToTypeName}}"></TextBlock>
                                 </Border>
                                 
-                                <Button Click="EditAppClicked"
+                                <Button Click="EditShortcutClicked"
                                         Grid.Column="3"
-                                        Content="{x:Static res:General.Edit}"></Button>
-                                <Button Click="DeleteAppClicked"
-                                        Margin="5 0 1 0"
+                                        Content="{Binding HasErrors, Converter={StaticResource HasErrorsToEditText}, Mode=OneTime}">
+                                </Button>
+                                <Button Click="DeleteShortcutClicked"
+                                        Margin="{StaticResource MarginLeftRight}"
                                         Grid.Column="4"
                                         Content="{x:Static res:General.Delete}"></Button>
                             </Grid>
@@ -104,14 +88,24 @@
                 </ItemsControl>
             </ScrollViewer>
 
-            <Button Content="{x:Static res:General.NewBatchApplication}"
-                    Click="NewBatchAppClicked"
-                    Margin="0 0 2.5 0"
-                    Grid.Row="1" Grid.Column="0"></Button>
-            <Button Content="{x:Static res:General.NewPathApplication}"
-                    Click="NewAppClicked"
-                    Margin="2.5 0 0 0"
-                    Grid.Row="1" Grid.Column="1"></Button>
+            <Border Grid.Row="1"
+                    BorderBrush="Gray"
+                    BorderThickness="0 1 0 0"
+                    Padding="{StaticResource MarginAll}">
+                <WrapPanel HorizontalAlignment="Right">
+                    <Label Content="{x:Static res:General.CreateNewShortcut}"></Label>
+                
+                    <Button Content="{x:Static res:General.Batch}"
+                            Click="NewBatchShortcutClicked"
+                            Margin="{StaticResource MarginLeftHalfRight}"></Button>
+                    <Button Content="{x:Static res:General.Folder}"
+                            Click="NewFolderShortcutClicked"
+                            Margin="{StaticResource MarginHalfLeftRight}"></Button>
+                    <Button Content="{x:Static res:General.File}"
+                            Click="NewFileShortcutClicked"
+                            Margin="{StaticResource MarginHalfLeft}"></Button>
+                </WrapPanel>
+            </Border>
         </Grid>
     </DockPanel>
 </Window>

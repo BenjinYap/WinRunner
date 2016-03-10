@@ -5,9 +5,9 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using WinRunner.Models;
-using WinRunner.Models.Apps;
-namespace WinRunner.Views.EditAppWidgets {
-	public class EditAppWidget:UserControl, INotifyPropertyChanged {
+using WinRunner.Models.Shortcuts;
+namespace WinRunner.Views.EditShortcutWidgets {
+	public class EditShortcutWidget:UserControl, INotifyPropertyChanged {
 		#region INotifyPropertyChanged
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,11 +29,11 @@ namespace WinRunner.Views.EditAppWidgets {
 			}
 		}
 		
-		public static readonly DependencyProperty AppProperty = DependencyProperty.Register ("App", typeof (App), typeof (EditAppWidget));
+		public static readonly DependencyProperty ShortcutProperty = DependencyProperty.Register ("Shortcut", typeof (Shortcut), typeof (EditShortcutWidget));
 
-		public App App {
-			get { return (App) GetValue (AppProperty); }
-			set { SetValue (AppProperty, value); }
+		public Shortcut Shortcut {
+			get { return (Shortcut) GetValue (ShortcutProperty); }
+			set { SetValue (ShortcutProperty, value); }
 		}
 	}
 }

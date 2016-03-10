@@ -15,18 +15,18 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WinRunner.Models;
-using WinRunner.Models.Apps;
+using WinRunner.Models.Shortcuts;
 
 namespace WinRunner.Views {
 	/// <summary>
 	/// Interaction logic for EditRegistryAppWindow.xaml
 	/// </summary>
-	public partial class EditAppWindow:Window {
-		public App App { get; set; }
+	public partial class EditShortcutWindow:Window {
+		public Shortcut Shortcut { get; set; }
 
-		public EditAppWindow (App app) {
-			this.App = app;
-			this.App.RememberProperties ();
+		public EditShortcutWindow (Shortcut shortcut) {
+			this.Shortcut = shortcut;
+			this.Shortcut.RememberProperties ();
 			
 			InitializeComponent ();
 		}
@@ -37,9 +37,9 @@ namespace WinRunner.Views {
 
 		private void WindowClosing (object sender, CancelEventArgs e) {
 			if (this.DialogResult == true) {
-				this.App.FlushToRegistry ();
+				this.Shortcut.FlushToRegistry ();
 			} else {
-				this.App.RevertProperties ();
+				this.Shortcut.RevertProperties ();
 			}
 		}
 	}

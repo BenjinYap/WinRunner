@@ -15,35 +15,35 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WinRunner.Models.Apps;
+using WinRunner.Models.Shortcuts;
 
-namespace WinRunner.Views.EditAppWidgets {
+namespace WinRunner.Views.EditShortcutWidgets {
 	/// <summary>
 	/// Interaction logic for PathAppWidget.xaml
 	/// </summary>
-	public partial class PathAppWidget:EditAppWidget {
-		private PathApp app;
+	public partial class FileShortcutWidget:EditShortcutWidget {
+		private FileShortcut shortcut;
 		
-		public PathAppWidget () {
+		public FileShortcutWidget () {
 			InitializeComponent ();
 		}
 
 		private void ChooseFileClicked (object sender, RoutedEventArgs e) {
-			this.app = (PathApp) this.App;
+			this.shortcut = (FileShortcut) this.Shortcut;
 
 			OpenFileDialog dialog = new OpenFileDialog ();
 			
-			if (File.Exists (this.app.Path)) {
-				dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.app.Path);
+			if (File.Exists (this.shortcut.Path)) {
+				dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.shortcut.Path);
 			}
 
-			dialog.FileName = this.app.Path;
+			dialog.FileName = this.shortcut.Path;
 			dialog.CheckFileExists = true;
 			dialog.CheckPathExists = true;
 			bool? result = dialog.ShowDialog ();
 			
 			if (result.HasValue && result.Value) {
-				this.app.Path = dialog.FileName;
+				this.shortcut.Path = dialog.FileName;
 			}
 		}
 	}

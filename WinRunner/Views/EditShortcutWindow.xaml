@@ -1,11 +1,11 @@
-﻿<Window x:Class="WinRunner.Views.EditAppWindow"
+﻿<Window x:Class="WinRunner.Views.EditShortcutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:res="clr-namespace:WinRunner.Resources"
-        xmlns:widgets="clr-namespace:WinRunner.Views.EditAppWidgets"
+        xmlns:widgets="clr-namespace:WinRunner.Views.EditShortcutWidgets"
         xmlns:views="clr-namespace:WinRunner.Views"
-        xmlns:apps="clr-namespace:WinRunner.Models.Apps"
+        xmlns:shortcuts="clr-namespace:WinRunner.Models.Shortcuts"
         WindowStartupLocation="CenterOwner"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
@@ -14,18 +14,17 @@
         Width="400"
         Closing="WindowClosing">
 
-    <Window.Style>
-        <Style TargetType="{x:Type Window}">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
-                    <Setter Property="Title" Value="{x:Static res:General.EditBatchApplication}"></Setter>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
-                    <Setter Property="Title" Value="{x:Static res:General.EditPathApplication}"></Setter>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Style>
+    <Window.Resources>
+        <views:ShortcutToEditWindowTitleConverter x:Key="ShortcutToEditWindowTitle"></views:ShortcutToEditWindowTitleConverter>
+    </Window.Resources>
+    
+    <Window.Title>
+        <Binding Path="Shortcut">
+            <Binding.Converter>
+                <StaticResource ResourceKey="ShortcutToEditWindowTitle"></StaticResource>
+            </Binding.Converter>
+        </Binding>
+    </Window.Title>
     
     <Grid FocusManager.FocusedElement="{Binding ElementName=TxtName}" Margin="5">
         <Grid.RowDefinitions>
@@ -46,8 +45,8 @@
             </Grid.RowDefinitions>
 
             <Label Content="{x:Static res:General.Name}"></Label>
-            <Image Source="{Binding App.Icon}" Width="30" Margin="0 0 5 0" Grid.Column="1"></Image>
-            <TextBox x:Name="TxtName" Text="{Binding App.Name, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Grid.Column="2"></TextBox>
+            <Image Source="{Binding Shortcut.Icon}" Width="30" Margin="0 0 5 0" Grid.Column="1"></Image>
+            <TextBox x:Name="TxtName" Text="{Binding Shortcut.Name, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Grid.Column="2"></TextBox>
             <ItemsControl ItemsSource="{Binding ElementName=TxtName, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="1" Grid.Column="2"></ItemsControl>
         </Grid>
 
@@ -55,20 +54,29 @@
             <ContentControl.Style>
                 <Style TargetType="{x:Type ContentControl}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
-                                        <widgets:PathAppWidget x:Name="awd" App="{Binding App, ElementName=Self}"></widgets:PathAppWidget>
+                                        <widgets:FileShortcutWidget Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:FileShortcutWidget>
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
-                                        <widgets:BatchAppWidget x:Name="awd" App="{Binding App, ElementName=Self}"></widgets:BatchAppWidget>
+                                        <widgets:BatchShortcutWidget Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:BatchShortcutWidget>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Folder}">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <widgets:FolderShortcutWidget Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:FolderShortcutWidget>
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
@@ -89,7 +97,7 @@
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="True"></Setter>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding App.HasErrors}" Value="True">
+                            <DataTrigger Binding="{Binding Shortcut.HasErrors}" Value="True">
                                 <Setter Property="IsEnabled" Value="False"></Setter>
                             </DataTrigger>
                         </Style.Triggers>

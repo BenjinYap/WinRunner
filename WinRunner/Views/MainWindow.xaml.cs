@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WinRunner.Models;
-using WinRunner.Models.Apps;
+using WinRunner.Models.Shortcuts;
 using WinRunner.Views;
 using WinRunner.Views.Help;
 
@@ -25,17 +25,17 @@ namespace WinRunner {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow:Window {
-		public AppList AppList { get; set; }
+		public ShortcutList ShortcutList { get; set; }
 
 		private UserPreferences preferences = new UserPreferences ();
 		private DispatcherTimer timer = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 500) };
 
 		public MainWindow () {
-			this.AppList = new AppList ();
+			this.ShortcutList = new ShortcutList ();
 			
 			InitializeComponent ();
 			
-			this.AppList.LoadAppsFromRegistry ();
+			this.ShortcutList.LoadShortcutsFromRegistry ();
 
 			this.timer.Tick += TimerTicked;
 			this.timer.IsEnabled = false;
@@ -45,59 +45,80 @@ namespace WinRunner {
 			DispatcherTimer awd = new DispatcherTimer { Interval = new TimeSpan (0, 0, 0, 0, 200) };
 			awd.Start ();
 			awd.Tick += (a, b) => {
-				this.ViewHelpExecuted (null, null);
+				//this.ViewHelpExecuted (null, null);
+				//NewFolderShortcutClicked (null, null);
 				//new DeleteAppWindow (this.AppList [0]).ShowDialog ();
-				//OpenAppWindow (this.AppList [0], false);
+				//OpenShortcutWindow (this.AppList [0], false);
 				awd.Stop ();
 			};
 		}
 
-		private void NewBatchAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new BatchApp (), true);
+		private void NewBatchShortcutClicked (object sender, RoutedEventArgs e) {
+			OpenShortcutWindow (new BatchShortcut (), true);
 		}
 
-		private void NewAppClicked (object sender, RoutedEventArgs e) {
-			OpenAppWindow (new PathApp (), true);
+		private void NewFileShortcutClicked (object sender, RoutedEventArgs e) {
+			OpenShortcutWindow (new FileShortcut (), true);
 		}
 
-		private bool? OpenAppWindow (App app, bool isNew) {
-			EditAppWindow window = new EditAppWindow (app);
+		private void NewFolderShortcutClicked (object sender, RoutedEventArgs e) {
+			OpenShortcutWindow (new FolderShortcut (), true);
+		}
+
+		private bool? OpenShortcutWindow (Shortcut shortcut, bool isNew) {
+			EditShortcutWindow window = new EditShortcutWindow (shortcut);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
 				if (isNew) {
-					this.AppList.Add (app);
+					this.ShortcutList.Add (shortcut);
 				}
 			}
-
+			
 			return result;
 		}
 
-		private void EditAppClicked (object sender, RoutedEventArgs e) {
+		private void EditShortcutClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			bool? result = OpenAppWindow ((App) button.DataContext, false);
+			bool? result = OpenShortcutWindow ((Shortcut) button.DataContext, false);
 			
 			if (result.HasValue && result.Value) {
-				((Image) (button.Parent as Grid).Children [0]).GetBindingExpression (Image.SourceProperty).UpdateTarget ();
+
+				//get the top level grid and update the background
 				Grid grid = (Grid) button.Parent;
+				grid.GetBindingExpression (Grid.BackgroundProperty).UpdateTarget ();
+				
+				//get the image icon and update it
+				Image image = (Image) grid.Children [0];
+				image.GetBindingExpression (Image.SourceProperty).UpdateTarget ();
+
+				//get the inner grid that contains the name textblock
 				Grid grid2 = (Grid) grid.Children [1];
+
+				//get the textblock and update it
 				TextBlock textBlock = (TextBlock) grid2.Children [0];
 				textBlock.GetBindingExpression (TextBlock.TextProperty).UpdateTarget ();
+
+				//get the edit button
+				Button edit = (Button) grid.Children [3];
+
+				//update the edit button's text
+				edit.GetBindingExpression (Button.ContentProperty).UpdateTarget ();
 			}
 		}
 
-		private void DeleteAppClicked (object sender, RoutedEventArgs e) {
+		private void DeleteShortcutClicked (object sender, RoutedEventArgs e) {
 			Button button = sender as Button;
-			App app = (App) button.DataContext;
+			Shortcut shortcut = (Shortcut) button.DataContext;
 			
-			DeleteAppWindow window = new DeleteAppWindow (app);
+			DeleteShortcutWindow window = new DeleteShortcutWindow (shortcut);
 			window.Owner = this;
 			bool? result = window.ShowDialog ();
 
 			if (result.HasValue && result.Value) {
-				app.DeleteFromRegistry ();
-				this.AppList.Remove (app);
+				shortcut.DeleteFromRegistry ();
+				this.ShortcutList.Remove (shortcut);
 			}
 		}
 

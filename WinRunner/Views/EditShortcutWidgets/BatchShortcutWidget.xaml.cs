@@ -15,12 +15,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WinRunner.Views.EditAppWidgets {
+namespace WinRunner.Views.EditShortcutWidgets {
 	/// <summary>
 	/// Interaction logic for BatchAppWidget.xaml
 	/// </summary>
-	public partial class BatchAppWidget:EditAppWidget {
-		public BatchAppWidget () {
+	public partial class BatchShortcutWidget:EditShortcutWidget {
+		public BatchShortcutWidget () {
 			InitializeComponent ();
 		}
 

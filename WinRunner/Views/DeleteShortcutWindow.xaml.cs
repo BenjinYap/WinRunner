@@ -12,17 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WinRunner.Models;
-using WinRunner.Models.Apps;
+using WinRunner.Models.Shortcuts;
 
 namespace WinRunner.Views {
 	/// <summary>
 	/// Interaction logic for DeleteRegistryAppWindow.xaml
 	/// </summary>
-	public partial class DeleteAppWindow:Window {
-		public App App { get; set; }
+	public partial class DeleteShortcutWindow:Window {
+		public Shortcut Shortcut { get; set; }
 
-		public DeleteAppWindow (App app) {
-			this.App = app;
+		public DeleteShortcutWindow (Shortcut shortcut) {
+			this.Shortcut = shortcut;
 
 			InitializeComponent ();
 		}

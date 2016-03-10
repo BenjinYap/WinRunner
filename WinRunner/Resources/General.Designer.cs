@@ -97,6 +97,24 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose Folder.
+        /// </summary>
+        public static string ChooseFolder {
+            get {
+                return ResourceManager.GetString("ChooseFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create New Shortcut.
+        /// </summary>
+        public static string CreateNewShortcut {
+            get {
+                return ResourceManager.GetString("CreateNewShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -106,29 +124,47 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Batch Application.
+        ///   Looks up a localized string similar to Delete Batch Shortcut.
         /// </summary>
-        public static string DeleteBatchApplication {
+        public static string DeleteBatchShortcut {
             get {
-                return ResourceManager.GetString("DeleteBatchApplication", resourceCulture);
+                return ResourceManager.GetString("DeleteBatchShortcut", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Path Application.
+        ///   Looks up a localized string similar to Delete File Shortcut.
         /// </summary>
-        public static string DeletePathApplication {
+        public static string DeleteFileShortcut {
             get {
-                return ResourceManager.GetString("DeletePathApplication", resourceCulture);
+                return ResourceManager.GetString("DeleteFileShortcut", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Really delete this?.
+        ///   Looks up a localized string similar to Delete Folder Shortcut.
+        /// </summary>
+        public static string DeleteFolderShortcut {
+            get {
+                return ResourceManager.GetString("DeleteFolderShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Really delete this? There is no way to undo this..
         /// </summary>
         public static string DeleteText {
             get {
                 return ResourceManager.GetString("DeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Does not exist.
+        /// </summary>
+        public static string DoesNotExist {
+            get {
+                return ResourceManager.GetString("DoesNotExist", resourceCulture);
             }
         }
         
@@ -142,20 +178,56 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Batch Application.
+        ///   Looks up a localized string similar to Edit Batch Shortcut.
         /// </summary>
-        public static string EditBatchApplication {
+        public static string EditBatchShortcut {
             get {
-                return ResourceManager.GetString("EditBatchApplication", resourceCulture);
+                return ResourceManager.GetString("EditBatchShortcut", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Path Application.
+        ///   Looks up a localized string similar to Edit File Shortcut.
         /// </summary>
-        public static string EditPathApplication {
+        public static string EditFileShortcut {
             get {
-                return ResourceManager.GetString("EditPathApplication", resourceCulture);
+                return ResourceManager.GetString("EditFileShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Folder Shortcut.
+        /// </summary>
+        public static string EditFolderShortcut {
+            get {
+                return ResourceManager.GetString("EditFolderShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File.
+        /// </summary>
+        public static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fix.
+        /// </summary>
+        public static string Fix {
+            get {
+                return ResourceManager.GetString("Fix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Folder.
+        /// </summary>
+        public static string Folder {
+            get {
+                return ResourceManager.GetString("Folder", resourceCulture);
             }
         }
         
@@ -214,47 +286,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Batch Application.
-        /// </summary>
-        public static string NewBatchApplication {
-            get {
-                return ResourceManager.GetString("NewBatchApplication", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to New Path Application.
-        /// </summary>
-        public static string NewPathApplication {
-            get {
-                return ResourceManager.GetString("NewPathApplication", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Path.
-        /// </summary>
-        public static string Path {
-            get {
-                return ResourceManager.GetString("Path", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Does not exist.
-        /// </summary>
-        public static string PathDoesNotExist {
-            get {
-                return ResourceManager.GetString("PathDoesNotExist", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Required.
         /// </summary>
-        public static string PathRequired {
+        public static string Required {
             get {
-                return ResourceManager.GetString("PathRequired", resourceCulture);
+                return ResourceManager.GetString("Required", resourceCulture);
             }
         }
         

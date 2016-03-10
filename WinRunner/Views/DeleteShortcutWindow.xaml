@@ -1,10 +1,10 @@
-﻿<Window x:Class="WinRunner.Views.DeleteAppWindow"
+﻿<Window x:Class="WinRunner.Views.DeleteShortcutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:res="clr-namespace:WinRunner.Resources"
         xmlns:views="clr-namespace:WinRunner.Views"
-        xmlns:apps="clr-namespace:WinRunner.Models.Apps"
+        xmlns:shortcuts="clr-namespace:WinRunner.Models.Shortcuts"
         WindowStartupLocation="CenterOwner"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
@@ -13,19 +13,18 @@
         Width="400"
         >
 
-    <Window.Style>
-        <Style TargetType="{x:Type Window}">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
-                    <Setter Property="Title" Value="{x:Static res:General.DeleteBatchApplication}"></Setter>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
-                    <Setter Property="Title" Value="{x:Static res:General.DeletePathApplication}"></Setter>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Style>
-    
+    <Window.Resources>
+        <views:ShortcutToDeleteWindowTitleConverter x:Key="ShortcutToDeleteWindowTitle"></views:ShortcutToDeleteWindowTitleConverter>
+    </Window.Resources>
+
+    <Window.Title>
+        <Binding Path="Shortcut">
+            <Binding.Converter>
+                <StaticResource ResourceKey="ShortcutToDeleteWindowTitle"></StaticResource>
+            </Binding.Converter>
+        </Binding>
+    </Window.Title>
+
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -51,12 +50,12 @@
         <Label Content="{x:Static res:General.Name}"
                VerticalContentAlignment="Center"
                Grid.Row="1"></Label>
-        <Image Source="{Binding App.Icon}"
+        <Image Source="{Binding Shortcut.Icon}"
                    Width="30"
                    Margin="0 0 5 0"
                    Grid.Column="1"
                    Grid.Row="1"></Image>
-        <TextBox Text="{Binding App.Name}"
+        <TextBox Text="{Binding Shortcut.Name}"
                  IsReadOnly="True"
                  VerticalAlignment="Center"
                  Grid.Row="1"
@@ -69,7 +68,7 @@
             <ContentControl.Style>
                 <Style TargetType="{x:Type ContentControl}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Path}">
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.File}">
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
@@ -80,16 +79,36 @@
                                                 <ColumnDefinition></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label Content="{x:Static res:General.Path}"></Label>
+                                            <Label Content="{x:Static res:General.File}"></Label>
                                             <TextBox Grid.Column="1"
                                                      IsReadOnly="True"
-                                                     Text="{Binding App.Path, ElementName=Self}"></TextBox>
+                                                     Text="{Binding Shortcut.Path, ElementName=Self}"></TextBox>
                                         </Grid>
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding App, Converter={StaticResource AppTypeToEnum}}" Value="{x:Static apps:AppType.Batch}">
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Folder}">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <Grid Grid.ColumnSpan="100"
+                                              Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="75"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Content="{x:Static res:General.Folder}"></Label>
+                                            <TextBox Grid.Column="1"
+                                                     IsReadOnly="True"
+                                                     Text="{Binding Shortcut.Path, ElementName=Self}"></TextBox>
+                                        </Grid>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.Batch}">
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
@@ -100,7 +119,7 @@
                                                      IsReadOnly="True"
                                                      AcceptsReturn="False"
                                                      AcceptsTab="False"
-                                                     Text="{Binding App.Script, ElementName=Self}"></TextBox>
+                                                     Text="{Binding Shortcut.Script, ElementName=Self}"></TextBox>
                                         </StackPanel>
                                     </DataTemplate>
                                 </Setter.Value>
