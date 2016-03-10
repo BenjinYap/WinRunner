@@ -34,7 +34,7 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="{x:Static res:Menu.Preferences}">
+            <MenuItem Header="{x:Static res:Menu.Preferences}" Padding="5 2">
                 <MenuItem Command="{x:Static views:Commands.OpenDocumentsFolder}"></MenuItem>
             </MenuItem>
             <MenuItem Header="{x:Static res:Menu.Help}">
@@ -43,18 +43,17 @@
             </MenuItem>
         </Menu>
         
-        <Grid Margin="5">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
             
-            <ScrollViewer VerticalScrollBarVisibility="Visible" Padding="0 0 5 0" Margin="0 0 0 5" IsTabStop="False">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" IsTabStop="False">
                 <ItemsControl x:Name="ShortcutListView" ItemsSource="{Binding ShortcutList}" IsTabStop="False" Grid.IsSharedSizeScope="True">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="0 0 0 5"
-                                  Background="{Binding HasErrors, Converter={StaticResource HasErrorsToBackground}, Mode=OneTime}">
+                            <Grid Background="{Binding HasErrors, Converter={StaticResource HasErrorsToBackground}, Mode=OneTime}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
@@ -63,7 +62,7 @@
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                         
-                                <Image Source="{Binding Icon, Mode=OneTime}" Width="30"></Image>
+                                <Image Source="{Binding Icon, Mode=OneTime}" Width="{StaticResource ControlHeight}" Margin="5 5 0 5"></Image>
 
                                 <Grid Height="{StaticResource ControlHeight}" Grid.Column="1" Margin="5 0">
                                     <TextBlock Text="{Binding Name, Mode=OneTime}" VerticalAlignment="Center"></TextBlock>
@@ -85,7 +84,7 @@
                                         Content="{Binding HasErrors, Converter={StaticResource HasErrorsToEditText}, Mode=OneTime}">
                                 </Button>
                                 <Button Click="DeleteShortcutClicked"
-                                        Margin="5 0 1 0"
+                                        Margin="5 0 5 0"
                                         Grid.Column="4"
                                         Content="{x:Static res:General.Delete}"></Button>
                             </Grid>
@@ -94,39 +93,24 @@
                 </ItemsControl>
             </ScrollViewer>
 
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <Border Grid.ColumnSpan="100"
-                        BorderBrush="Black"
-                        BorderThickness="0 1 0 0">
-                    <TextBlock>Create New Shortcut</TextBlock>
-                </Border>
-                    
-                <Button Content="{x:Static res:General.Batch}"
-                        Click="NewBatchShortcutClicked"
-                        Margin="0 0 2.5 0"
-                        Grid.Column="0"
-                        Grid.Row="1"></Button>
-                <Button Content="{x:Static res:General.Folder}"
-                        Click="NewFolderShortcutClicked"
-                        Margin="2.5 0 0 0"
-                        Grid.Column="1"
-                        Grid.Row="1"></Button>
-                <Button Content="{x:Static res:General.File}"
-                        Click="NewFileShortcutClicked"
-                        Margin="2.5 0 0 0"
-                        Grid.Column="2"
-                        Grid.Row="1"></Button>
-            </Grid>
+            <Border Grid.Row="1"
+                    BorderBrush="Gray"
+                    BorderThickness="0 1 0 0"
+                    Padding="5">
+                <WrapPanel HorizontalAlignment="Right">
+                    <Label Content="{x:Static res:General.CreateNewShortcut}"></Label>
+                
+                    <Button Content="{x:Static res:General.Batch}"
+                            Click="NewBatchShortcutClicked"
+                            Margin="5 0 2.5 0"></Button>
+                    <Button Content="{x:Static res:General.Folder}"
+                            Click="NewFolderShortcutClicked"
+                            Margin="2.5 0"></Button>
+                    <Button Content="{x:Static res:General.File}"
+                            Click="NewFileShortcutClicked"
+                            Margin="2.5 0 0 0"></Button>
+                </WrapPanel>
+            </Border>
         </Grid>
     </DockPanel>
 </Window>

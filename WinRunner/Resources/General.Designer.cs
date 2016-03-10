@@ -106,6 +106,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New Shortcut.
+        /// </summary>
+        public static string CreateNewShortcut {
+            get {
+                return ResourceManager.GetString("CreateNewShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {

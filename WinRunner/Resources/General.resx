@@ -132,6 +132,9 @@
   <data name="ChooseFolder" xml:space="preserve">
     <value>Choose Folder</value>
   </data>
+  <data name="CreateNewShortcut" xml:space="preserve">
+    <value>Create New Shortcut</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>

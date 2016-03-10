@@ -7,6 +7,8 @@
     <Application.Resources>
         <views:ShortcutTypeToEnumConverter x:Key="ShortcutTypeToEnum"></views:ShortcutTypeToEnumConverter>
         
+        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">14</sys:Double>
+        
         <sys:Double x:Key="ControlHeight">30</sys:Double>
 
         <Style TargetType="{x:Type Label}">
