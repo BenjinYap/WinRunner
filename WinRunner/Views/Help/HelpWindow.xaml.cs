@@ -24,7 +24,7 @@ namespace WinRunner.Views.Help {
 
 		public HelpWindow () {
 			this.Documents = new HelpDocument [] {
-				new CautionDocument (),
+				//new CautionDocument (),
 				new OverviewDocument (),
 			};
 			

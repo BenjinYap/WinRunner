@@ -63,5 +63,18 @@
             <Setter Property="FontSize" Value="12"></Setter>
             <Setter Property="PagePadding" Value="5"></Setter>
         </Style>
+
+        <Style x:Key="RunTitle" TargetType="{x:Type Run}">
+            <Setter Property="FontSize" Value="24"></Setter>
+        </Style>
+
+        <Style x:Key="RunHeading1" TargetType="{x:Type Run}">
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+
+        <Style x:Key="RunCode" TargetType="{x:Type Run}">
+            <Setter Property="FontFamily" Value="consolas"></Setter>
+            <Setter Property="Background" Value="#cccccc"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

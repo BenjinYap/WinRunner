@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterOwner"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         SizeToContent="Height"
-        Width="500"
+        Width="800"
         KeyUp="KeyUpped"
         x:Name="Self"
         Title="{x:Static res:Help.HelpTitle}" d:DesignHeight="453.6">
@@ -39,38 +39,45 @@
         </Style>
     </Window.Resources>
 
-    <DockPanel>
-        <WrapPanel DockPanel.Dock="Top">
-            <Button Command="{x:Static NavigationCommands.BrowseBack}"
-                    IsEnabled="{Binding BackCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">back</Button>
-            <Button Command="{x:Static NavigationCommands.BrowseForward}"
-                    IsEnabled="{Binding ForwardCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">forward</Button>
-        </WrapPanel>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="5"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
+        <DockPanel>
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Button Command="{x:Static NavigationCommands.BrowseBack}"
+                        IsEnabled="{Binding BackCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">back</Button>
+                <Button Command="{x:Static NavigationCommands.BrowseForward}"
+                        Grid.Column="1"
+                        IsEnabled="{Binding ForwardCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">forward</Button>
+            </Grid>
             <ListBox x:Name="DocumentListBox"  ItemsSource="{Binding Documents}"
-                     SelectionChanged="SelectionChanged">
+                    SelectionChanged="SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Title}"></TextBlock>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <GridSplitter HorizontalAlignment="Stretch" Grid.Column="1"></GridSplitter>
-            <ContentControl x:Name="DocumentControl" Grid.Column="2">
-                <ContentControl.Style>
-                    <Style TargetType="{x:Type ContentControl}">
-                        <Setter Property="Content" Value="{Binding SelectedItem, ElementName=DocumentListBox}"></Setter>
-                    </Style>
-                </ContentControl.Style>
-            </ContentControl>
-        </Grid>
-    </DockPanel>
+        </DockPanel>
+
+        <GridSplitter HorizontalAlignment="Stretch" Grid.Column="1"></GridSplitter>
+        <ContentControl x:Name="DocumentControl" Grid.Column="2">
+            <ContentControl.Style>
+                <Style TargetType="{x:Type ContentControl}">
+                    <Setter Property="Content" Value="{Binding SelectedItem, ElementName=DocumentListBox}"></Setter>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
 
     <!--<Grid Margin="0">
         <Frame x:Name="Frame">

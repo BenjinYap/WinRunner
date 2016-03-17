@@ -61,7 +61,25 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WinRunner lets you register an application with Windows. This means that application can be started using the Run command by entering the name with which it was registered. This can save some time as it doesn&apos;t require any mouse clicks..
+        ///   Looks up a localized string similar to HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths.
+        /// </summary>
+        public static string Code1 {
+            get {
+                return ResourceManager.GetString("Code1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caution.
+        /// </summary>
+        public static string Heading1_1 {
+            get {
+                return ResourceManager.GetString("Heading1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WinRunner lets you create various types of shortcuts which can be run using the Windows Run command. This can save precious time if you are a keyboard-heavy user..
         /// </summary>
         public static string Paragraph1 {
             get {
@@ -70,7 +88,7 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Any applications you create in this program will result in a matching key entry being created in the Windows Registry and you&apos;ll be able to start that application using Run immediately..
+        ///   Looks up a localized string similar to Run command shortcuts are created by inserting an entry into the Windows Registry. Shortcuts can actually be created manually by modifying the Registry yourself. WinRunner simply makes the process easier by providing a convenient interface..
         /// </summary>
         public static string Paragraph2 {
             get {
@@ -79,11 +97,47 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Upon starting WinRunner it will search the Registry for any registered applications and populate its list with them. This means that WinRunner does not keep track of any external changes to the Registry..
+        ///   Looks up a localized string similar to WinRunner relies on what is in the Registry to remember the shortcuts that have been created. It is not recommended to modify the Registry keys and values created by this program or you will risk breaking the shortcuts..
         /// </summary>
         public static string Paragraph3 {
             get {
                 return ResourceManager.GetString("Paragraph3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WinRunner modifies the following Registry key:.
+        /// </summary>
+        public static string Paragraph4 {
+            get {
+                return ResourceManager.GetString("Paragraph4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do NOT use WinRunner unless you fully understand and accept the implications of modifying the above Registry key..
+        /// </summary>
+        public static string Paragraph5 {
+            get {
+                return ResourceManager.GetString("Paragraph5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WinRunner and its author(s) are NOT responsible or liable for any damages done to your computer when using this program..
+        /// </summary>
+        public static string Paragraph6 {
+            get {
+                return ResourceManager.GetString("Paragraph6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         
