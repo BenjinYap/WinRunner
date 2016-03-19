@@ -12,13 +12,13 @@
     <documents:HelpDocument.Resources>
         
     </documents:HelpDocument.Resources>
-    
+
     <FlowDocumentScrollViewer>
-        <FlowDocument Background="white">
+        <FlowDocument>
             <Paragraph>
                 <Run Style="{StaticResource RunTitle}" Text="{x:Static res:Overview.Title}"></Run>
             </Paragraph>
-            
+
             <Paragraph>
                 <Run Text="{x:Static res:Overview.Paragraph1}"></Run>
             </Paragraph>
@@ -28,7 +28,7 @@
             <Paragraph>
                 <Run Text="{x:Static res:Overview.Paragraph3}"></Run>
             </Paragraph>
-            
+
             <Paragraph>
                 <Run Style="{StaticResource RunHeading1}" Text="{x:Static res:Overview.Heading1_1}"></Run>
             </Paragraph>

@@ -54,10 +54,10 @@
                 </Grid.ColumnDefinitions>
                 
                 <Button Command="{x:Static NavigationCommands.BrowseBack}"
-                        IsEnabled="{Binding BackCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">back</Button>
+                        IsEnabled="{Binding BackCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">Back</Button>
                 <Button Command="{x:Static NavigationCommands.BrowseForward}"
                         Grid.Column="1"
-                        IsEnabled="{Binding ForwardCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">forward</Button>
+                        IsEnabled="{Binding ForwardCommands.Count, Converter={StaticResource GreaterThanZeroToBool}}">Forward</Button>
             </Grid>
             <ListBox x:Name="DocumentListBox"  ItemsSource="{Binding Documents}"
                     SelectionChanged="SelectionChanged">

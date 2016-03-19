@@ -103,6 +103,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Overview.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Help\Shortcuts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Shortcuts.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Menu.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +131,9 @@
     <Compile Include="Views\Help\Documents\HelpDocument.cs" />
     <Compile Include="Views\Help\Documents\OverviewDocument.xaml.cs">
       <DependentUpon>OverviewDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\Documents\ShortcutsDocument.xaml.cs">
+      <DependentUpon>ShortcutsDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserPreferences.cs" />
     <Page Include="Views\AboutWindow.xaml">
@@ -157,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Help\Documents\OverviewDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\Documents\ShortcutsDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,6 +244,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Overview.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Help\Shortcuts.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Shortcuts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Menu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Menu.Designer.cs</LastGenOutput>
@@ -249,7 +265,6 @@
   <ItemGroup>
     <Resource Include="Resources\icon.ico" />
   </ItemGroup>
-
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
@@ -273,7 +288,6 @@
   <ItemGroup>
     <Resource Include="Resources\missing-file.png" />
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

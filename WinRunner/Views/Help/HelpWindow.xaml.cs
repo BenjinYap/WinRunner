@@ -26,6 +26,7 @@ namespace WinRunner.Views.Help {
 			this.Documents = new HelpDocument [] {
 				//new CautionDocument (),
 				new OverviewDocument (),
+				new ShortcutsDocument (),
 			};
 			
 			this.BackCommands = new ObservableStack <Action> ();
