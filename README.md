@@ -9,7 +9,9 @@ You can learn more about this process by visiting the following link: [Applicati
 
 ##Caution
 WinRunner modifies the following Registry key:
+
 `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths`
+
 Do NOT use WinRunner unless you fully understand and accept the implications of modifying the above Registry key.
 
 WinRunner and its author(s) are NOT responsible or liable for any damages done to your computer when using this program.
