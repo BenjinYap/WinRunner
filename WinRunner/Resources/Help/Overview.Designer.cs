@@ -79,6 +79,15 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application Registration.
+        /// </summary>
+        public static string Link1 {
+            get {
+                return ResourceManager.GetString("Link1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WinRunner lets you create various types of shortcuts which can be run using the Windows Run command. This can save precious time if you are a keyboard-heavy user..
         /// </summary>
         public static string Paragraph1 {
@@ -133,11 +142,11 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to You can learn more about this process by visiting the following link:.
         /// </summary>
-        public static string String1 {
+        public static string Paragraph7 {
             get {
-                return ResourceManager.GetString("String1", resourceCulture);
+                return ResourceManager.GetString("Paragraph7", resourceCulture);
             }
         }
         

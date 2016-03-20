@@ -123,6 +123,9 @@
   <data name="Heading1_1" xml:space="preserve">
     <value>Caution</value>
   </data>
+  <data name="Link1" xml:space="preserve">
+    <value>Application Registration</value>
+  </data>
   <data name="Paragraph1" xml:space="preserve">
     <value>WinRunner lets you create various types of shortcuts which can be run using the Windows Run command. This can save precious time if you are a keyboard-heavy user.</value>
   </data>
@@ -141,8 +144,8 @@
   <data name="Paragraph6" xml:space="preserve">
     <value>WinRunner and its author(s) are NOT responsible or liable for any damages done to your computer when using this program.</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
+  <data name="Paragraph7" xml:space="preserve">
+    <value>You can learn more about this process by visiting the following link:</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Overview</value>

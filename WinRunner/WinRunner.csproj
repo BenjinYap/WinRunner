@@ -88,11 +88,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>General.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Help\Caution.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Caution.resx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Help\Help.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,9 +120,6 @@
     <Compile Include="Views\EditShortcutWidgets\FileShortcutWidget.xaml.cs">
       <DependentUpon>FileShortcutWidget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Help\Documents\CautionDocument.xaml.cs">
-      <DependentUpon>CautionDocument.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Help\Documents\HelpDocument.cs" />
     <Compile Include="Views\Help\Documents\OverviewDocument.xaml.cs">
       <DependentUpon>OverviewDocument.xaml</DependentUpon>
@@ -157,10 +149,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditShortcutWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Help\Documents\CautionDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,10 +219,6 @@
     <EmbeddedResource Include="Resources\General.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>General.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Help\Caution.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Caution.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Help\Help.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

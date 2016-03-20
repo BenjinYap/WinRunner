@@ -97,7 +97,7 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are a few types of shortcuts that WinRunner supports. The Registry itself only supports file shortcuts but WinRunner works around that to support additional types..
+        ///   Looks up a localized string similar to There are a few types of shortcuts that WinRunner supports. The Registry itself only supports file shortcuts but WinRunner works around that to support additional types. All files that are created by this program are located in the current user&apos;s Documents folder..
         /// </summary>
         public static string Paragraph2 {
             get {
@@ -115,7 +115,7 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This will open the specified folder. Simple as that..
+        ///   Looks up a localized string similar to This will open the specified folder. This is done using a Batch file..
         /// </summary>
         public static string Paragraph4 {
             get {
@@ -124,7 +124,7 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This will execute the Batch script that you enter into the box. This is identical to a regular Batch script..
+        ///   Looks up a localized string similar to This will execute the Batch script that you enter into the box. This is done using a Batch file..
         /// </summary>
         public static string Paragraph5 {
             get {

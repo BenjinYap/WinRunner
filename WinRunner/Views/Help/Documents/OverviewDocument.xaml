@@ -28,6 +28,12 @@
             <Paragraph>
                 <Run Text="{x:Static res:Overview.Paragraph3}"></Run>
             </Paragraph>
+            <Paragraph>
+                <Run Text="{x:Static res:Overview.Paragraph7}"></Run>
+                <Hyperlink NavigateUri="https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx" RequestNavigate="NavigateRequested">
+                    <Run Text="{x:Static res:Overview.Link1}"></Run>
+                </Hyperlink>
+            </Paragraph>
 
             <Paragraph>
                 <Run Style="{StaticResource RunHeading1}" Text="{x:Static res:Overview.Heading1_1}"></Run>
