@@ -1,19 +1,30 @@
-# WinRunner
-This is a Windows program that lets users register applications in the Windows Registry for use with the Run command.
+#Overview
+WinRunner lets you create various types of shortcuts which can be run using the Windows Run command. This can save precious time if you are a keyboard-heavy user.
 
-When you register an application in the `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths` subkey in the Windows Registry, you provide a name and the application path. This allows you to quickly start the application by typing in the name in the Run command (Windows + R). This isn't restricted to executables. This can be done with any file and the computer will use the default program to open the file.
+Run command shortcuts are created by inserting an entry into the Windows Registry. Shortcuts can actually be created manually by modifying the Registry yourself. WinRunner simply makes the process easier by providing a convenient interface.
 
-WinRunner makes this process easier by providing a nicer graphical interface for adding, modifying, and deleting applications in this Registry subkey. This program does not alter anything else in the Registry and does not create any files except for a user preferences file in the Documents folder.
+WinRunner relies on what is in the Registry to remember the shortcuts that have been created. It is not recommended to modify the Registry keys and values created by this program or you will risk breaking the shortcuts.
 
-Upon starting WinRunner it will search the Registry for any registered applications and populate its list with them. This means that WinRunner does not keep track of any external changes to the Registry.
+You can learn more about this process by visiting the following link: [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx)
 
-## Path Applications
-These apps simply run the file you specify in the Path section.
+##Caution
+WinRunner modifies the following Registry key:
 
-## Batch Applications
-These apps will execute a Batch script that you provide in the Batch Script section. When you create a Batch app, the program will create a Batch file in your Documents folder that contains the script you provided. That Batch file is what gets executed when you run the app through Run.
+`HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths`
 
-## Caution
-Do NOT use WinRunner unless you know what you are doing and how modifying the above Registry key impacts your computer. This is NOT meant for basic Windows users.
+Do NOT use WinRunner unless you fully understand and accept the implications of modifying the above Registry key.
 
-You can learn more about this process by visiting [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+WinRunner and its author(s) are NOT responsible or liable for any damages done to your computer when using this program.
+
+#Shortcuts
+Every shortcut has one thing in common, the run name. This name is what you have to type into the Run command in order to use the shortcut. The name must be unique across all shortcuts and have certain character restrictions.
+There are a few types of shortcuts that WinRunner supports. The Registry itself only supports file shortcuts but WinRunner works around that to support additional types. All files that are created by this program are located in the current user's Documents folder.
+
+##File
+This will simply open the file using whatever default program that file type is set to use. This means executables will be executed, text files will be opened with an editor, images will be opened in photo viewers, etc.
+
+##Folder
+This will open the specified folder. This is done using a Batch file.
+
+##Batch
+This will execute the Batch script that you enter into the box. This is done using a Batch file.
