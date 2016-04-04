@@ -16,6 +16,8 @@ Do NOT use WinRunner unless you fully understand and accept the implications of 
 
 WinRunner and its author(s) are NOT responsible or liable for any damages done to your computer when using this program.
 
+This has only been tested on Windows 10 because I have no access to previous versions.
+
 #Shortcuts
 Every shortcut has one thing in common, the run name. This name is what you have to type into the Run command in order to use the shortcut. The name must be unique across all shortcuts and have certain character restrictions.
 There are a few types of shortcuts that WinRunner supports. The Registry itself only supports file shortcuts but WinRunner works around that to support additional types. All files that are created by this program are located in the current user's Documents folder.
