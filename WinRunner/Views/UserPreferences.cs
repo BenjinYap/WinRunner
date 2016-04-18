@@ -72,5 +72,7 @@ namespace WinRunner.Views {
 		public const string WindowTop= "top";
 		public const string WindowWidth = "width";
 		public const string WindowHeight = "height";
+
+		public const string DefaultBrowser = "defaultBrowser";
 	}
 }

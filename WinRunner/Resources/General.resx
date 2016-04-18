@@ -198,4 +198,7 @@
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="WebPage" xml:space="preserve">
+    <value>Web Page</value>
+  </data>
 </root>

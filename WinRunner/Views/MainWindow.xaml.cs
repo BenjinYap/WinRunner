@@ -53,6 +53,10 @@ namespace WinRunner {
 			};
 		}
 
+		private void NewWebPageShortcutClicked (object sender, RoutedEventArgs e) {
+			//OpenShortcutWindow (new BatchShortcut (), true);
+		}
+
 		private void NewBatchShortcutClicked (object sender, RoutedEventArgs e) {
 			OpenShortcutWindow (new BatchShortcut (), true);
 		}
@@ -122,6 +126,10 @@ namespace WinRunner {
 			}
 		}
 
+		private void SettingsExecuted (object sender, ExecutedRoutedEventArgs e) {
+
+		}
+
 		private void OpenDocumentsFolderExecuted (object sender, ExecutedRoutedEventArgs e) {
 			Process.Start (preferences.DocumentsPath);
 		}
@@ -161,6 +169,7 @@ namespace WinRunner {
 		private void LoadPreferences () {
 			this.preferences.Load ();
 
+			//set the dimensions of the window for properties that are parsed correctly
 			double left, top, width, height;
 
 			if (double.TryParse (this.preferences.GetConfig (UserPreferences.WindowLeft), out left)) {
