@@ -126,8 +126,8 @@
   <data name="OpenDocumentsFolder" xml:space="preserve">
     <value>Open Documents Folder</value>
   </data>
-  <data name="Preferences" xml:space="preserve">
-    <value>_Preferences</value>
+  <data name="Settings" xml:space="preserve">
+    <value>_Settings</value>
   </data>
   <data name="ViewHelp" xml:space="preserve">
     <value>View Help</value>

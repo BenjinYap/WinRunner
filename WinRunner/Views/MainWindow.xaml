@@ -29,7 +29,7 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="{x:Static res:Menu.Preferences}" Padding="5 2">
+            <MenuItem Header="{x:Static res:Menu.Settings}" Padding="5 2">
                 <MenuItem Command="{x:Static views:Commands.OpenDocumentsFolder}"></MenuItem>
             </MenuItem>
             <MenuItem Header="{x:Static res:Menu.Help}">

@@ -88,11 +88,11 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to _Preferences.
+        ///   Looks up a localized string similar to _Settings.
         /// </summary>
-        public static string Preferences {
+        public static string Settings {
             get {
-                return ResourceManager.GetString("Preferences", resourceCulture);
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         
