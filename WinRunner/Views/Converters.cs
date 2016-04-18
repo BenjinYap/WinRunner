@@ -65,6 +65,8 @@ namespace WinRunner.Views {
 		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value is BatchShortcut) {
 				return General.Batch;
+			} else if (value is WebPageShortcut) {
+				return General.WebPage;
 			} else if (value is FileShortcut) {
 				return General.File;
 			} else if (value is FolderShortcut) {
@@ -83,6 +85,8 @@ namespace WinRunner.Views {
 		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value is BatchShortcut) {
 				return General.EditBatchShortcut;
+			} else if (value is WebPageShortcut) {
+				return General.EditWebPageShortcut;
 			} else if (value is FileShortcut) {
 				return General.EditFileShortcut;
 			} else if (value is FolderShortcut) {
@@ -101,6 +105,8 @@ namespace WinRunner.Views {
 		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value is BatchShortcut) {
 				return General.DeleteBatchShortcut;
+			} else if (value is WebPageShortcut) {
+				return General.DeleteWebPageShortcut;
 			} else if (value is FileShortcut) {
 				return General.DeleteFileShortcut;
 			} else if (value is FolderShortcut) {
