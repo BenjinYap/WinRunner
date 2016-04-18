@@ -45,6 +45,8 @@ namespace WinRunner.Views {
 		public object Convert (object value, Type targetType, object parameter, CultureInfo culture) {
 			if (value is BatchShortcut) {
 				return ShortcutType.Batch;
+			} else if (value is WebPageShortcut) {
+				return ShortcutType.WebPage;
 			} else if (value is FileShortcut) {
 				return ShortcutType.File;
 			} else if (value is FolderShortcut) {
