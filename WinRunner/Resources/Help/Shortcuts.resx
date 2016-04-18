@@ -126,6 +126,9 @@
   <data name="Heading1_3" xml:space="preserve">
     <value>Batch</value>
   </data>
+  <data name="Heading1_4" xml:space="preserve">
+    <value>Web Page</value>
+  </data>
   <data name="Paragraph1" xml:space="preserve">
     <value>Every shortcut has one thing in common, the run name. This name is what you have to type into the Run command in order to use the shortcut. The name must be unique across all shortcuts and have certain character restrictions.</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="Paragraph5" xml:space="preserve">
     <value>This will execute the Batch script that you enter into the box. This is done using a Batch file.</value>
+  </data>
+  <data name="Paragraph6" xml:space="preserve">
+    <value>This will open the specified url using the selected browser. This assumes the selected browser is in fact a browser and that it can open a web page by passing the url as a command line parameter.</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Shortcuts</value>

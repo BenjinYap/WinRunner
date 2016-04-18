@@ -88,6 +88,15 @@ namespace WinRunner.Resources.Help {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Web Page.
+        /// </summary>
+        public static string Heading1_4 {
+            get {
+                return ResourceManager.GetString("Heading1_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Every shortcut has one thing in common, the run name. This name is what you have to type into the Run command in order to use the shortcut. The name must be unique across all shortcuts and have certain character restrictions..
         /// </summary>
         public static string Paragraph1 {
@@ -129,6 +138,15 @@ namespace WinRunner.Resources.Help {
         public static string Paragraph5 {
             get {
                 return ResourceManager.GetString("Paragraph5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will open the specified url using the selected browser. This assumes the selected browser is in fact a browser and that it can open a web page by passing the url as a command line parameter..
+        /// </summary>
+        public static string Paragraph6 {
+            get {
+                return ResourceManager.GetString("Paragraph6", resourceCulture);
             }
         }
         
