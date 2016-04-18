@@ -28,7 +28,7 @@ namespace WinRunner.Models.Shortcuts {
 		private readonly static string WebPageFolderPath = System.IO.Path.Combine (Shortcut.DocumentsPath, "WebPageScripts");
 
 		private string script {
-			get { return string.Format ("{0} {1}", this.Path, this.Url); }
+			get { return string.Format ("start \"{0}\" {1}", this.Path, this.Url); }
 		}
 
 		private string scriptPath {
