@@ -30,3 +30,6 @@ This will open the specified folder. This is done using a Batch file.
 
 ##Batch
 This will execute the Batch script that you enter into the box. This is done using a Batch file.
+
+##Web Page
+This will open the specified url using the selected browser. This assumes the selected browser is in fact a browser and that it can open a web page by passing the url as a command line parameter.
