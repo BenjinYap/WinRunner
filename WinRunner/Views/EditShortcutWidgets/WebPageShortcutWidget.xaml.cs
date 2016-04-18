@@ -22,14 +22,14 @@ namespace WinRunner.Views.EditShortcutWidgets {
 	/// Interaction logic for PathAppWidget.xaml
 	/// </summary>
 	public partial class WebPageShortcutWidget:EditShortcutWidget {
-		private FileShortcut shortcut;
+		private WebPageShortcut shortcut;
 		
 		public WebPageShortcutWidget () {
 			InitializeComponent ();
 		}
 
 		private void ChooseFileClicked (object sender, RoutedEventArgs e) {
-			this.shortcut = (FileShortcut) this.Shortcut;
+			this.shortcut = (WebPageShortcut) this.Shortcut;
 
 			OpenFileDialog dialog = new OpenFileDialog ();
 			
@@ -48,7 +48,10 @@ namespace WinRunner.Views.EditShortcutWidgets {
 		}
 
 		private void TestUrlClicked (object sender, RoutedEventArgs e) {
+			this.shortcut = (WebPageShortcut) this.Shortcut;
 
+			Process.Start (new ProcessStartInfo (this.shortcut.Url));
+			e.Handled = true;
 		}
 	}
 }

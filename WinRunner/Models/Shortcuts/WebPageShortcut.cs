@@ -83,6 +83,14 @@ namespace WinRunner.Models.Shortcuts {
 				base.AddError (General.Required, propertyName);
 			} else {
 				base.RemoveError (General.Required, propertyName);
+
+				Uri uri = null;
+
+				if (Uri.TryCreate (this.Url, UriKind.Absolute, out uri)) {
+					base.RemoveError (General.Invalid, propertyName);
+				} else {
+					base.AddError (General.Invalid, propertyName);
+				}
 			}
 		}
 	}
