@@ -18,6 +18,7 @@ namespace WinRunner.Models.Shortcuts {
 			get { return this.url; }
 			set {
 				this.url = value;
+				this.ValidateUrl ();
 				base.OnPropertyChanged ();
 			}
 		}
@@ -75,6 +76,14 @@ namespace WinRunner.Models.Shortcuts {
 			FileInfo fileInfo = new FileInfo (this.scriptPath);
 			fileInfo.Directory.Create ();
 			File.WriteAllText (fileInfo.FullName, this.script);
+		}
+
+		private void ValidateUrl ([CallerMemberName] string propertyName = null) {
+			if (this.Url.Length <= 0) {
+				base.AddError (General.Required, propertyName);
+			} else {
+				base.RemoveError (General.Required, propertyName);
+			}
 		}
 	}
 }

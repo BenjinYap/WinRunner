@@ -54,7 +54,7 @@ namespace WinRunner {
 		}
 
 		private void NewWebPageShortcutClicked (object sender, RoutedEventArgs e) {
-			//OpenShortcutWindow (new BatchShortcut (), true);
+			OpenShortcutWindow (new WebPageShortcut (), true);
 		}
 
 		private void NewBatchShortcutClicked (object sender, RoutedEventArgs e) {

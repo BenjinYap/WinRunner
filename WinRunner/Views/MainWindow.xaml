@@ -100,10 +100,9 @@
                     <Button Content="{x:Static res:General.WebPage}"
                             Click="NewWebPageShortcutClicked"
                             Margin="{StaticResource MarginLeftHalfRight}"></Button>
-
                     <Button Content="{x:Static res:General.Batch}"
                             Click="NewBatchShortcutClicked"
-                            Margin="{StaticResource MarginLeftHalfRight}"></Button>
+                            Margin="{StaticResource MarginHalfLeftRight}"></Button>
                     <Button Content="{x:Static res:General.Folder}"
                             Click="NewFolderShortcutClicked"
                             Margin="{StaticResource MarginHalfLeftRight}"></Button>

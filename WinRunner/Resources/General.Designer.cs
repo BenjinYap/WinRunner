@@ -79,6 +79,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browser.
+        /// </summary>
+        public static string Browser {
+            get {
+                return ResourceManager.GetString("Browser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -160,6 +169,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Web Page Shortcut.
+        /// </summary>
+        public static string DeleteWebPageShortcut {
+            get {
+                return ResourceManager.GetString("DeleteWebPageShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Does not exist.
         /// </summary>
         public static string DoesNotExist {
@@ -201,6 +219,15 @@ namespace WinRunner.Resources {
         public static string EditFolderShortcut {
             get {
                 return ResourceManager.GetString("EditFolderShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Web Page Shortcut.
+        /// </summary>
+        public static string EditWebPageShortcut {
+            get {
+                return ResourceManager.GetString("EditWebPageShortcut", resourceCulture);
             }
         }
         
@@ -300,6 +327,24 @@ namespace WinRunner.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Url.
+        /// </summary>
+        public static string TestUrl {
+            get {
+                return ResourceManager.GetString("TestUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Url.
+        /// </summary>
+        public static string Url {
+            get {
+                return ResourceManager.GetString("Url", resourceCulture);
             }
         }
         

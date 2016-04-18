@@ -123,6 +123,9 @@
   <data name="BatchScript" xml:space="preserve">
     <value>Batch Script</value>
   </data>
+  <data name="Browser" xml:space="preserve">
+    <value>Browser</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -150,6 +153,9 @@
   <data name="DeleteText" xml:space="preserve">
     <value>Really delete this? There is no way to undo this.</value>
   </data>
+  <data name="DeleteWebPageShortcut" xml:space="preserve">
+    <value>Delete Web Page Shortcut</value>
+  </data>
   <data name="DoesNotExist" xml:space="preserve">
     <value>Does not exist</value>
   </data>
@@ -164,6 +170,9 @@
   </data>
   <data name="EditFolderShortcut" xml:space="preserve">
     <value>Edit Folder Shortcut</value>
+  </data>
+  <data name="EditWebPageShortcut" xml:space="preserve">
+    <value>Edit Web Page Shortcut</value>
   </data>
   <data name="File" xml:space="preserve">
     <value>File</value>
@@ -197,6 +206,12 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="TestUrl" xml:space="preserve">
+    <value>Test Url</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Url</value>
   </data>
   <data name="WebPage" xml:space="preserve">
     <value>Web Page</value>
