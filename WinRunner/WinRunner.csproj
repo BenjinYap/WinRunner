@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Shortcuts\BatchShortcut.cs" />
+    <Compile Include="Models\Shortcuts\WebPageShortcut.cs" />
     <Compile Include="Models\Shortcuts\FileShortcut.cs" />
     <Compile Include="Models\Shortcuts\FolderShortcut.cs" />
     <Compile Include="Resources\About.Designer.cs">
