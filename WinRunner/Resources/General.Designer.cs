@@ -160,6 +160,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Microsoft Edge Shortcut.
+        /// </summary>
+        public static string DeleteMSEdgeShortcut {
+            get {
+                return ResourceManager.GetString("DeleteMSEdgeShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Really delete this? There is no way to undo this..
         /// </summary>
         public static string DeleteText {
@@ -219,6 +228,15 @@ namespace WinRunner.Resources {
         public static string EditFolderShortcut {
             get {
                 return ResourceManager.GetString("EditFolderShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Microsoft Edge Shortcut.
+        /// </summary>
+        public static string EditMSEdgeShortcut {
+            get {
+                return ResourceManager.GetString("EditMSEdgeShortcut", resourceCulture);
             }
         }
         

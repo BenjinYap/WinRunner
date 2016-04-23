@@ -51,6 +51,8 @@ namespace WinRunner.Views {
 				return ShortcutType.File;
 			} else if (value is FolderShortcut) {
 				return ShortcutType.Folder;
+			} else if (value is MSEdgeShortcut) {
+				return ShortcutType.MSEdge;
 			}
 
 			return null;
@@ -71,6 +73,8 @@ namespace WinRunner.Views {
 				return General.File;
 			} else if (value is FolderShortcut) {
 				return General.Folder;
+			} else if (value is MSEdgeShortcut) {
+				return General.MSEdge;
 			}
 
 			return null;
@@ -91,6 +95,8 @@ namespace WinRunner.Views {
 				return General.EditFileShortcut;
 			} else if (value is FolderShortcut) {
 				return General.EditFolderShortcut;
+			} else if (value is MSEdgeShortcut) {
+				return General.EditMSEdgeShortcut;
 			}
 
 			return null;
@@ -111,6 +117,8 @@ namespace WinRunner.Views {
 				return General.DeleteFileShortcut;
 			} else if (value is FolderShortcut) {
 				return General.DeleteFolderShortcut;
+			} else if (value is MSEdgeShortcut) {
+				return General.DeleteMSEdgeShortcut;
 			}
 
 			return null;

@@ -150,6 +150,9 @@
   <data name="DeleteFolderShortcut" xml:space="preserve">
     <value>Delete Folder Shortcut</value>
   </data>
+  <data name="DeleteMSEdgeShortcut" xml:space="preserve">
+    <value>Delete Microsoft Edge Shortcut</value>
+  </data>
   <data name="DeleteText" xml:space="preserve">
     <value>Really delete this? There is no way to undo this.</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="EditFolderShortcut" xml:space="preserve">
     <value>Edit Folder Shortcut</value>
+  </data>
+  <data name="EditMSEdgeShortcut" xml:space="preserve">
+    <value>Edit Microsoft Edge Shortcut</value>
   </data>
   <data name="EditWebPageShortcut" xml:space="preserve">
     <value>Edit Web Page Shortcut</value>

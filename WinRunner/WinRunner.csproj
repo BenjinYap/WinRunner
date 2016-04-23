@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Shortcuts\BatchShortcut.cs" />
+    <Compile Include="Models\Shortcuts\MSEdgeShortcut.cs" />
     <Compile Include="Models\Shortcuts\WebPageShortcut.cs" />
     <Compile Include="Models\Shortcuts\FileShortcut.cs" />
     <Compile Include="Models\Shortcuts\FolderShortcut.cs" />
@@ -115,6 +116,9 @@
       <DependentUpon>BatchShortcutWidget.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditShortcutWidgets\EditShortcutWidget.cs" />
+    <Compile Include="Views\EditShortcutWidgets\MSEdgeShortcutWidget.xaml.cs">
+      <DependentUpon>MSEdgeShortcutWidget.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditShortcutWidgets\WebPageShortcutWidget.xaml.cs">
       <DependentUpon>WebPageShortcutWidget.xaml</DependentUpon>
     </Compile>
@@ -143,6 +147,10 @@
     <Page Include="Views\EditShortcutWidgets\BatchShortcutWidget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditShortcutWidgets\MSEdgeShortcutWidget.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EditShortcutWidgets\WebPageShortcutWidget.xaml">
       <Generator>MSBuild:Compile</Generator>

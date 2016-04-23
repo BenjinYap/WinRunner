@@ -102,7 +102,7 @@
                                 Click="NewWebPageShortcutClicked"
                                 Margin="{StaticResource MarginHalfLeft}"></Button>
                         <Button Content="{x:Static res:General.MSEdge}"
-                                Click="NewWebPageShortcutClicked"
+                                Click="NewMSEdgeShortcutClicked"
                                 Margin="{StaticResource MarginHalfRight}"></Button>
                         <Button Content="{x:Static res:General.Batch}"
                                 Click="NewBatchShortcutClicked"

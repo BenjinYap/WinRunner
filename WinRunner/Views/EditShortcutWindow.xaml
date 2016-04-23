@@ -90,6 +90,15 @@
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding Shortcut, Converter={StaticResource ShortcutTypeToEnum}}" Value="{x:Static shortcuts:ShortcutType.MSEdge}">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <widgets:MSEdgeShortcutWidget Shortcut="{Binding Shortcut, ElementName=Self}"></widgets:MSEdgeShortcutWidget>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </ContentControl.Style>

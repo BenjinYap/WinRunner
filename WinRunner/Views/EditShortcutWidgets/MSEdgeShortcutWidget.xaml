@@ -1,0 +1,49 @@
+﻿<widgets:EditShortcutWidget x:Class="WinRunner.Views.EditShortcutWidgets.MSEdgeShortcutWidget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:widgets="clr-namespace:WinRunner.Views.EditShortcutWidgets"
+                       xmlns:res="clr-namespace:WinRunner.Resources"
+             mc:Ignorable="d"
+                       IsTabStop="False"
+                       DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <Grid Grid.Row="1" Margin="0 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="{x:Static res:General.Browser}"></Label>
+        <!--<Button Content="{x:Static res:General.ChooseFile}" Click="ChooseFileClicked" Grid.Column="1"></Button>-->
+        <TextBox x:Name="TxtPath"
+                 Text="{Binding Shortcut.Path, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="0 5 0 0"
+                 Grid.Row="1"
+                 Grid.ColumnSpan="100"></TextBox>
+        <ItemsControl ItemsSource="{Binding ElementName=TxtPath, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="2" Grid.ColumnSpan="10"></ItemsControl>
+
+        <Label Content="{x:Static res:General.Url}" Grid.Row="3" Height="{StaticResource ControlHeight}"></Label>
+        <DockPanel Grid.Row="3"
+                   Grid.Column="1"
+                   Margin="0 5 0 0"
+                   KeyboardNavigation.TabNavigation="Local">
+            <Button DockPanel.Dock="Right" Margin="5 0 0 0" Content="{x:Static res:General.TestUrl}" Click="TestUrlClicked"></Button>
+            
+            <TextBox x:Name="TxtUrl"
+                     TabIndex="0"
+                 Text="{Binding Shortcut.Url, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+                 ></TextBox>
+        </DockPanel>
+        <ItemsControl ItemsSource="{Binding ElementName=TxtUrl, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="4" Grid.Column="1"></ItemsControl>
+    </Grid>
+</widgets:EditShortcutWidget>
