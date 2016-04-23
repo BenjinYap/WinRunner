@@ -16,8 +16,10 @@
 
         <Thickness x:Key="MarginLeftHalfRight" Left="{StaticResource MarginSize}" Right="{StaticResource MarginHalfSize}"></Thickness>
         <Thickness x:Key="MarginHalfLeft" Left="{StaticResource MarginHalfSize}"></Thickness>
+        <Thickness x:Key="MarginHalfRight" Right="{StaticResource MarginHalfSize}"></Thickness>
         <Thickness x:Key="MarginHalfLeftRight" Left="{StaticResource MarginHalfSize}" Right="{StaticResource MarginHalfSize}"></Thickness>
         <Thickness x:Key="MarginLeftRight" Left="{StaticResource MarginSize}" Right="{StaticResource MarginSize}"></Thickness>
+        <Thickness x:Key="MarginLeft" Left="{StaticResource MarginSize}"></Thickness>
         <Thickness x:Key="MarginRight" Right="{StaticResource MarginSize}"></Thickness>
         <Thickness x:Key="MarginLeftUpDown" Left="{StaticResource MarginSize}" Top="{StaticResource MarginSize}" Bottom="{StaticResource MarginSize}"></Thickness>
         <Thickness x:Key="MarginAll" Right="{StaticResource MarginSize}" Left="{StaticResource MarginSize}" Top="{StaticResource MarginSize}" Bottom="{StaticResource MarginSize}"></Thickness>

@@ -268,6 +268,15 @@ namespace WinRunner.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MS Edge.
+        /// </summary>
+        public static string MSEdge {
+            get {
+                return ResourceManager.GetString("MSEdge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {

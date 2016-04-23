@@ -186,6 +186,9 @@
   <data name="Invalid" xml:space="preserve">
     <value>Invalid</value>
   </data>
+  <data name="MSEdge" xml:space="preserve">
+    <value>MS Edge</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>

@@ -94,22 +94,27 @@
                     BorderBrush="Gray"
                     BorderThickness="0 1 0 0"
                     Padding="{StaticResource MarginAll}">
-                <WrapPanel HorizontalAlignment="Right">
-                    <Label Content="{x:Static res:General.CreateNewShortcut}"></Label>
-
-                    <Button Content="{x:Static res:General.WebPage}"
-                            Click="NewWebPageShortcutClicked"
-                            Margin="{StaticResource MarginLeftHalfRight}"></Button>
-                    <Button Content="{x:Static res:General.Batch}"
-                            Click="NewBatchShortcutClicked"
-                            Margin="{StaticResource MarginHalfLeftRight}"></Button>
-                    <Button Content="{x:Static res:General.Folder}"
-                            Click="NewFolderShortcutClicked"
-                            Margin="{StaticResource MarginHalfLeftRight}"></Button>
-                    <Button Content="{x:Static res:General.File}"
-                            Click="NewFileShortcutClicked"
-                            Margin="{StaticResource MarginHalfLeft}"></Button>
-                </WrapPanel>
+                <StackPanel>
+                    <Label Content="{x:Static res:General.CreateNewShortcut}" Margin="0 0 0 5"></Label>
+                    
+                    <WrapPanel HorizontalAlignment="Right">
+                        <Button Content="{x:Static res:General.WebPage}"
+                                Click="NewWebPageShortcutClicked"
+                                Margin="{StaticResource MarginHalfLeft}"></Button>
+                        <Button Content="{x:Static res:General.MSEdge}"
+                                Click="NewWebPageShortcutClicked"
+                                Margin="{StaticResource MarginHalfRight}"></Button>
+                        <Button Content="{x:Static res:General.Batch}"
+                                Click="NewBatchShortcutClicked"
+                                Margin="{StaticResource MarginHalfLeftRight}"></Button>
+                        <Button Content="{x:Static res:General.Folder}"
+                                Click="NewFolderShortcutClicked"
+                                Margin="{StaticResource MarginHalfLeftRight}"></Button>
+                        <Button Content="{x:Static res:General.File}"
+                                Click="NewFileShortcutClicked"
+                                Margin="{StaticResource MarginHalfLeft}"></Button>
+                    </WrapPanel>
+                </StackPanel>
             </Border>
         </Grid>
     </DockPanel>
