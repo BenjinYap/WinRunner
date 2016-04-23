@@ -31,6 +31,8 @@ namespace WinRunner.Models {
 						shortcut = new FolderShortcut (key);
 					} else if (type == ShortcutType.WebPage) {
 						shortcut = new WebPageShortcut (key);
+					} else if (type == ShortcutType.MSEdge) {
+						shortcut = new MSEdgeShortcut (key);
 					}
 
 					this.Add (shortcut);

@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
-	public class MSEdgeShortcut:FileShortcut {
+	public class MSEdgeShortcut:Shortcut {
 		private const string UrlKeyName = "Url";
 
 		private string url;
@@ -25,14 +25,14 @@ namespace WinRunner.Models.Shortcuts {
 
 		private string oldUrl;
 
-		private readonly static string WebPageFolderPath = System.IO.Path.Combine (Shortcut.DocumentsPath, "WebPageScripts");
+		private readonly static string MSEdgeFolderPath = System.IO.Path.Combine (Shortcut.DocumentsPath, "MSEdgeScripts");
 
 		private string script {
-			get { return string.Format ("start \"{0}\" {1}", this.Path, this.Url); }
+			get { return string.Format ("start microsoft-edge:{0}", this.Url); }
 		}
 
 		private string scriptPath {
-			get { return System.IO.Path.Combine (MSEdgeShortcut.WebPageFolderPath, this.Name + ".bat"); }
+			get { return System.IO.Path.Combine (MSEdgeShortcut.MSEdgeFolderPath, this.Name + ".bat"); }
 		}
 
 		public MSEdgeShortcut ():base () {
@@ -69,7 +69,7 @@ namespace WinRunner.Models.Shortcuts {
 		public override void DeleteFromRegistry () {
 			base.DeleteFromRegistry ();
 			File.Delete (this.scriptPath);
-			File.Delete (System.IO.Path.Combine (MSEdgeShortcut.WebPageFolderPath, this.oldName + ".bat"));
+			File.Delete (System.IO.Path.Combine (MSEdgeShortcut.MSEdgeFolderPath, this.oldName + ".bat"));
 		}
 
 		private void FlushToScript () {

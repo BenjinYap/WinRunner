@@ -12,7 +12,7 @@ using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
-	public enum ShortcutType { File, Batch, Folder, WebPage }
+	public enum ShortcutType { File, Batch, Folder, WebPage, MSEdge }
 
 	public abstract class Shortcut:ModelBase {
 		public const string TypeKeyName = "Type";
@@ -50,7 +50,9 @@ namespace WinRunner.Models.Shortcuts {
 			//assign the type of the shortcut
 			if (this is WebPageShortcut) {
 				this.type = ShortcutType.WebPage;
-			}else if (this is FileShortcut) {
+			} else if (this is MSEdgeShortcut) {
+				this.type = ShortcutType.MSEdge;
+			} else if (this is FileShortcut) {
 				this.type = ShortcutType.File;
 			} else if (this is FolderShortcut) {
 				this.type = ShortcutType.Folder;
