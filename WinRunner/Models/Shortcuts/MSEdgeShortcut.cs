@@ -37,10 +37,13 @@ namespace WinRunner.Models.Shortcuts {
 
 		public MSEdgeShortcut ():base () {
 			this.Url = "";
+			this.SetIcon ();
 		}
 
 		public MSEdgeShortcut (RegistryKey regKey):base (regKey) {
 			this.Url = regKey.GetValue (MSEdgeShortcut.UrlKeyName).ToString ();
+
+			this.SetIcon ();
 		}
 
 		public override void RememberProperties () {
@@ -92,6 +95,10 @@ namespace WinRunner.Models.Shortcuts {
 					base.AddError (General.Invalid, propertyName);
 				}
 			}
+		}
+
+		private void SetIcon () {
+			this.Icon = new System.Windows.Media.Imaging.BitmapImage (new Uri ("../Resources/ms-edge.png", UriKind.Relative));
 		}
 	}
 }
