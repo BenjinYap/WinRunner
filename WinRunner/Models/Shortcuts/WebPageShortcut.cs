@@ -41,6 +41,9 @@ namespace WinRunner.Models.Shortcuts {
 
 		public WebPageShortcut (RegistryKey regKey):base (regKey) {
 			this.Url = regKey.GetValue (WebPageShortcut.UrlKeyName).ToString ();
+
+			//flush immediately to generate the batch file and to ensure the exe path matches
+			this.FlushToRegistry ();
 		}
 
 		public override void RememberProperties () {
