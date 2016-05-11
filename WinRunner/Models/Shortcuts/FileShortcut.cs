@@ -7,20 +7,21 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
+using WinRunner.Models.ShortcutProperties;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
 	public class FileShortcut:Shortcut {
 
-		private string path;
 		public string Path {
-			get { return this.path; }
+			get { return this.fileProp.Value; }
 			set {
-				this.path = value;
-				this.ValidatePath ();
+				this.fileProp.Value = value;
+				base.ValidateProperty (this.fileProp);
 				base.OnPropertyChanged ();
 				base.GetIconFromPath (value);
 			}
 		}
+		private FileProperty fileProp = new FileProperty ();
 
 		private string oldPath;
 
@@ -45,20 +46,6 @@ namespace WinRunner.Models.Shortcuts {
 		public override void FlushToRegistry () {
 			base.FlushToRegistry ();
 			this.regKey.SetValue ("", this.Path);
-		}
-
-		private void ValidatePath ([CallerMemberName] string propertyName = null) {
-			if (this.Path.Length <= 0) {
-				base.AddError (General.Required, propertyName);
-			} else {
-				base.RemoveError (General.Required, propertyName);
-
-				if (File.Exists (this.Path) == false) {
-					base.AddError (General.DoesNotExist, propertyName);
-				} else {
-					base.RemoveError (General.DoesNotExist, propertyName);
-				}
-			}
 		}
 	}
 }

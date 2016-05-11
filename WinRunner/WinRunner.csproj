@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\ShortcutProperties\BatchScriptProperty.cs" />
+    <Compile Include="Models\ShortcutProperties\FileProperty.cs" />
     <Compile Include="Models\ShortcutProperties\FolderProperty.cs" />
     <Compile Include="Models\ShortcutProperties\NameProperty.cs" />
     <Compile Include="Models\ShortcutProperties\ShortcutProperty.cs" />
