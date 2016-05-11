@@ -4,18 +4,20 @@ using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
+using WinRunner.Models.ShortcutProperties;
 namespace WinRunner.Models.Shortcuts {
 	public class BatchShortcut:Shortcut {
 		private const string CodeKeyName = "Code";
 
-		private string script;
 		public string Script {
-			get { return this.script; }
+			get { return this.batchProp.Value; }
 			set {
-				this.script = value;
+				this.batchProp.Value = value;
+				this.ValidateProperty (this.batchProp);
 				base.OnPropertyChanged ();
 			}
 		}
+		private BatchScriptProperty batchProp = new BatchScriptProperty ();
 
 		private string oldScript;
 

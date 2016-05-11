@@ -36,9 +36,6 @@ namespace WinRunner.Models.Shortcuts {
 				this.nameProp.Value = value;
 				this.ValidateProperty (this.nameProp);
 				base.OnPropertyChanged ();
-				//this.name = value;
-				//this.ValidateName ();
-				//base.OnPropertyChanged ();
 			}
 		}
 		private NameProperty nameProp;
