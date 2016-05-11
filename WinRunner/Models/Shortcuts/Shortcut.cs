@@ -2,6 +2,7 @@
 
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -10,6 +11,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Windows.Media.Imaging;
+using WinRunner.Models.ShortcutProperties;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
 	public enum ShortcutType { File, Batch, Folder, WebPage, MSEdge }
@@ -28,15 +30,18 @@ namespace WinRunner.Models.Shortcuts {
 			}
 		}
 
-		private string name;
 		public string Name {
-			get { return this.name; }
+			get { return this.nameProp.Value; }
 			set {
-				this.name = value;
-				this.ValidateName ();
+				this.nameProp.Value = value;
+				this.ValidateProperty (this.nameProp);
 				base.OnPropertyChanged ();
+				//this.name = value;
+				//this.ValidateName ();
+				//base.OnPropertyChanged ();
 			}
 		}
+		private NameProperty nameProp;
 
 		protected RegistryKey regKey;
 
@@ -45,6 +50,7 @@ namespace WinRunner.Models.Shortcuts {
 		private ShortcutType type;
 
 		public Shortcut () {
+			this.nameProp = new NameProperty ();
 			this.Name = "";
 			
 			//assign the type of the shortcut
@@ -63,6 +69,7 @@ namespace WinRunner.Models.Shortcuts {
 
 		public Shortcut (RegistryKey regKey):this () {
 			this.regKey = regKey;
+			this.nameProp = new NameProperty (regKey);
 			this.Name = this.GetAppName (regKey.Name);
 		}
 
@@ -121,6 +128,16 @@ namespace WinRunner.Models.Shortcuts {
 				}
 			} else {
 				this.Icon = new System.Windows.Media.Imaging.BitmapImage (new Uri ("../Resources/missing-file.png", UriKind.Relative));
+			}
+		}
+
+		protected void ValidateProperty (ShortcutProperty prop, [CallerMemberName] string propertyName = null) {
+			foreach (KeyValuePair <string, bool> pair in prop.Errors) {
+				if (pair.Value) {
+					base.AddError (pair.Key, propertyName);
+				} else {
+					base.RemoveError (pair.Key, propertyName);
+				}
 			}
 		}
 
