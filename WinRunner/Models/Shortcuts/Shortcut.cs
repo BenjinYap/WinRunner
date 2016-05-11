@@ -139,45 +139,6 @@ namespace WinRunner.Models.Shortcuts {
 			}
 		}
 
-		private void ValidateName ([CallerMemberName] string propertyName = null) {
-			RegistryKey rootKey = RegistryHelper.OpenAppPaths ();
-			string [] appKeyNames = rootKey.GetSubKeyNames ();
-			rootKey.Close ();
-			
-			foreach (string keyName in appKeyNames) {
-				if (this.GetAppName (keyName.ToLower ()) == this.Name.ToLower () && (this.regKey == null || this.GetAppName (this.regKey.Name.ToLower ()) != this.Name.ToLower ())) {
-					base.AddError (General.NameExists, propertyName);
-					break;
-				} else {
-					base.RemoveError (General.NameExists, propertyName);
-				}
-			}
-
-			if (this.Name.Length <= 0) {
-				base.AddError (General.NameRequired, propertyName);
-			} else {
-				base.RemoveError (General.NameRequired, propertyName);
-			}
-
-			if (this.Name.Contains (@"\")) {
-				base.AddError (General.NameInvalidBackslash, propertyName);
-			} else {
-				base.RemoveError (General.NameInvalidBackslash, propertyName);
-			}
-
-			if (this.Name.Contains (" ")) {
-				base.AddError (General.NameInvalidSpace, propertyName);
-			} else {
-				base.RemoveError (General.NameInvalidSpace, propertyName);
-			}
-
-			if (this.Name.Contains (".")) {
-				base.AddError (General.NameInvalidDot, propertyName);
-			} else {
-				base.RemoveError (General.NameInvalidDot, propertyName);
-			}
-		}
-
 		private string GetAppName (string path) {
 			return System.IO.Path.GetFileNameWithoutExtension (path);
 		}

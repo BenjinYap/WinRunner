@@ -6,20 +6,21 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.CompilerServices;
+using WinRunner.Models.ShortcutProperties;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
 	public class FolderShortcut:Shortcut {
 		private const string PathKeyName = "FolderPath";
 
-		private string path;
 		public string Path {
-			get { return this.path; }
+			get { return this.folderProp.Value; }
 			set {
-				this.path = value;
-				this.ValidatePath ();
+				this.folderProp.Value = value;
+				this.ValidateProperty (this.folderProp);
 				base.OnPropertyChanged ();
 			}
 		}
+		private FolderProperty folderProp = new FolderProperty ();
 
 		private string oldPath;
 
@@ -73,20 +74,6 @@ namespace WinRunner.Models.Shortcuts {
 			base.DeleteFromRegistry ();
 			File.Delete (this.scriptPath);
 			File.Delete (System.IO.Path.Combine (FolderShortcut.ScriptFolderPath, this.oldName + ".bat"));
-		}
-
-		private void ValidatePath ([CallerMemberName] string propertyName = null) {
-			if (this.Path.Length <= 0) {
-				base.AddError (General.Required, propertyName);
-			} else {
-				base.RemoveError (General.Required, propertyName);
-				
-				if (Directory.Exists (this.Path) == false) {
-					base.AddError (General.DoesNotExist, propertyName);
-				} else {
-					base.RemoveError (General.DoesNotExist, propertyName);
-				}
-			}
 		}
 
 		private void SetIcon () {
