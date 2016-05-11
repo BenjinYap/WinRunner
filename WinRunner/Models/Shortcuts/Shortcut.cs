@@ -92,6 +92,7 @@ namespace WinRunner.Models.Shortcuts {
 			//create the key if required
 			if (create) {
 				this.regKey = rootKey.CreateSubKey (this.Name + ".exe");
+				this.nameProp.RegKey = this.regKey;
 			}
 
 			//set the type key

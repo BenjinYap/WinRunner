@@ -5,14 +5,14 @@ using System.Diagnostics;
 using WinRunner.Resources;
 namespace WinRunner.Models.ShortcutProperties {
 	public class NameProperty:ShortcutProperty {
-		RegistryKey regKey;
+		public RegistryKey RegKey;
 
 		public NameProperty () {
 
 		}
 
 		public NameProperty (RegistryKey regKey) {
-			this.regKey = regKey;
+			this.RegKey = regKey;
 		}
 
 		protected override void Validate () {
@@ -23,7 +23,7 @@ namespace WinRunner.Models.ShortcutProperties {
 			
 			//check if any of the existing names conflict with the current name
 			foreach (string keyName in appKeyNames) {
-				if (this.GetAppName (keyName.ToLower ()) == this.Value.ToLower () && (this.regKey == null || this.GetAppName (this.regKey.Name.ToLower ()) != this.Value.ToLower ())) {
+				if (this.GetAppName (keyName.ToLower ()) == this.Value.ToLower () && (this.RegKey == null || this.GetAppName (this.RegKey.Name.ToLower ()) != this.Value.ToLower ())) {
 					this.Errors [General.NameExists] = true;
 					break;
 				} else {
