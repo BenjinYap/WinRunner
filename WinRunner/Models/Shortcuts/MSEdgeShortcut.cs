@@ -8,20 +8,21 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
+using WinRunner.Models.ShortcutProperties;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
 	public class MSEdgeShortcut:Shortcut {
 		private const string UrlKeyName = "Url";
 
-		private string url;
 		public string Url {
-			get { return this.url; }
+			get { return this.urlProp.Value; }
 			set {
-				this.url = value;
-				this.ValidateUrl ();
+				this.urlProp.Value = value;
+				base.ValidateProperty (this.urlProp);
 				base.OnPropertyChanged ();
 			}
 		}
+		private UrlProperty urlProp = new UrlProperty ();
 
 		private string oldUrl;
 

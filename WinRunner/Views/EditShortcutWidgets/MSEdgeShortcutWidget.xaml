@@ -20,20 +20,10 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Content="{x:Static res:General.Browser}"></Label>
-        <!--<Button Content="{x:Static res:General.ChooseFile}" Click="ChooseFileClicked" Grid.Column="1"></Button>-->
-        <TextBox x:Name="TxtPath"
-                 Text="{Binding Shortcut.Path, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
-                 Margin="0 5 0 0"
-                 Grid.Row="1"
-                 Grid.ColumnSpan="100"></TextBox>
-        <ItemsControl ItemsSource="{Binding ElementName=TxtPath, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="2" Grid.ColumnSpan="10"></ItemsControl>
-
-        <Label Content="{x:Static res:General.Url}" Grid.Row="3" Height="{StaticResource ControlHeight}"></Label>
-        <DockPanel Grid.Row="3"
+        <Label Content="{x:Static res:General.Url}" Grid.Row="2" Height="{StaticResource ControlHeight}"></Label>
+        <DockPanel Grid.Row="2"
                    Grid.Column="1"
                    Margin="0 5 0 0"
                    KeyboardNavigation.TabNavigation="Local">
@@ -44,6 +34,6 @@
                  Text="{Binding Shortcut.Url, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
                  ></TextBox>
         </DockPanel>
-        <ItemsControl ItemsSource="{Binding ElementName=TxtUrl, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="4" Grid.Column="1"></ItemsControl>
+        <ItemsControl ItemsSource="{Binding ElementName=TxtUrl, Path=(Validation.Errors)}" Style="{StaticResource ErrorListStyle}" KeyboardNavigation.IsTabStop="False" Grid.Row="3" Grid.Column="1"></ItemsControl>
     </Grid>
 </widgets:EditShortcutWidget>
