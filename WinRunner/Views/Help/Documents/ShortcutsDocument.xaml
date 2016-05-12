@@ -49,6 +49,13 @@
             <Paragraph>
                 <Run Text="{x:Static res:Shortcuts.Paragraph6}"></Run>
             </Paragraph>
+
+            <Paragraph>
+                <Run Style="{StaticResource RunHeading1}" Text="{x:Static res:Shortcuts.Heading1_5}"></Run>
+            </Paragraph>
+            <Paragraph>
+                <Run Text="{x:Static res:Shortcuts.Paragraph7}"></Run>
+            </Paragraph>
         </FlowDocument>
     </FlowDocumentScrollViewer>
 </documents:HelpDocument>
