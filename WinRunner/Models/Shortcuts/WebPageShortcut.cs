@@ -12,6 +12,7 @@ using WinRunner.Models.ShortcutProperties;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
 	public class WebPageShortcut:Shortcut {
+		private const string BrowserKeyName = "Browser";
 		private const string UrlKeyName = "Url";
 
 		public string Browser {
@@ -20,6 +21,7 @@ namespace WinRunner.Models.Shortcuts {
 				this.fileProp.Value = value;
 				base.ValidateProperty (this.fileProp);
 				base.OnPropertyChanged ();
+				base.GetIconFromPath (value);
 			}
 		}
 		private FileProperty fileProp = new FileProperty ();
@@ -34,6 +36,7 @@ namespace WinRunner.Models.Shortcuts {
 		}
 		private UrlProperty urlProp = new UrlProperty ();
 
+		private string oldBrowser;
 		private string oldUrl;
 
 		private readonly static string WebPageFolderPath = System.IO.Path.Combine (Shortcut.DocumentsPath, "WebPageScripts");
@@ -47,10 +50,15 @@ namespace WinRunner.Models.Shortcuts {
 		}
 
 		public WebPageShortcut ():base () {
+			this.Browser = "";
 			this.Url = "";
 		}
 
 		public WebPageShortcut (RegistryKey regKey):base (regKey) {
+			//set the browser
+			this.Browser = regKey.GetValue (WebPageShortcut.BrowserKeyName).ToString ();
+
+			//set the url
 			this.Url = regKey.GetValue (WebPageShortcut.UrlKeyName).ToString ();
 
 			//flush immediately to generate the batch file and to ensure the exe path matches
@@ -59,11 +67,13 @@ namespace WinRunner.Models.Shortcuts {
 
 		public override void RememberProperties () {
 			base.RememberProperties ();
+			this.oldBrowser = this.Browser;
 			this.oldUrl = this.Url;
 		}
 
 		public override void RevertProperties () {
 			base.RevertProperties ();
+			this.Browser = this.oldBrowser;
 			this.Url = this.oldUrl;
 		}
 
@@ -72,6 +82,9 @@ namespace WinRunner.Models.Shortcuts {
 
 			//set the exe path to the batch file
 			this.regKey.SetValue ("", this.scriptPath);
+
+			//save the browser
+			this.regKey.SetValue (WebPageShortcut.BrowserKeyName, this.Browser);
 
 			//save the path of the folder to be opened
 			this.regKey.SetValue (WebPageShortcut.UrlKeyName, this.Url);
