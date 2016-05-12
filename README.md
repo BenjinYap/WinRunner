@@ -33,3 +33,6 @@ This will execute the Batch script that you enter into the box. This is done usi
 
 ##Web Page
 This will open the specified url using the selected browser. This assumes the selected browser is in fact a browser and that it can open a web page by passing the url as a command line parameter.
+
+##Microsoft Edge
+This will open the specified url using Microsoft Edge. This browser can only be started using a custom protocol, thus requiring its own shortcut type.
