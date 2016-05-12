@@ -33,17 +33,17 @@ namespace WinRunner.Views.EditShortcutWidgets {
 
 			OpenFileDialog dialog = new OpenFileDialog ();
 			
-			if (File.Exists (this.shortcut.Path)) {
-				dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.shortcut.Path);
+			if (File.Exists (this.shortcut.Browser)) {
+				dialog.InitialDirectory = System.IO.Path.GetDirectoryName (this.shortcut.Browser);
 			}
 
-			dialog.FileName = this.shortcut.Path;
+			dialog.FileName = this.shortcut.Browser;
 			dialog.CheckFileExists = true;
 			dialog.CheckPathExists = true;
 			bool? result = dialog.ShowDialog ();
 			
 			if (result.HasValue && result.Value) {
-				this.shortcut.Path = dialog.FileName;
+				this.shortcut.Browser = dialog.FileName;
 			}
 		}
 

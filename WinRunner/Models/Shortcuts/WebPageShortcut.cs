@@ -8,27 +8,38 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Media.Imaging;
+using WinRunner.Models.ShortcutProperties;
 using WinRunner.Resources;
 namespace WinRunner.Models.Shortcuts {
-	public class WebPageShortcut:FileShortcut {
+	public class WebPageShortcut:Shortcut {
 		private const string UrlKeyName = "Url";
 
-		private string url;
-		public string Url {
-			get { return this.url; }
+		public string Browser {
+			get { return this.fileProp.Value; }
 			set {
-				this.url = value;
-				this.ValidateUrl ();
+				this.fileProp.Value = value;
+				base.ValidateProperty (this.fileProp);
 				base.OnPropertyChanged ();
 			}
 		}
+		private FileProperty fileProp = new FileProperty ();
+
+		public string Url {
+			get { return this.urlProp.Value; }
+			set {
+				this.urlProp.Value = value;
+				base.ValidateProperty (this.urlProp);
+				base.OnPropertyChanged ();
+			}
+		}
+		private UrlProperty urlProp = new UrlProperty ();
 
 		private string oldUrl;
 
 		private readonly static string WebPageFolderPath = System.IO.Path.Combine (Shortcut.DocumentsPath, "WebPageScripts");
 
 		private string script {
-			get { return string.Format ("start \"{0}\" {1}", this.Path, this.Url); }
+			get { return string.Format ("start \"{0}\" {1}", this.urlProp.Value, this.Url); }
 		}
 
 		private string scriptPath {
@@ -79,22 +90,6 @@ namespace WinRunner.Models.Shortcuts {
 			FileInfo fileInfo = new FileInfo (this.scriptPath);
 			fileInfo.Directory.Create ();
 			File.WriteAllText (fileInfo.FullName, this.script);
-		}
-
-		private void ValidateUrl ([CallerMemberName] string propertyName = null) {
-			if (this.Url.Length <= 0) {
-				base.AddError (General.Required, propertyName);
-			} else {
-				base.RemoveError (General.Required, propertyName);
-
-				Uri uri = null;
-
-				if (Uri.TryCreate (this.Url, UriKind.Absolute, out uri)) {
-					base.RemoveError (General.Invalid, propertyName);
-				} else {
-					base.AddError (General.Invalid, propertyName);
-				}
-			}
 		}
 	}
 }

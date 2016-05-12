@@ -80,6 +80,7 @@
     <Compile Include="Models\ShortcutProperties\FolderProperty.cs" />
     <Compile Include="Models\ShortcutProperties\NameProperty.cs" />
     <Compile Include="Models\ShortcutProperties\ShortcutProperty.cs" />
+    <Compile Include="Models\ShortcutProperties\UrlProperty.cs" />
     <Compile Include="Models\Shortcuts\BatchShortcut.cs" />
     <Compile Include="Models\Shortcuts\MSEdgeShortcut.cs" />
     <Compile Include="Models\Shortcuts\WebPageShortcut.cs" />

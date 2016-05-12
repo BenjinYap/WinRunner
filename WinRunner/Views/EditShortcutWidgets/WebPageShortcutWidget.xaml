@@ -26,7 +26,7 @@
         <Label Content="{x:Static res:General.Browser}"></Label>
         <Button Content="{x:Static res:General.ChooseFile}" Click="ChooseFileClicked" Grid.Column="1"></Button>
         <TextBox x:Name="TxtPath"
-                 Text="{Binding Shortcut.Path, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding Shortcut.Browser, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}"
                  Margin="0 5 0 0"
                  Grid.Row="1"
                  Grid.ColumnSpan="100"></TextBox>
